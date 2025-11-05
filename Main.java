@@ -10,7 +10,7 @@ public class Main {
     
     public static void main(String[] args) {
         String csvFile = "archivo_csv.csv";
-        String line = "";
+        String line;
         String csvSeparator = ",";
         
         System.out.println("Leyendo archivo CSV: " + csvFile);
@@ -28,6 +28,11 @@ public class Main {
             // Leer las líneas de datos
             int contador = 1;
             while ((line = br.readLine()) != null) {
+                // Saltar líneas vacías
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+                
                 String[] datos = line.split(csvSeparator);
                 
                 System.out.println("Registro " + contador + ":");
