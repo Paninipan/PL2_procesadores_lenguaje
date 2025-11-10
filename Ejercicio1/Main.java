@@ -4,45 +4,47 @@ import gen.Ejercicio1.LexerJava;
 import gen.Ejercicio1.ParserJava;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
-import java.nio.file.*;
 
-  /*
-   Todo Asegurar que los archvios de gen.Ejercicio1
-    aparecen todos en el package correcto
-    las clases de ParserJava y LexerJava no se extienenden a si mismas
-    deben extender a la clase Parser y Lexer
- */
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
-    public static void main(String[] args) {
-        try {
-            /*Cargar el archivo CSV desde la carpeta correspondiente
-             * y se formatea a una cadena de caracteres para que el lexer lo pueda
-             * pasar to-do a tokens
-             */
-            Path ruta_archivo = Paths.get("Ejercicio1/archivo.csv");
-            CharStream csv_formateado = CharStreams.fromPath(ruta_archivo);
+    public static void main(String[] args) throws IOException {
+        /** Quitar si se usa la consola de comandos
+        if (args.length != 2) {
+            System.err.println("Uso: java CSVMain <input.csv> <output.txt>");
+            System.exit(1);
+        }*/
 
-            //Crear el lexer y se le pasa la cadena de caracteres
-            LexerJava lexer = new LexerJava(csv_formateado);
+        String inputPath = "Ejercicio1/archivo.csv";
+        String outputPath = "Ejercicio1/ast.txt";
 
-            //cojemos los tokens generados por el lexer
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
+        // 1. Leer fichero
+        CharStream input = CharStreams.fromFileName(inputPath);
 
-            //Crear el parser con esos tokens
-            ParserJava parser = new ParserJava(tokens);
+        // 2. Lexer
+        LexerJava lexer = new LexerJava(input);
 
-            //llamamos a la funcion para parsear los tokens y crear el arbol
-            ParseTree tree = parser.archivo();
+        // 3. Tokens
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-            //funcion para imprimir el arbol AST generado por el parser
-            //System.out.println("AST:");
-            //imprimir_arbol(tree, parser, 1);
+        // 4. Parser
+        ParserJava parser = new ParserJava(tokens);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        // 5. Regla inicial
+        ParseTree tree = parser.archivo();
+
+        // 6. Listener + Walker para construir AST
+        CSVASTPrinter printer = new CSVASTPrinter();
+        ParseTreeWalker.DEFAULT.walk(printer, tree);
+
+        String astText = printer.getResult();
+
+        // 7. Guardar en fichero
+        try (PrintWriter out = new PrintWriter(outputPath, StandardCharsets.UTF_8)) {
+            out.print(astText);
         }
+        System.out.println("AST generado en: " + outputPath);
     }
-
-
 }
