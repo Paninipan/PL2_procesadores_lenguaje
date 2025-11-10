@@ -11,10 +11,10 @@ import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        /** Quitar si se usa la consola de comandos
-        if (args.length != 2) {
-            System.err.println("Uso: java CSVMain <input.csv> <output.txt>");
-            System.exit(1);
+        /* Quitar si se usa la consola de comandos
+        *if (args.length != 2) {
+        *    System.err.println("Uso: java CSVMain <input.csv> <output.txt>");
+        *    System.exit(1);
         }*/
 
         String inputPath = "Ejercicio1/archivo.csv";
