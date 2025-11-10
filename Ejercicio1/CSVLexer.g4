@@ -1,8 +1,7 @@
-lexer grammar Lexer;
+lexer grammar CSVLexer;
 //definimos la gramtica del Lexer
 
 TEXTO : ~[,;|\n"]+ ;
-
     //:~[A] si no esta dentro de los valores A, estos cuales son prohibidos
         //separadores , ; |
         //salto de lienas \n
@@ -11,7 +10,6 @@ TEXTO : ~[,;|\n"]+ ;
 
 
 STRING : '"'('""'| ~'"' )*'"';
-
     // Cominza con el caracter ' ' comillas "
     // ('""'| ~'"' ) entre las comillas hay texto.
         // Puede haber o no comillas entre medias del String ' "" '
@@ -22,18 +20,15 @@ STRING : '"'('""'| ~'"' )*'"';
 
 
 SEPARADOR :[,;|] ;
-
     //los saparadores son aquellos que diferencian las cadenas del CSV , ; o |
     //:[B] si esta dentro de los valores B, estos cuales son válidos
 
 
-SALTO_DE_LINEA : '\n' ;
-
+SALTO_DE_LINEA:'\n';
     //el salto de linea para pasar a otra coluna nueva
 
 
 ESPACIO : [ \t]+ -> skip ;
-
     //Si hay algún espacio o tabulaciones. ' '\t
         // el espacio normal se pone como un espacio normal
     //Puede haber mas de uno, entoces no hace nada

@@ -1,9 +1,7 @@
-package Ejercicio1;
-import gen.Ejercicio1.ParserBaseListener;
-import gen.Ejercicio1.ParserJava;
+import org.antlr.v4.runtime.tree.TerminalNode;
+import gen.*;
 
-
-public class CSVASTPrinter extends ParserBaseListener {
+public class CSVASTPrinter extends CSVParserBaseListener {
 
     private final StringBuilder sb = new StringBuilder();
     private int indentLevel = 0;
@@ -33,20 +31,20 @@ public class CSVASTPrinter extends ParserBaseListener {
     // ==== archivo ====
 
     @Override
-    public void enterArchivo(ParserJava.ArchivoContext ctx) {
+    public void enterArchivo(CSVParser.ArchivoContext ctx) {
         println("CSV");
         indentLevel++;
     }
 
     @Override
-    public void exitArchivo(ParserJava.ArchivoContext ctx) {
+    public void exitArchivo(CSVParser.ArchivoContext ctx) {
         indentLevel--;
     }
 
     // ==== fila ====
 
     @Override
-    public void enterFila(ParserJava.FilaContext ctx) {
+    public void enterFila(CSVParser.FilaContext ctx) {
         currentRow++;
         currentField = 0;
         println("ROW " + currentRow);
@@ -54,14 +52,14 @@ public class CSVASTPrinter extends ParserBaseListener {
     }
 
     @Override
-    public void exitFila(ParserJava.FilaContext ctx) {
+    public void exitFila(CSVParser.FilaContext ctx) {
         indentLevel--;
     }
 
     // ==== campo ====
 
     @Override
-    public void enterCampo(ParserJava.CampoContext ctx) {
+    public void enterCampo(CSVParser.CampoContext ctx) {
         currentField++;
 
         String value;
