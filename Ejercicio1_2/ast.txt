@@ -1,0 +1,3 @@
+PROGRAMA
+  DECLARAR <missing ID> = 5
+  MOSTRAR "huérfano"

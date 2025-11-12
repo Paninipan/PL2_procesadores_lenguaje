@@ -1,5 +1,4 @@
 import org.antlr.v4.runtime.tree.TerminalNode;
-import gen.*;
 
 public class CSVASTPrinter extends CSVParserBaseListener {
 

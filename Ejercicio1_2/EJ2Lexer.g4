@@ -68,7 +68,7 @@ STRING : '"' ( '\\' . | ~["\\] )* '"';
 // Identificadores
 //Comienzan con una letra o guión bajo.
 //Pueden continuar con letras, números o guión bajo
-ID : [a-zA-Z_][a-zA-Z_0-9]*;
+ID : [a-zA-Z_ñ][a-zA-Z_0-9ñ]*;
 
 // Comentarios (se ignoran)
 // # inicia el comentario.

@@ -1,5 +1,10 @@
 #todos los "cachitos" de este CSV fallan. Se debe probar cada uno por separado para verlo mejor
 
+
+# Error léxico: caracter no válido en el alfabeto
+asignar @ = 5 ;P
+
+
 # else (no ->) sin un si previo
 no ->
   mostrar "huérfano" ;P
