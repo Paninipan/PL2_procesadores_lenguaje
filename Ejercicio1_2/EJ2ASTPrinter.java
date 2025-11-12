@@ -9,7 +9,7 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
     private int indent = 0;
 
     // Pila para distinguir bloques THEN/ELSE al recorrer condicionales anidados
-    private static class IfFrame { int stage = 0; } // 0=nada, 1=then impreso, 2=else impreso
+    private static class IfFrame { int stage = 0; } // 0=nada, 1=then abierto, 2=else abierto
     private final Deque<IfFrame> ifStack = new ArrayDeque<>();
 
     private void println(String s) {
@@ -49,12 +49,17 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
     // IF / ELSE
     @Override public void enterCondicional(EJ2Parser.CondicionalContext ctx) {
         println("SI " + toBool(ctx.condicion()));
-        indent++;
+        indent++;                // indent del encabezado SI
         ifStack.push(new IfFrame());
     }
+
     @Override public void exitCondicional(EJ2Parser.CondicionalContext ctx) {
-        ifStack.pop();
-        indent--;
+        // Al salir del condicional, cerramos el bloque THEN/ELSE si quedó abierto
+        IfFrame top = ifStack.pop();
+        if (top.stage == 1 || top.stage == 2) {
+            indent--;            // cerrar ENTONCES o SINO
+        }
+        indent--;                // cerrar indent del encabezado SI
     }
 
     @Override public void enterBloque(EJ2Parser.BloqueContext ctx) {
@@ -65,21 +70,18 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
                 indent++;
                 top.stage = 1;
             } else if (top.stage == 1) {
-                indent--; // cierra ENTONCES
+                // Cambiamos de ENTONCES a SINO: cerramos el indent de ENTONCES y abrimos SINO
+                indent--;
                 println("SINO");
                 indent++;
                 top.stage = 2;
             }
         }
+        // En otros contextos (while u otros bloques) no se imprime cabecera ni se toca indent aquí
     }
 
     @Override public void exitBloque(EJ2Parser.BloqueContext ctx) {
-        if (!ifStack.isEmpty()) {
-            IfFrame top = ifStack.peek();
-            if (top.stage == 1 || top.stage == 2) {
-                indent--; // cierra ENTONCES o SINO
-            }
-        }
+        // Importante: NO tocar indent aquí; se gestiona al salir del condicional (exitCondicional)
     }
 
     // CONTROL DE BUCLE
@@ -121,8 +123,8 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
     }
 
     private String wrapBoolNo(EJ2Parser.Bool_noContext child) {
-        // Añade paréntesis solo cuando mejora la legibilidad
-        if (child.NOT() != null || child.comparacion() != null || child.booleano() != null)
+        // Evita 'not ((...))' si ya viene parentetizado
+        if (child.NOT() != null || child.comparacion() != null || child.booleano() != null || child.PAREN_ABRE() != null)
             return toBoolNo(child);
         return "(" + toBoolNo(child) + ")";
     }

@@ -1,3 +1,35 @@
 PROGRAMA
-  DECLARAR <missing ID> = 5
-  MOSTRAR "huérfano"
+  DECLARAR a = 3
+  MIENTRAS a > 0
+    MOSTRAR a
+    ASIGNAR a = a - 1
+  MOSTRAR "fin while basico"
+  DECLARAR x = 5
+  MIENTRAS x > 0
+    ASIGNAR x = x - 1
+    SI (x > 2)
+      ENTONCES
+        CONTINUAR
+      SINO
+        MOSTRAR "x <= 2"
+    MOSTRAR "solo se ve si no hubo continuar"
+  DECLARAR b = 3
+  MIENTRAS verdadero
+    MOSTRAR b
+    ASIGNAR b = b - 1
+    SI (b == 0)
+      ENTONCES
+        ROMPER
+  MOSTRAR "fin while con romper"
+  DECLARAR i = 2
+  DECLARAR j = 3
+  MIENTRAS i > 0
+    ASIGNAR j = 3
+    MIENTRAS j > 0
+      ASIGNAR j = j - 1
+      SI (j == 1)
+        ENTONCES
+          ROMPER
+      MOSTRAR "fin iter j"
+    ASIGNAR i = i - 1
+  MOSTRAR "fin anidado"

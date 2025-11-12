@@ -52,12 +52,12 @@ PAREN_CIERRA : ')';
 VERDADERO : 'verdadero';
 FALSO : 'falso';
 
+// Uno o más dígitos del 0 al 9
+INT : DIGIT+;
 
 // Uno o más dígitos del 0 al 9 seguido opcionalmente por un punto y de nuevo uno o más dígitos
 FLOAT : DIGIT+ ('.' DIGIT*)? ;
 
-// Uno o más dígitos del 0 al 9
-INT : DIGIT+;
 
 // Un String comienza y acaba con comillas dobles
 //'\\' . indica una barra invertida seguida de cualquier carácter (para permitir escapes)
@@ -68,7 +68,7 @@ STRING : '"' ( '\\' . | ~["\\] )* '"';
 // Identificadores
 //Comienzan con una letra o guión bajo.
 //Pueden continuar con letras, números o guión bajo
-ID : [a-zA-Z_ñ][a-zA-Z_0-9ñ]*;
+ID : [a-zA-Z_ñÑ][a-zA-Z_0-9ñÑ]*;
 
 // Comentarios (se ignoran)
 // # inicia el comentario.
