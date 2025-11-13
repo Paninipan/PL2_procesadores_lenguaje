@@ -1,9 +1,11 @@
+package Ejercicio1_2;
+
 import org.antlr.v4.runtime.tree.ParseTree;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 
-public class EJ2ASTPrinter extends EJ2ParserBaseListener {
+public class EJ2ASTPrinter extends Ejercicio1_2.EJ2ParserBaseListener {
 
     private final StringBuilder sb = new StringBuilder();
     private int indent = 0;

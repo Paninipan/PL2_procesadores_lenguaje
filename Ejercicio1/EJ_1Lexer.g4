@@ -1,4 +1,4 @@
-lexer grammar CSVLexer;
+lexer grammar EJ_1Lexer;
 //definimos la gramtica del Lexer
 
 TEXTO : ~[,;|\n"]+ ;

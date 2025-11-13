@@ -1,3 +1,5 @@
+package Ejercicio1_2;
+
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -8,12 +10,17 @@ import java.nio.charset.StandardCharsets;
 
 public class EJ2Main {
     public static void main(String[] args) throws IOException {
+        /* Si se ejecuta por linea de comandos quitar comentario
+
         if (args.length != 2) {
             System.err.println("Uso: java EJ2Main <entrada.epp> <salida.txt>");
             System.exit(1);
         }
         String inPath = args[0];
         String outPath = args[1];
+        */
+        String inPath = "Ejercicio1_2/programa_IF_Bool.csv";
+        String outPath = "Ejercicio1_2/ast.txt";
 
         CharStream input = CharStreams.fromFileName(inPath);
         EJ2Lexer lexer = new EJ2Lexer(input);

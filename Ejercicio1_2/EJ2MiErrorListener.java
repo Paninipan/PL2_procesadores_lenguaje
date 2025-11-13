@@ -1,3 +1,5 @@
+package Ejercicio1_2;
+
 import org.antlr.v4.runtime.*;
 
 public class EJ2MiErrorListener extends BaseErrorListener {

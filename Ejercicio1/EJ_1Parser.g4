@@ -1,7 +1,7 @@
-parser grammar CSVParser;
+parser grammar EJ_1Parser;
 //definimos la gramtica del Parser
 
-options { tokenVocab=CSVLexer; }
+options { tokenVocab=EJ_1Lexer; }
 //cogemos las reglas producidas por el lexer
 
 archivo : fila+ EOF;
