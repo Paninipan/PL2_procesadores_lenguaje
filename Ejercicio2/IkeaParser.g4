@@ -42,7 +42,7 @@ id: MAYUS_NOMBRE? PAREN_ABRE NUMERO PAREN_CIERRA ;
 
 herramienta: HERRAMIENTA (PAREN_ABRE NUMERO PAREN_CIERRA)? ;
 
-herraje_lista: (NUMERO id_herraje) (Y NUMERO id_herraje)* ;
+herraje_lista: NUMERO id_herraje (Y NUMERO id_herraje)* ;
 id_herraje: NUMERO | HERRAJE ; //id numérico del herraje (de IKEA) o su tipo
 
 posicion: ORIENTACION | ID_POSICION | JUNTO_A mueble_referencia | SOBRE mueble_referencia ;

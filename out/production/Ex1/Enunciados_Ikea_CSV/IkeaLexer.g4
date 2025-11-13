@@ -29,12 +29,13 @@ DE: 'DE';
 
 // Entidades (piezas / muebles / herramientas / orientaciones)
 MUEBLE : 'MUEBLE';
-TIPO_PIEZA: 'PIEZA' | 'PANEL' | 'BALDA' | 'ESTANTE' ;
+ID_PIEZA: 'PIEZA' | 'PANEL' | 'BALDA' | 'ESTANTE' ;
 ESTE_MODULO : 'ESTE_MODULO';
 OPCIONAL : 'OPCIONAL';
 
 // Herramientas conocidas
-HERRAMIENTA: 'DESTORNILLADOR' | 'MARTILLO' | 'LLAVE_ALLEN' | 'NIVEL' | 'LAPIZ' | 'TALADRO' ;
+ID_HERRAMIENTA: 'DESTORNILLADOR' | 'MARTILLO' | 'LLAVE_ALLEN' | 'NIVEL' | 'LAPIZ' | 'TALADRO' ;
+ID_MUEBLE: 'MUEBLE' ;
 
 // Orientaciones
 ORIENTACION: 'VERTICAL' | 'HORIZONTAL' | 'VOLTEAR' | 'ABAJO' | 'IZQUIERDA' | 'DERECHA' ; ////////////////////////////
@@ -59,12 +60,12 @@ COMA : ',';
 
 // Valores numéricos y separadores
 // Números (pasos, cantidades, IDs de herraje, etc.)
-NUMERO: DIGITO+;
-MEDIDA : DIGITO+('.'DIGITO+)?; //medida
+PASO: DIGITO+;
+CANTIDAD: DIGITO+;
+MEDIDA : DIGITO+(.DIGITO+)?; //medida
+ID_HERRAJE: DIGITO+ | 'TORNILLO_PARED' | 'TACO_PARED' ;
 
-HERRAJE: 'TORNILLO' | 'TORNILLO_PARED' | 'TACO' ;
-
-// Nombres genéricos en mayusculas con guiones
+// Nombres genéricos en mayusculas con guiones (p.ej. TACO_PARED, TORNILLO_PARED)
 // Van después de las palabras clave para no colisionar
 MAYUS_NOMBRE : MAYUS+ ('_' MAYUS+)*;
 
@@ -73,10 +74,10 @@ NOMBRE : LETRA_INI+;
 
 // Espacios y comentarios
 COMENTARIO : '#' ~[\r\n]* -> skip;
-ESPACIO : [ \t\r\n]+ -> skip;
+ESPACIO : [\t\r\n]+ -> skip;
 
 
 // Fragmentos (no crean tokens)
 fragment DIGITO : [0-9];
-fragment MAYUS : [A-ZÁÉÍÓÚÜÑÅÄÖ]; // mayúsculas con acentos, Ñ y letras especiales que e usan mucho en IKEA
+fragment MAYUS : [A-ZÁÉÍÓÚÜÑÅÄÖ];   // mayúsculas con acentos, Ñ y letras especiales que e usan mucho en IKEA
 fragment LETRA_INI : [a-zA-Z_áéíóúÁÉÍÓÚüÜñÑ];

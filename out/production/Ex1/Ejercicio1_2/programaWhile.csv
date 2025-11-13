@@ -1,0 +1,63 @@
+# Bucle mientras con decremento
+asignar a = 3 ;P
+
+mientras a > 0 hacer ->
+  mostrar a ;P
+  a = a - 1 ;P
+terminar
+
+mostrar "fin while basico" ;P
+
+
+# Demostración de 'continuar' (salta al siguiente ciclo)
+asignar x = 5 ;P
+
+mientras x > 0 hacer ->
+  x = x - 1 ;P
+  (x > 2) ???
+  si ->
+    continuar ;P
+  no ->
+    mostrar "x <= 2" ;P
+  terminar
+  mostrar "solo se ve si no hubo continuar" ;P
+terminar
+
+
+
+# Demostración de 'romper' (sale del bucle)
+asignar b = 3 ;P
+
+mientras verdadero hacer ->
+  mostrar b ;P
+  b = b - 1 ;P
+  (b == 0) ???
+  si ->
+    romper ;P
+  terminar
+terminar
+
+mostrar "fin while con romper" ;P
+
+
+
+# Bucles anidados: 'romper' sale del más interno
+asignar i = 2 ;P
+asignar j = 3 ;P
+
+mientras i > 0 hacer ->
+  j = 3 ;P
+  mientras j > 0 hacer ->
+    j = j - 1 ;P
+    (j == 1) ???
+    si ->
+      romper ;P
+    terminar
+    mostrar "fin iter j" ;P
+  terminar
+  i = i - 1 ;P
+terminar
+
+mostrar "fin anidado" ;P
+
+
