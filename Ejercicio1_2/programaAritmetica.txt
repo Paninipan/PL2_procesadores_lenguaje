@@ -1,9 +1,13 @@
 # Aritmética con + - * / y unario -
 asignar a = 20 ;P
-asignar b = 6 ;P
+asignar A = verdadero ;P
+asignar B = falso ;P
+asignar C = falso ;P
+asignar b = A or B and C ;P
+#b sería variable booleana. Por las prioridades debe ser b= A or (B and C) , verdadero.
+#Si analizamos sin prioridad, analizando de izq a dcha, sería falso
 
 a = a + 4 * (b - 2) ;P
-b = -b + 12 / 3 - 1 ;P
 
 mostrar a ;P
 mostrar b ;P

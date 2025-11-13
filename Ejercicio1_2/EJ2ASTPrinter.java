@@ -29,16 +29,17 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
 
     // SENTENCIAS BÁSICAS
     @Override public void enterDeclaracion(EJ2Parser.DeclaracionContext ctx) {
-        println("DECLARAR " + ctx.ID().getText() + " = " + toExpr(ctx.expresion()));
+        println("DECLARAR " + ctx.ID().getText() + " = " + toGeneral(ctx.expr_general()));
     }
 
     @Override public void enterAsignacion(EJ2Parser.AsignacionContext ctx) {
-        println("ASIGNAR " + ctx.ID().getText() + " = " + toExpr(ctx.expresion()));
+        println("ASIGNAR " + ctx.ID().getText() + " = " + toGeneral(ctx.expr_general()));
     }
 
     @Override public void enterImpresion(EJ2Parser.ImpresionContext ctx) {
-        println("MOSTRAR " + toExpr(ctx.expresion()));
+        println("MOSTRAR " + toGeneral(ctx.expr_general()));
     }
+
 
     // BUCLES
 
@@ -207,5 +208,17 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
         if (c.STRING() != null) return c.STRING().getText();
         return c.ID().getText();
     }
+
+    // HELPERS: expresión general (aritmética o booleana)
+    private String toGeneral(EJ2Parser.Expr_generalContext c) {
+        if (c.expresion() != null) {
+            // Es una expresión aritmética
+            return toExpr(c.expresion());
+        } else {
+            // Es una condición booleana
+            return toBool(c.condicion());
+        }
+    }
+
 }
 
