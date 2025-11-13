@@ -1,11 +1,10 @@
-package Ejercicio1_2;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 
-public class EJ2ASTPrinter extends Ejercicio1_2.EJ2ParserBaseListener {
+public class EJ2ASTPrinter extends EJ2ParserBaseListener {
 
     private final StringBuilder sb = new StringBuilder();
     private int indent = 0;
@@ -41,12 +40,39 @@ public class EJ2ASTPrinter extends Ejercicio1_2.EJ2ParserBaseListener {
         println("MOSTRAR " + toExpr(ctx.expresion()));
     }
 
-    // WHILE
-    @Override public void enterBucle(EJ2Parser.BucleContext ctx) {
+    // BUCLES
+
+    // WHILE: bucle_mientras
+    @Override public void enterBucle_mientras(EJ2Parser.Bucle_mientrasContext ctx) {
         println("MIENTRAS " + toBool(ctx.condicion()));
         indent++;
     }
-    @Override public void exitBucle(EJ2Parser.BucleContext ctx) { indent--; }
+    @Override public void exitBucle_mientras(EJ2Parser.Bucle_mientrasContext ctx) {
+        indent--;
+    }
+
+    // FOR: bucle_para
+    @Override public void enterBucle_para(EJ2Parser.Bucle_paraContext ctx) {
+        // PARA i DESDE expr0 HASTA expr1 (PASO expr2)?
+        StringBuilder header = new StringBuilder();
+        header.append("PARA ")
+                .append(ctx.ID().getText())
+                .append(" DESDE ")
+                .append(toExpr(ctx.expresion(0)))
+                .append(" HASTA ")
+                .append(toExpr(ctx.expresion(1)));
+
+        if (ctx.PASO() != null) {
+            header.append(" PASO ")
+                    .append(toExpr(ctx.expresion(2)));
+        }
+
+        println(header.toString());
+        indent++;
+    }
+    @Override public void exitBucle_para(EJ2Parser.Bucle_paraContext ctx) {
+        indent--;
+    }
 
     // IF / ELSE
     @Override public void enterCondicional(EJ2Parser.CondicionalContext ctx) {
@@ -79,7 +105,7 @@ public class EJ2ASTPrinter extends Ejercicio1_2.EJ2ParserBaseListener {
                 top.stage = 2;
             }
         }
-        // En otros contextos (while u otros bloques) no se imprime cabecera ni se toca indent aquí
+        // En otros contextos (while / for u otros bloques) no se imprime cabecera ni se toca indent aquí
     }
 
     @Override public void exitBloque(EJ2Parser.BloqueContext ctx) {
@@ -182,3 +208,4 @@ public class EJ2ASTPrinter extends Ejercicio1_2.EJ2ParserBaseListener {
         return c.ID().getText();
     }
 }
+

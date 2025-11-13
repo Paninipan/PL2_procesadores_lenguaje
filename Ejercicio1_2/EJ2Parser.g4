@@ -30,9 +30,16 @@ asignacion : ID ASIGNACION expresion FIN_LINEA ;
 impresion : MOSTRAR expresion FIN_LINEA ;
 
 
-//Ampliación: bucle while
+// bucle = while | for
+bucle: bucle_mientras | bucle_para ;
+
+// Ampliación 3: Bucle while
 // while: evalúa condicion; si es verdadera, ejecuta bloque. Repite hasta que sea falsa
-bucle: MIENTRAS condicion HACER FLECHA bloque TERMINAR;
+bucle_mientras : MIENTRAS condicion HACER FLECHA bloque TERMINAR ;
+
+// Ampliación 4: bucle for tipo "para i desde 0 hasta 10 paso 2 hacer -> ... terminar"
+// Recorrido entero inclusivo [inicio, fin] con paso implícito (+1) o definido
+bucle_para : PARA ID DESDE expresion HASTA expresion (PASO expresion)? HACER FLECHA bloque TERMINAR ;
 
 //break y continue
 control_bucle: ROMPER FIN_LINEA| CONTINUAR FIN_LINEA;

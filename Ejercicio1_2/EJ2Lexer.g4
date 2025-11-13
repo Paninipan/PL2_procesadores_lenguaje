@@ -8,9 +8,15 @@ SI : 'si';
 SI_NO : 'no';
 TERMINAR : 'terminar';
 
-//Ampliación 3: bucles
+//Ampliación 3 y 4: bucles while y for
+//While:
 MIENTRAS : 'mientras';
-HACER    : 'hacer';
+HACER : 'hacer';
+//for:  para i desde 10 hasta 0 paso -1 hacer ->  ... terminar
+PARA : 'para';
+DESDE : 'desde';
+HASTA : 'hasta';
+PASO : 'paso'; //de cuanto en cuanto "salta"
 // Control de bucle
 ROMPER    : 'romper';
 CONTINUAR : 'continuar';

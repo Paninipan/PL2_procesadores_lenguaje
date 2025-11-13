@@ -1,30 +1,25 @@
 PROGRAMA
-  DECLARAR a = 20
-  DECLARAR b = 6
-  SI (a > 10 and not (b <= 0)) or verdadero
-    ENTONCES
-      MOSTRAR "rama THEN 1"
-    SINO
-      MOSTRAR "rama ELSE 1"
-  DECLARAR a = 20
-  DECLARAR b = 6
-  SI a > b
-    ENTONCES
-      MOSTRAR "a es mayor que b"
-    SINO
-      MOSTRAR "a no es mayor que b"
-  SI falso
-    ENTONCES
-      MOSTRAR "nunca"
-    SINO
-      MOSTRAR "siempre"
-  DECLARAR a = 20
-  SI a - 10 > 0
-    ENTONCES
-      ASIGNAR a = a - 10
-      SI a > 0
-        ENTONCES
-          MOSTRAR "a sigue siendo positivo"
-        SINO
-          MOSTRAR "a ya no es positivo"
-  MOSTRAR a
+  DECLARAR incremento = 2
+  PARA i DESDE 0 HASTA 5
+    MOSTRAR "for 1 - i vale: "
+    MOSTRAR i
+  PARA j DESDE 0 HASTA 10 PASO 2
+    MOSTRAR "for 2 - j vale: "
+    MOSTRAR j
+  PARA k DESDE 0 HASTA 9 PASO incremento - 1
+    MOSTRAR "for 3 - k vale: "
+    MOSTRAR k
+  PARA t DESDE 5 HASTA 0 PASO -1
+    MOSTRAR "for 4 - t vale: "
+    MOSTRAR t
+  PARA x DESDE 0 HASTA 10
+    SI x == 0
+      ENTONCES
+        CONTINUAR
+    SI x == 4
+      ENTONCES
+        ROMPER
+    SI x >= 1 and x <= 3
+      ENTONCES
+        MOSTRAR "for 5 - x valido: "
+        MOSTRAR x

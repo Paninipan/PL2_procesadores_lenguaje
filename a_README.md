@@ -1,2 +1,2 @@
 # PL2_procesadores_lenguaje
-Practica de laboratorio 2 de precesadores del lenguaje
+Práctica de laboratorio 2 de procesadores del lenguaje
