@@ -78,5 +78,5 @@ ESPACIO : [ \t\r\n]+ -> skip;
 
 // Fragmentos (no crean tokens)
 fragment DIGITO : [0-9];
-fragment MAYUS : [A-ZÁÉÍÓÚÜÑÅÄÖ]; // mayúsculas con acentos, Ñ y letras especiales que e usan mucho en IKEA
+fragment MAYUS : [A-Z_ÁÉÍÓÚÜÑÅÄÖ]; // mayúsculas con acentos, Ñ y letras especiales que e usan mucho en IKEA
 fragment LETRA_INI : [a-zA-Z_áéíóúÁÉÍÓÚüÜñÑ];
