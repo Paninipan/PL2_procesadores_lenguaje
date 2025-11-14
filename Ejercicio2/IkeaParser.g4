@@ -51,5 +51,5 @@ herramienta_lista: herramienta (Y herramienta)* ;
 herraje_lista: NUMERO id_herraje (Y NUMERO id_herraje)* ; //NUMERO id_herraje puede ser ctd TORNILLO ...
 id_herraje: HERRAJE TIPOHERRAJE; //id numérico del herraje (de IKEA) o su tipo
 
-distancia: A NUMERO UD_MEDIDA (DE pieza)? ;
+distancia: A NUMERO UD_MEDIDA ((DE BORDE)? DE (pieza|mueble_referencia))? ;
 posicion: (EN (ORIENTACION | POSICION) (DE (mueble_referencia|pieza) )? )| JUNTO_A (mueble_referencia|pieza) | SOBRE (mueble_referencia|pieza) ;
