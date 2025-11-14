@@ -1,279 +1,85 @@
 PROGRAMA_MONTAJE
-  INICIO_MONTAJE HEMNES 2326990
-  INDICACION [CUIDADO!]:
-    LEER ATENTAMENTE. EL VUELCO DE MUEBLES PUEDE CAUSAR LESIONES GRAVES. FIJAR SIEMPRE A LA PARED.
+  INICIO_MONTAJE LACK 419551 COMO EXTENSION_DE MUEBLE (1)
+    MUEBLE (1)
   PASO 1
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 118331
-      PIEZA (lateral_izquierdo)
-      HERRAMIENTA: DESTORNILLADOR
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 118331
-      PIEZA (lateral_derecho)
-      HERRAMIENTA: DESTORNILLADOR
+    ACCION UNIR
+      PIEZA (PANEL)
+      PIEZA (BALDA 1)
+      PIEZA (BALDA 2)
+      PIEZA (BALDA 3)
+      PIEZA (BALDA 4)
+      PIEZA (BALDA 4)
+      PIEZA (BALDA 5)
+      PIEZA (BALDA 6)
+      POSICION:
+        EN LADO_IZQUIERDO
+        DE MUEBLE (sin id)
+    ACCION FIJAR
+      HERRAJES_EN_ESTA_ACCION: 12 x 104323 ; 12 x 104325
+      HERRAMIENTA: LLAVE_ALLEN (unidades declaradas: 100001)
   PASO 2
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 6 x 101350
-      PIEZA (divisor_central 1)
-      PIEZA (divisor_central 2)
+    ACCION UNIR
+      PIEZA (BALDA 1)
+      PIEZA (PANEL_PEQUEÑO 1)
+      POSICION:
+        EN PARTE_TRASERA
+        DE MUEBLE (sin id)
+      DISTANCIA:
+        A 18 MM
+        DE POSICION BORDE
+      POSICION:
+        EN LADO_DERECHO
+    ACCION UNIR
+      PIEZA (BALDA 4)
+      PIEZA (PANEL_PEQUEÑO 1)
+      POSICION:
+        EN PARTE_TRASERA
+      DISTANCIA:
+        A 18 MM
+        DE POSICION BORDE
+      POSICION:
+        EN LADO_DERECHO
+    ACCION UNIR
+      PIEZA (BALDA 7)
+      PIEZA (PANEL_PEQUEÑO 1)
+      POSICION:
+        EN PARTE_TRASERA
+      DISTANCIA:
+        A 18 MM
+        DE POSICION BORDE
+      POSICION:
+        EN LADO_IZQUIERDO
+    ACCION FIJAR
+      HERRAJES_EN_ESTA_ACCION: 9 x 109053
+      HERRAMIENTA: TALADRO
+      HERRAMIENTA: DESTORNILLADOR
   PASO 3
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 1 x 100212
-      PIEZA (divisor_central 1)
-      HERRAMIENTA: LLAVE_ALLEN (unidades declaradas: 100001)
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 1 x 100212
-      PIEZA (divisor_central 2)
-      HERRAMIENTA: LLAVE_ALLEN (unidades declaradas: 100001)
-    ACCION UNIR
-      PIEZA (divisor_central 1)
-      PIEZA (lateral_izquierdo)
-    ACCION UNIR
-      PIEZA (divisor_central 2)
-      PIEZA (lateral_derecho)
+    ACCION FIJAR
+      HERRAJES_EN_ESTA_ACCION: 1 x TORNILLO
   PASO 4
-    ACCION UNIR
-      PIEZA (lateral_izquierdo)
-      PIEZA (nivelador_madera 1)
-    ACCION UNIR
-      PIEZA (lateral_derecho)
-      PIEZA (nivelador_madera 2)
-    ACCION FIJAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 100212
-      HERRAMIENTA: LLAVE_ALLEN (unidades declaradas: 100001)
-  PASO 5
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 102728
-      PIEZA (lateral_izquierdo)
-      PIEZA (lateral_derecho)
-    ACCION GIRAR
-  PASO 6
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 1 x 101350
-      PIEZA (tablon_inferior_trasero_con_agujeros)
-    ACCION UNIR
-      PIEZA (tablon_inferior_trasero_con_agujeros)
-      PIEZA (lateral_izquierdo)
-  PASO 7
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 1 x 101350
-      PIEZA (tablon_superior_trasero_sin_agujeros)
-    ACCION UNIR
-      PIEZA (tablon_superior_trasero_sin_agujeros)
-      PIEZA (lateral_izquierdo)
-  PASO 8
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 1 x 101350
-      PIEZA (tablon_inferior_delantrero_con_agujeros)
-    ACCION UNIR
-      PIEZA (tablon_inferior_delantrero_con_agujeros)
-      PIEZA (lateral_izquierdo)
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 1 x 101350
-      PIEZA (tablon_superior_delantero_sin_agujeros)
-    ACCION UNIR
-      PIEZA (tablon_superior_delantero_sin_agujeros)
-      PIEZA (lateral_izquierdo)
-  PASO 9
-    ACCION FIJAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 113434
-      HERRAMIENTA: DESTORNILLADOR
-  PASO 10
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 118331
-      PIEZA (divisor_central 1)
-      HERRAMIENTA: LLAVE_ALLEN (unidades declaradas: 100001)
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 118331
-      PIEZA (divisor_central 2)
-      HERRAMIENTA: LLAVE_ALLEN (unidades declaradas: 100001)
-  PASO 11
-    ACCION UNIR
-      PIEZA (valda_central)
-      PIEZA (divisor_central 1)
-    ACCION FIJAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 113434
-      HERRAMIENTA: DESTORNILLADOR
-  PASO 12
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 101350
-      PIEZA (tablon_inferior_trasero_con_agujeros)
-      PIEZA (tablon_superior_trasero_sin_agujeros)
-      PIEZA (tablon_inferior_delantrero_con_agujeros)
-      PIEZA (tablon_superior_delantero_sin_agujeros)
-      HERRAMIENTA: DESTORNILLADOR
-    ACCION UNIR
-      MUEBLE_REF (sin_id)
-      PIEZA (lateral_derecho)
-  PASO 13
-    ACCION FIJAR
-      HERRAJES_EN_ESTA_ACCION: 6 x 113434
-      HERRAMIENTA: DESTORNILLADOR
-    ACCION GIRAR
-  PASO 14
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 102350
-      MUEBLE_REF (sin_id)
-      POSICION:
-        EN PARTE_SUPERIOR
-      HERRAMIENTA: MARTILLO
-    ACCION UNIR
-      MUEBLE_REF (sin_id)
-      PIEZA (tablon_superior)
-  PASO 15
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 7 x 100212
-      PIEZA (tablon_superior)
-      HERRAMIENTA: LLAVE_ALLEN (unidades declaradas: 100001)
-  PASO 16
-    ACCION GIRAR
-    ACCION UNIR
-      MUEBLE_REF (sin_id)
-      PIEZA (panel_trasero_superior)
-      POSICION:
-        EN LADO_DERECHO
-  PASO 17
-    ACCION UNIR
-      MUEBLE_REF (sin_id)
-      PIEZA (panel_trasero_superior)
-      POSICION:
-        EN LADO_IZQUIERDO
-  PASO 18
-    ACCION UNIR
-      MUEBLE_REF (sin_id)
-      PIEZA (panel_trasero_inferior)
-      POSICION:
-        EN LADO_DERECHO
-  PASO 19
-    ACCION UNIR
-      MUEBLE_REF (sin_id)
-      PIEZA (panel_trasero_inferior)
-      POSICION:
-        EN LADO_IZQUIERDO
-    ACCION GIRAR
-  INDICACION [CUIDADO!]:
-    SE NECESITAN DOS PERSONAS PARA LOS SIGUIENTES PASOS.
-  PASO 20
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 3 x 122723 ; 3 x 109560
-      MUEBLE_REF (sin_id)
-      POSICION:
-        EN PARTE_TRASERA
-      POSICION:
-        EN JUNTA
-        DE PIEZA (panel_trasero_superior)
-      POSICION:
-        JUNTO_A PIEZA (panel_trasero_inferior)
-      HERRAMIENTA: DESTORNILLADOR
-  PASO 21
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 3 x 122723 ; 3 x 109560
-      MUEBLE_REF (sin_id)
-      POSICION:
-        EN PARTE_SUPERIOR
-      POSICION:
-        EN JUNTA
-        DE PIEZA (panel_trasero_superior)
-      POSICION:
-        JUNTO_A PIEZA (tablon_superior_trasero_sin_agujeros)
-      HERRAMIENTA: DESTORNILLADOR
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 3 x 122723 ; 3 x 109560
-      MUEBLE_REF (sin_id)
-      POSICION:
-        EN PARTE_TRASERA
-      POSICION:
-        EN JUNTA
-        DE PIEZA (panel_trasero_inferior)
-      POSICION:
-        JUNTO_A PIEZA (tablon_inferior_trasero_con_agujeros)
-      HERRAMIENTA: DESTORNILLADOR
-    ACCION GIRAR
-    ACCION GIRAR
-  PASO 22
     ACCION NIVELAR
-      MUEBLE_REF (sin_id)
+      MUEBLE (sin id)
       HERRAMIENTA: NIVEL
-  PASO 23
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 109560 ; 2 x 100823 ; 2 x 119256
-      MUEBLE_REF (sin_id)
-      POSICION:
-        EN PARTE_SUPERIOR
-      POSICION:
-        EN LADO_DERECHO
-      HERRAMIENTA: DESTORNILLADOR
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 109560 ; 2 x 100823 ; 2 x 119256
-      MUEBLE_REF (sin_id)
-      POSICION:
-        EN PARTE_SUPERIOR
-      POSICION:
-        EN LADO_IZQUIERDO
-      HERRAMIENTA: DESTORNILLADOR
     ACCION FIJAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 100823 ; 2 x TORNILLO_CABEZA_REDONDA
-      HERRAMIENTA: DESTORNILLADOR
-  PASO 24
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 104171
-      PIEZA (tablon_inferior_trasero_con_agujeros)
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 2 x 104171
-      PIEZA (tablon_inferior_delantrero_con_agujeros)
-  PASO 25
-    ACCION COLOCAR
-      PIEZA (valda_iferior)
-      POSICION:
-        EN PARTE_INFERIOR
-  PASO 26
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 104171
-      PIEZA (lateral_derecho)
-      POSICION:
-        EN PARTE_TRASERA
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 104171
-      PIEZA (lateral_izquierdo)
-      POSICION:
-        EN PARTE_TRASERA
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 106414
-      PIEZA (lateral_derecho)
-      POSICION:
-        EN PARTE_FRONTAL
-    ACCION INSERTAR
-      HERRAJES_EN_ESTA_ACCION: 4 x 106414
-      PIEZA (lateral_izquierdo)
-      POSICION:
-        EN PARTE_FRONTAL
-  PASO 27
-    ACCION COLOCAR
-      PIEZA (valda)
+      HERRAJES_EN_ESTA_ACCION: 1 x TORNILLO
+  PASO 5
+    ACCION FIJAR
+      HERRAJES_EN_ESTA_ACCION: 1 x TORNILLO
   FIN_MONTAJE
 
 ===== RESUMEN DEL MONTAJE (TABLA DE SÍMBOLOS SIMPLIFICADA) =====
-PASOS DETECTADOS: 27
+PASOS DETECTADOS: 5
 
-NUMERO DE INDICACIONES: 2
+NUMERO DE INDICACIONES: 0
 
 LISTA DE HERRAJES (TOTAL ACUMULADO):
-  - 118331 : 12 unidades
-  - 101350 : 14 unidades
-  - 100212 : 13 unidades
-  - 102728 : 4 unidades
-  - 113434 : 12 unidades
-  - 102350 : 2 unidades
-  - 122723 : 9 unidades
-  - 109560 : 13 unidades
-  - 100823 : 6 unidades
-  - 119256 : 4 unidades
-  - TORNILLO_CABEZA_REDONDA : 2 unidades
-  - 104171 : 12 unidades
-  - 106414 : 8 unidades
+  - 104323 : 12 unidades
+  - 104325 : 12 unidades
+  - 109053 : 9 unidades
+  - TORNILLO : 3 unidades
 
 LISTA DE HERRAMIENTAS A UTILIZAR:
-  - DESTORNILLADOR (usos: 12)
-  - LLAVE_ALLEN (usos: 6)
-  - MARTILLO (usos: 1)
+  - LLAVE_ALLEN (usos: 1)
+  - TALADRO (usos: 1)
+  - DESTORNILLADOR (usos: 1)
   - NIVEL (usos: 1)
