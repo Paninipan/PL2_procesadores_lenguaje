@@ -30,6 +30,7 @@ HACIA: 'HACIA';
 
 // Entidades (piezas / muebles / herramientas / orientaciones)
 MUEBLE : 'MUEBLE';
+BORDE : 'BORDE';
 HERRAMIENTA : 'HERRAMIENTA'-> pushMode(modoHerramienta);
 HERRAJE : ('HERRAJE''S'?)-> pushMode(modoHerraje);
 PIEZA: 'PIEZA'; ////hacer dinamico con pushmode y que tengas que hacer "PIEZA TIPOPIEZA"?
