@@ -38,7 +38,7 @@ OPCIONAL : 'OPCIONAL';
 // Orientaciones y Posiciones / modif. espaciales
 ORIENTACION: 'VERTICAL' | 'HORIZONTAL' | 'HORARIO' | 'ANTIHORARIO';////////////////////////////
 POSICION: 'PARTE_SUPERIOR' | 'PARTE_INFERIOR' | 'PARTE_TRASERA'|
-'FRONTAL' |'LADO_IZQUIERDO' | 'LADO_DERECHO'| 'CENTRO'| 'JUNTA'| 'BORDE';
+'PARTE_FRONTAL' |'LADO_IZQUIERDO' | 'LADO_DERECHO'| 'CENTRO'| 'JUNTA'| 'BORDE';
 JUNTO_A : 'JUNTO_A'; ////////////////////////////
 
 // Unidades de medida
