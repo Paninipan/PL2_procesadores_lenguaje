@@ -34,8 +34,8 @@ accion:
   | CONECTAR ESTE_MODULO A mueble_referencia CON herraje_lista (distancia|posicion)* (CON herramienta_lista)?
 
     // Acciones de Preparación y Seguridad (Pared)
-  | MARCAR PARA? pieza (distancia|posicion)* (CON herramienta_lista)? //para pieza o con pieza?
-  | NIVELAR (pieza | MUEBLE) (CON herramienta_lista)?
+  | MARCAR (PARA)? (pieza)? (distancia|posicion)* (CON herramienta_lista)? //para pieza o con pieza?
+  | NIVELAR (pieza | mueble_referencia) (CON herramienta_lista)?
   | FIJAR (PAREN_ABRE OPCIONAL PAREN_CIERRA)? CON? herraje_lista (CON herramienta_lista)?
 
     // Bucle de pasos
@@ -43,9 +43,9 @@ accion:
   ;
 
 // Unidades reutilizables
-pieza: PIEZA (PAREN_ABRE ((NOMBRE? NUMERO) | NOMBRE) PAREN_CIERRA) | NOMBRE ; //por ejemplo PIEZA (4), PIEZA (tabla_derecha), PIEZA (BALDA 3) o PIEZA fondo
+pieza: PIEZA ((PAREN_ABRE (NOMBRE|NOMBRE? NUMERO)PAREN_CIERRA)|NOMBRE)? ; //por ejemplo PIEZA (4), PIEZA (tabla_derecha), PIEZA (BALDA 3) o PIEZA fondo
 
-mueble_referencia: MUEBLE id ;
+mueble_referencia: MUEBLE id? ;
 id: NOMBRE? PAREN_ABRE NUMERO PAREN_CIERRA ;
 
 herramienta: HERRAMIENTA TIPOHERRAMIENTA (PAREN_ABRE NUMERO PAREN_CIERRA)? ;
@@ -55,7 +55,7 @@ herraje_lista: NUMERO id_herraje (Y NUMERO id_herraje)* ; //NUMERO id_herraje pu
 id_herraje: HERRAJE TIPOHERRAJE; //id numérico del herraje (de IKEA) o su tipo
 
 distancia: A NUMERO UD_MEDIDA (DE pieza)? ;
-posicion: (EN (ORIENTACION | POSICION) (DE pieza)? ) | JUNTO_A (mueble_referencia|pieza) | SOBRE (mueble_referencia|pieza) ;
+posicion: (EN (ORIENTACION | POSICION) (DE mueble_referencia|pieza)? ) | JUNTO_A (mueble_referencia|pieza) | SOBRE (mueble_referencia|pieza) ;
 
 
 veces: PAREN_ABRE NUMERO VECES PAREN_CIERRA;

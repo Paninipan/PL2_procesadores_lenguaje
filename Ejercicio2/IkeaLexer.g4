@@ -80,15 +80,17 @@ NOMBRE : LETRA+;
 COMENTARIO : '#' ~[\r\n]* -> skip;
 ESPACIO : [ \t\r\n]+ -> skip;
 
-
 mode modoHerramienta;
+ESPACIOHERRAMIENTA: ESPACIO -> skip;
 TIPOHERRAMIENTA : (LETRA+ ('_' LETRA+)*) -> popMode;
 //HERRAMIENTA: 'DESTORNILLADOR' | 'MARTILLO' | 'LLAVE_ALLEN' | 'NIVEL' | 'LAPIZ' | 'TALADRO' ;
 
 mode modoHerraje;
-TIPOHERRAJE: (DIGITO+  | LETRA+ ('_' LETRA+)*)-> popMode; //'TORNILLO' | 'TORNILLO_PARED' | 'TACO' / '10291' ;
+ESPACIOHERRAJE: ESPACIO -> skip;
+TIPOHERRAJE: (DIGITO+  | LETRA+('_' LETRA+)*)-> popMode; //'TORNILLO' | 'TORNILLO_PARED' | 'TACO' / '10291' ;
 
 mode modoAnuncio;
+ESPACIOANUNCIO: ESPACIO -> skip;
 ANUNCIO: (~[\r\n]* .)-> popMode;
 
 
