@@ -1,5 +1,4 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/Ex1/Ejercicio1_2/EJ1_2Parser.g4 by ANTLR 4.13.2
-package Ejercicio1_2;
+// Generated from EJ1_2Parser.g4 by ANTLR 4.13.2
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;

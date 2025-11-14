@@ -1,10 +1,12 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/Ex1/Ejercicio1/CSVParser.g4 by ANTLR 4.13.2
-package Ejercicio1;
+// Generated from CSVParser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
 public class CSVParser extends Parser {
@@ -106,11 +108,6 @@ public class CSVParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitArchivo(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVParserVisitor ) return ((CSVParserVisitor<? extends T>)visitor).visitArchivo(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ArchivoContext archivo() throws RecognitionException {
@@ -174,11 +171,6 @@ public class CSVParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitFila(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVParserVisitor ) return ((CSVParserVisitor<? extends T>)visitor).visitFila(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FilaContext fila() throws RecognitionException {
@@ -236,11 +228,6 @@ public class CSVParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitCampo(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVParserVisitor ) return ((CSVParserVisitor<? extends T>)visitor).visitCampo(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 

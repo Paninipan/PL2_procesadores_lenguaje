@@ -1,10 +1,12 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/Ex1/Ejercicio1_2/EJ1_2Parser.g4 by ANTLR 4.13.2
-package Ejercicio1_2;
+// Generated from EJ1_2Parser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
 public class EJ1_2Parser extends Parser {
@@ -135,11 +137,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitPrograma(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitPrograma(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProgramaContext programa() throws RecognitionException {
@@ -218,11 +215,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitSentencia(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitSentencia(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -306,11 +298,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitDeclaracion(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitDeclaracion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DeclaracionContext declaracion() throws RecognitionException {
@@ -362,11 +349,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitAsignacion(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitAsignacion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AsignacionContext asignacion() throws RecognitionException {
@@ -415,11 +397,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitImpresion(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitImpresion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ImpresionContext impresion() throws RecognitionException {
@@ -466,11 +443,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBucle(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBucle(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -533,11 +505,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBucle_mientras(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBucle_mientras(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -602,11 +569,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBucle_para(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBucle_para(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -678,11 +640,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitControl_bucle(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitControl_bucle(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -756,11 +713,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitCondicional(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitCondicional(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -836,11 +788,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBloque(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBloque(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BloqueContext bloque() throws RecognitionException {
@@ -906,11 +853,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitCondicion(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitCondicion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CondicionContext condicion() throws RecognitionException {
@@ -957,11 +899,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBool_o(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBool_o(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1026,11 +963,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBool_y(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBool_y(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1100,11 +1032,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBool_no(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBool_no(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1185,11 +1112,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitComparacion(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitComparacion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ComparacionContext comparacion() throws RecognitionException {
@@ -1233,11 +1155,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBooleano(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBooleano(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1290,11 +1207,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitOperador_relacional(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitOperador_relacional(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1355,11 +1267,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitExpresion(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitExpresion(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1439,11 +1346,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitTermino(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitTermino(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TerminoContext termino() throws RecognitionException {
@@ -1518,11 +1420,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitFactor(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitFactor(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FactorContext factor() throws RecognitionException {
@@ -1595,11 +1492,6 @@ public class EJ1_2Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitAtomo(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitAtomo(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AtomoContext atomo() throws RecognitionException {
@@ -1651,11 +1543,6 @@ public class EJ1_2Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitExpr_general(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitExpr_general(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 

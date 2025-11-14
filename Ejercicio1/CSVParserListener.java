@@ -1,5 +1,4 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/Ex1/Ejercicio1/CSVParser.g4 by ANTLR 4.13.2
-package Ejercicio1;
+// Generated from CSVParser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

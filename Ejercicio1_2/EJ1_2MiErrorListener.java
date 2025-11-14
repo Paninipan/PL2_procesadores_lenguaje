@@ -1,4 +1,3 @@
-package Ejercicio1_2;
 
 import org.antlr.v4.runtime.*;
 
