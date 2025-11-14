@@ -23,7 +23,7 @@ comentario: CUIDADO ANUNCIO;
 accion:
     // Acciones de Ensamblaje Básico
     INSERTAR herraje_lista EN pieza (Y pieza)* (CON herramienta_lista)?
-  | UNIR pieza (Y pieza)+ (CON pieza)? (CON herramienta_lista)?
+  | UNIR pieza (Y (pieza|mueble_referencia))+
   | MARTILLAR herraje_lista SOBRE pieza (distancia|posicion)* (CON herramienta_lista)?
 
     // Acciones de Posición y Espacio
