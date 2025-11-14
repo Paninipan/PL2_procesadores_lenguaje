@@ -4,46 +4,79 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 
-public class EJ2ASTPrinter extends EJ2ParserBaseListener {
+/**
+ * EJ1_2ASTPrinter
+ *
+ * Listener (basado en la clase generada por ANTLR) que construye una
+ * representación textual del árbol sintáctico (AST) para el lenguaje
+ * definido por la gramática EJ2.
+ *
+ * Cómo funciona:
+ * - ANTLR invoca los métodos enter/exit correspondientes mientras
+ *   recorre el árbol de análisis (parse tree).
+ * - Este listener mantiene un StringBuilder donde acumula líneas con
+ *   indentación para reflejar la jerarquía del AST.
+ */
+public class EJ1_2ASTPrinter extends EJ2ParserBaseListener {
 
+    // Acumulador del texto que formamos mientras caminamos el árbol.
     private final StringBuilder sb = new StringBuilder();
+    // Nivel de indentación actual (cada unidad -> 2 espacios en la salida).
     private int indent = 0;
 
-    // Pila para distinguir bloques THEN/ELSE al recorrer condicionales anidados
+    // Pila auxiliar para manejar condicionales anidados. Cada IfFrame
+    // representa el estado de un if: 0=ninguno, 1=ENTONCES abierto, 2=SINO abierto.
     private static class IfFrame { int stage = 0; } // 0=nada, 1=then abierto, 2=else abierto
     private final Deque<IfFrame> ifStack = new ArrayDeque<>();
 
+    /**
+     * Imprime una línea en el StringBuilder respetando la indentación.
+     * Cada nivel de indentación añade dos espacios.
+     *
+     * @param text Texto a añadir (sin salto de línea final)
+     */
     private void println(String s) {
         for (int i = 0; i < indent; i++) sb.append("  ");
         sb.append(s).append('\n');
     }
 
+    // Devuelve la representación textual completa construida por el listener.
     public String getResult() { return sb.toString(); }
 
-    // PROGRAMA
+    // -----------------------
+    // Callbacks principales
+    // -----------------------
+    // Se llaman al entrar/salir en la regla 'programa' de la gramática.
     @Override public void enterPrograma(EJ2Parser.ProgramaContext ctx) {
         println("PROGRAMA");
         indent++;
     }
     @Override public void exitPrograma(EJ2Parser.ProgramaContext ctx) { indent--; }
 
-    // SENTENCIAS BÁSICAS
+    // -----------------------
+    // Sentencias básicas
+    // -----------------------
+    // Cada uno extrae información del contexto (ctx) y formatea una línea.
     @Override public void enterDeclaracion(EJ2Parser.DeclaracionContext ctx) {
+        // DECLARAR <ID> = <expresion/general>
         println("DECLARAR " + ctx.ID().getText() + " = " + toGeneral(ctx.expr_general()));
     }
 
     @Override public void enterAsignacion(EJ2Parser.AsignacionContext ctx) {
+        // ASIGNAR <ID> = <expresion/general>
         println("ASIGNAR " + ctx.ID().getText() + " = " + toGeneral(ctx.expr_general()));
     }
 
     @Override public void enterImpresion(EJ2Parser.ImpresionContext ctx) {
+        // MOSTRAR <expresion/general>
         println("MOSTRAR " + toGeneral(ctx.expr_general()));
     }
 
 
-    // BUCLES
-
-    // WHILE: bucle_mientras
+    // -----------------------
+    // Bucles
+    // -----------------------
+    // MIENTRAS: imprime la condición y aumenta indent para el cuerpo.
     @Override public void enterBucle_mientras(EJ2Parser.Bucle_mientrasContext ctx) {
         println("MIENTRAS " + toBool(ctx.condicion()));
         indent++;
@@ -52,7 +85,7 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
         indent--;
     }
 
-    // FOR: bucle_para
+    // PARA: construye una cabecera robusta respetando si existe PASO.
     @Override public void enterBucle_para(EJ2Parser.Bucle_paraContext ctx) {
         // PARA i DESDE expr0 HASTA expr1 (PASO expr2)?
         StringBuilder header = new StringBuilder();
@@ -75,15 +108,18 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
         indent--;
     }
 
-    // IF / ELSE
+    // -----------------------
+    // Condicionales (IF / ELSE)
+    // -----------------------
     @Override public void enterCondicional(EJ2Parser.CondicionalContext ctx) {
+        // Imprime la cabecera del IF con la condición y prepara la pila
         println("SI " + toBool(ctx.condicion()));
         indent++;                // indent del encabezado SI
         ifStack.push(new IfFrame());
     }
 
     @Override public void exitCondicional(EJ2Parser.CondicionalContext ctx) {
-        // Al salir del condicional, cerramos el bloque THEN/ELSE si quedó abierto
+        // Al salir cerramos cualquier bloque THEN/ELSE que quede abierto
         IfFrame top = ifStack.pop();
         if (top.stage == 1 || top.stage == 2) {
             indent--;            // cerrar ENTONCES o SINO
@@ -92,6 +128,8 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
     }
 
     @Override public void enterBloque(EJ2Parser.BloqueContext ctx) {
+        // Gestiona la transición ENTONCES -> SINO en condicionales anidados,
+        // actualizando la indentación y el estado en la pila.
         if (!ifStack.isEmpty()) {
             IfFrame top = ifStack.peek();
             if (top.stage == 0) {
@@ -113,13 +151,19 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
         // Importante: NO tocar indent aquí; se gestiona al salir del condicional (exitCondicional)
     }
 
-    // CONTROL DE BUCLE
+    // -----------------------
+    // Control de bucle: ROMPER / CONTINUAR
+    // -----------------------
     @Override public void enterControl_bucle(EJ2Parser.Control_bucleContext ctx) {
         if (ctx.ROMPER() != null) println("ROMPER");
         else if (ctx.CONTINUAR() != null) println("CONTINUAR");
     }
 
-    // HELPERS: BOOLEANOS
+    // -----------------------
+    // HELPERS: Booleanos
+    // Estas funciones convierten subárboles booleanos a cadenas legibles,
+    // preservando el orden y priorización según la gramática.
+    // -----------------------
     private String toBool(EJ2Parser.CondicionContext c) { return toBoolO(c.bool_o()); }
 
     private String toBoolO(EJ2Parser.Bool_oContext c) {
@@ -162,7 +206,11 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
         return toExpr(c.expresion(0)) + " " + c.operador_relacional().getText() + " " + toExpr(c.expresion(1));
     }
 
-    // HELPERS: ARITMÉTICA
+    // -----------------------
+    // HELPERS: Aritmética
+    // toExpr/toTerm/toFactor reconstruyen la expresión respetando el orden
+    // de operadores tal y como aparecen en el parse tree.
+    // -----------------------
     private String toExpr(EJ2Parser.ExpresionContext c) {
         // Recorremos los hijos para preservar exactamente el orden de + / -
         StringBuilder b = new StringBuilder();
@@ -209,7 +257,11 @@ public class EJ2ASTPrinter extends EJ2ParserBaseListener {
         return c.ID().getText();
     }
 
+    // -----------------------
     // HELPERS: expresión general (aritmética o booleana)
+    // Decide en tiempo de ejecución si el subárbol contiene una expresión
+    // aritmética o una condición booleana y delega al helper correspondiente.
+    // -----------------------
     private String toGeneral(EJ2Parser.Expr_generalContext c) {
         if (c.expresion() != null) {
             // Es una expresión aritmética
