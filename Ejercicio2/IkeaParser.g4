@@ -8,7 +8,7 @@ options { tokenVocab=IkeaLexer; }
 programa: declaracion_inicio (paso|comentario)+ declaracion_fin EOF;
 
 // 1. Declaración de inicio de montaje
-declaracion_inicio: INICIO_MONTAJE NOMBRE? NUMERO (COMO EXTENSION_DE mueble_referencia)? PUNTO ;
+declaracion_inicio: INICIO_MONTAJE NOMBRE? NUMERO? (COMO EXTENSION_DE mueble_referencia)? PUNTO;
 
 // 2. Definición del final del montaje
 declaracion_fin: FIN PUNTO ;
@@ -22,7 +22,7 @@ comentario: CUIDADO ANUNCIO;
 // 4. Bloque de Acciones (Los 10 verbos)
 accion:
     // Acciones de Ensamblaje Básico
-    INSERTAR herraje_lista EN (pieza|mueble_referencia) (Y pieza)* (distancia|posicion)* (CON herramienta_lista)?
+    INSERTAR herraje_lista (EN|SOBRE) (pieza|mueble_referencia) (Y pieza)* (distancia|posicion)* (distancia|posicion)* (CON herramienta_lista)?
   | UNIR (pieza|mueble_referencia) (Y (pieza))+ (distancia|posicion)*
 
     // Acciones de Posición y Espacio
@@ -30,7 +30,7 @@ accion:
   | GIRAR (EN | HACIA)? (ORIENTACION|POSICION)
 
     // Acciones de Modularidad y Conexión
-  | CONECTAR mueble_referencia A mueble_referencia CON herraje_lista (distancia|posicion)* (CON herramienta_lista)?
+  | CONECTAR mueble_referencia A mueble_referencia (CON herraje_lista)? (distancia|posicion)* (CON herramienta_lista)?
 
     // Acciones de Preparación y Seguridad (Pared)
   | MARCAR (PARA)? (pieza)? (distancia|posicion)* (CON herramienta_lista)? //para pieza o con pieza?
