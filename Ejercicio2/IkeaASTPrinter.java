@@ -1,3 +1,4 @@
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.ArrayList;
@@ -8,61 +9,34 @@ import java.util.Map;
 /**
  * IkeaASTPrinter
  *
- * Listener basado en IkeaParserBaseListener que construye:
- *  1) Una representación textual del árbol sintáctico (AST) con indentación,
- *     pensada para ser fácilmente legible en un fichero de texto.
- *  2) Una "tabla de símbolos" simplificada para la secuencia de montaje, que
- *     acumula:
- *        - Números de paso (orden de los pasos).
- *        - Lista de herrajes utilizados, con la suma total de cantidades.
- *        - Lista de herramientas que aparecen, junto con el número de usos.
- *
- * Este listener es el núcleo del "analizador" solicitado: al visitar el árbol,
- * va recogiendo información semántica mínima sin dejar de mostrar el AST.
+ * Listener que:
+ *  1) Construye un AST textual legible con indentación.
+ *  2) Acumula una "tabla de símbolos" simplificada:
+ *        - Número de pasos.
+ *        - Número de indicaciones.
+ *        - Lista de herrajes con cantidades.
+ *        - Lista de herramientas con usos.
  */
 public class IkeaASTPrinter extends IkeaParserBaseListener {
 
-    // Acumulador del texto del AST "bonito".
     private final StringBuilder sb = new StringBuilder();
-    // Nivel de indentación actual (cada nivel = 2 espacios).
     private int indent = 0;
 
-    // --- Estructuras de datos para la "tabla de símbolos" ---
-
-    // Lista de números de paso detectados (en orden de aparición).
     private final List<Integer> listaPasos = new ArrayList<>();
-
-    // Herrajes -> cantidad total global.
-    // Se usa LinkedHashMap para preservar el orden de primera aparición.
     private final Map<String, Integer> tablaHerrajes = new LinkedHashMap<>();
-
-    // Herramientas -> número de veces que se mencionan en la secuencia.
     private final Map<String, Integer> tablaHerramientas = new LinkedHashMap<>();
+    private int numIndicaciones = 0;
 
-    /**
-     * Añade una línea al AST respetando la indentación actual.
-     *
-     * @param text texto a imprimir en la línea (sin salto final)
-     */
     private void println(String text) {
-        for (int i = 0; i < indent; i++) {
-            sb.append("  ");  // 2 espacios por nivel
-        }
+        for (int i = 0; i < indent; i++) sb.append("  ");
         sb.append(text).append('\n');
     }
 
-    /**
-     * Devuelve el AST textual completo construido durante el recorrido.
-     *
-     * @return representación del AST con indentación.
-     */
     public String getResult() {
         return sb.toString();
     }
 
-    // =========================================================
-    //  REGLA INICIAL: programa
-    // =========================================================
+    // ------ PROGRAMA ------
 
     @Override
     public void enterPrograma(IkeaParser.ProgramaContext ctx) {
@@ -75,23 +49,15 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         indent--;
     }
 
-    // =========================================================
-    //  DECLARACIÓN DE INICIO Y FIN
-    // =========================================================
+    // ------ INICIO / FIN ------
 
     @Override
     public void enterDeclaracion_inicio(IkeaParser.Declaracion_inicioContext ctx) {
-        // Ejemplo de posibles formas:
-        //  INICIO_MONTAJE BILLY 1.
-        //  INICIO_MONTAJE MODULO COMO EXTENSION_DE MUEBLE (BILLY 1).
         StringBuilder header = new StringBuilder("INICIO_MONTAJE");
 
-        if (ctx.NOMBRE() != null) {
-            header.append(" ").append(ctx.NOMBRE().getText());
-        }
-        if (ctx.NUMERO() != null) {
-            header.append(" ").append(ctx.NUMERO().getText());
-        }
+        if (ctx.NOMBRE() != null) header.append(" ").append(ctx.NOMBRE().getText());
+        if (ctx.NUMERO() != null) header.append(" ").append(ctx.NUMERO().getText());
+
         if (ctx.COMO() != null) {
             header.append(" COMO EXTENSION_DE ");
             header.append(describirMuebleReferencia(ctx.mueble_referencia()));
@@ -111,16 +77,12 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         println("FIN_MONTAJE");
     }
 
-    // =========================================================
-    //  PASOS DE MONTAJE
-    // =========================================================
+    // ------ PASOS------
 
     @Override
     public void enterPaso(IkeaParser.PasoContext ctx) {
-        // Forma: NUMERO GUION accion ( ; accion )* .
         int numPaso = Integer.parseInt(ctx.NUMERO().getText());
-        listaPasos.add(numPaso);  // <<--- almacenamos número de paso
-
+        listaPasos.add(numPaso);
         println("PASO " + numPaso);
         indent++;
     }
@@ -130,25 +92,25 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         indent--;
     }
 
-    // =========================================================
-    //  COMENTARIOS CUIDADO / ATENCIÓN
-    // =========================================================
+    // ------INDICACIONES------
 
     @Override
     public void enterComentario(IkeaParser.ComentarioContext ctx) {
-        // comentario: CUIDADO ANUNCIO;
-        String tipo = ctx.CUIDADO().getText();
-        String texto = ctx.ANUNCIO().getText();
-        println("COMENTARIO " + tipo + ": " + texto);
+        numIndicaciones++;
+
+        String tipo = ctx.CUIDADO().getText().replace(":", "");
+        String mensaje = ctx.ANUNCIO().getText();
+
+        println("INDICACION [" + tipo + "]:");
+        indent++;
+        println(mensaje.trim());
+        indent--;
     }
 
-    // =========================================================
-    //  ACCIONES DE MONTAJE
-    // =========================================================
+    // ------ ACCIONES ------
 
     @Override
     public void enterAccion(IkeaParser.AccionContext ctx) {
-        // Identificamos qué verbo de acción se ha usado para etiquetar el nodo.
         String encabezado = "ACCION ";
 
         if (ctx.INSERTAR() != null) encabezado += "INSERTAR";
@@ -159,7 +121,7 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         else if (ctx.MARCAR() != null) encabezado += "MARCAR";
         else if (ctx.NIVELAR() != null) encabezado += "NIVELAR";
         else if (ctx.FIJAR() != null) encabezado += "FIJAR";
-        else encabezado += "(desconocida)";
+        else encabezado += "(DESCONOCIDA)";
 
         println(encabezado);
         indent++;
@@ -170,31 +132,19 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         indent--;
     }
 
-    // =========================================================
-    //  HERRAJES: recogida de cantidades
-    // =========================================================
+    // ------ HERRAJES ------
 
     @Override
     public void exitHerraje_lista(IkeaParser.Herraje_listaContext ctx) {
-        // herraje_lista: NUMERO id_herraje (Y NUMERO id_herraje)* ;
-        //
-        // Por ejemplo: 4 HERRAJE TORNILLO Y 2 HERRAJE TACO
-        // Queremos acumular:
-        //   TORNILLO -> 4
-        //   TACO     -> 2
-
         List<TerminalNode> cantidades = ctx.NUMERO();
         List<IkeaParser.Id_herrajeContext> ids = ctx.id_herraje();
 
         for (int i = 0; i < ids.size(); i++) {
             int cantidad = Integer.parseInt(cantidades.get(i).getText());
             String tipoHerraje = describirIdHerraje(ids.get(i));
-
-            // Actualizamos la cantidad total en la tabla de herrajes
             tablaHerrajes.merge(tipoHerraje, cantidad, Integer::sum);
         }
 
-        // Opcional: mostrar en el AST la lista de herrajes de este paso
         StringBuilder linea = new StringBuilder("HERRAJES_EN_ESTA_ACCION: ");
         for (int i = 0; i < ids.size(); i++) {
             if (i > 0) linea.append(" ; ");
@@ -205,37 +155,18 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         println(linea.toString());
     }
 
-    /**
-     * Construye una representación legible del identificador de herraje.
-     * Regla: id_herraje: HERRAJE TIPOHERRAJE;
-     *
-     * @param ctx contexto de id_herraje
-     * @return texto tipo "TORNILLO", "TACO_PARED_10291", etc.
-     */
     private String describirIdHerraje(IkeaParser.Id_herrajeContext ctx) {
-        // Normalmente querremos el TIPOHERRAJE, que es lo que distingue tornillos, tacos, etc.
-        if (ctx.TIPOHERRAJE() != null) {
-            return ctx.TIPOHERRAJE().getText();
-        }
-        // Como reserva, devolvemos la palabra genérica HERRAJE si algo falla.
+        if (ctx.TIPOHERRAJE() != null) return ctx.TIPOHERRAJE().getText();
         return "HERRAJE";
     }
 
-    // =========================================================
-    //  HERRAMIENTAS: recogida de usos
-    // =========================================================
+    // ------ HERRAMIENTAS ------
 
     @Override
     public void exitHerramienta(IkeaParser.HerramientaContext ctx) {
-        // herramienta: HERRAMIENTA TIPOHERRAMIENTA (PAREN_ABRE NUMERO PAREN_CIERRA)? ;
-        //
-        // Por ejemplo: HERRAMIENTA DESTORNILLADOR (1)
         String tipoHerramienta = ctx.TIPOHERRAMIENTA().getText();
-
-        // Sumamos 1 uso cada vez que aparece la herramienta en el árbol.
         tablaHerramientas.merge(tipoHerramienta, 1, Integer::sum);
 
-        // Opcional: mostrar la herramienta como nodo en el AST
         StringBuilder linea = new StringBuilder("HERRAMIENTA: ");
         linea.append(tipoHerramienta);
         if (ctx.NUMERO() != null) {
@@ -244,58 +175,152 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         println(linea.toString());
     }
 
-    // =========================================================
-    //  DESCRIPCCIÓN DE MUEBLE/PIEZA (para cabeceras legibles)
-    // =========================================================
+    // ------PIEZA / MUEBLE ------
 
-    /**
-     * Genera una descripción compacta de un mueble_referencia.
-     * Regla: mueble_referencia: MUEBLE id? ;
-     *
-     * @param ctx contexto mueble_referencia
-     * @return texto tipo "MUEBLE (BILLY 1)" o simplemente "MUEBLE"
-     */
-    private String describirMuebleReferencia(IkeaParser.Mueble_referenciaContext ctx) {
-        if (ctx == null) return "";
-        StringBuilder b = new StringBuilder("MUEBLE");
-        if (ctx.id() != null) {
-            IkeaParser.IdContext idCtx = ctx.id();
-            // id: NOMBRE? PAREN_ABRE NUMERO PAREN_CIERRA ;
-            b.append(" ");
-            if (idCtx.NOMBRE() != null) {
-                b.append(idCtx.NOMBRE().getText()).append(" ");
-            }
-            b.append("(").append(idCtx.NUMERO().getText()).append(")");
+    @Override
+    public void exitPieza(IkeaParser.PiezaContext ctx) {
+        // No queremos imprimir PIEZA dos veces cuando ya aparece dentro de
+        // una POSICION o una DISTANCIA (DE PIEZA ...).
+        ParseTree parent = ctx.getParent();
+        if (parent instanceof IkeaParser.PosicionContext ||
+                parent instanceof IkeaParser.DistanciaContext) {
+            return; // ya se imprime como parte de POSICION/DISTANCIA
         }
+
+        String desc = describirPieza(ctx);
+        if (desc.isEmpty()) {
+            println("PIEZA");
+        } else {
+            println("PIEZA " + desc);
+        }
+    }
+
+    private String describirPieza(IkeaParser.PiezaContext ctx) {
+        if (ctx.getChildCount() == 1) return "";
+
+        ParseTree second = ctx.getChild(1);
+        String secondText = second.getText();
+
+        // Caso PIEZA ( NOMBRE [NUMERO]? )
+        if ("(".equals(secondText)) {
+            String nombre = null;
+            String numero = null;
+            for (int i = 2; i < ctx.getChildCount() - 1; i++) {
+                String t = ctx.getChild(i).getText();
+                if (nombre == null) nombre = t;
+                else numero = t;
+            }
+            if (numero == null) return "(" + nombre + ")";
+            return "(" + nombre + " " + numero + ")";
+        }
+
+        // Caso PIEZA NOMBRE
+        return secondText;
+    }
+
+    @Override
+    public void exitMueble_referencia(IkeaParser.Mueble_referenciaContext ctx) {
+        // Igual que con PIEZA: no duplicar dentro de POSICION/DISTANCIA
+        ParseTree parent = ctx.getParent();
+        if (parent instanceof IkeaParser.PosicionContext ||
+                parent instanceof IkeaParser.DistanciaContext) {
+            return;
+        }
+
+        println("MUEBLE_REF " + describirMuebleReferencia(ctx));
+    }
+
+    private String describirMuebleReferencia(IkeaParser.Mueble_referenciaContext ctx) {
+        if (ctx == null || ctx.id() == null) return "(sin_id)";
+
+        IkeaParser.IdContext idCtx = ctx.id();
+        StringBuilder b = new StringBuilder();
+        if (idCtx.NOMBRE() != null) {
+            b.append(idCtx.NOMBRE().getText()).append(" ");
+        }
+        b.append("(").append(idCtx.NUMERO().getText()).append(")");
         return b.toString();
     }
 
-    // =========================================================
-    //  RESUMEN / "TABLA DE SÍMBOLOS"
-    // =========================================================
+    // ------ DISTANCIA ------
 
-    /**
-     * Construye un resumen textual con la información acumulada:
-     *  - Pasos detectados.
-     *  - Lista de herrajes y cantidades totales.
-     *  - Lista de herramientas y número de usos.
-     *
-     * Este método está pensado para escribir directamente por pantalla
-     * el resultado del "analizador" sobre la secuencia de montaje.
-     *
-     * @return resumen formateado en varias líneas
-     */
+    @Override
+    public void exitDistancia(IkeaParser.DistanciaContext ctx) {
+
+        println("DISTANCIA:");
+        indent++;
+
+        println("A " + ctx.NUMERO().getText() + " " + ctx.UD_MEDIDA().getText());
+
+        if (ctx.POSICION() != null) {
+            println("DE POSICION " + ctx.POSICION().getText());
+        }
+
+        if (ctx.pieza() != null) {
+            println("DE PIEZA " + describirPieza(ctx.pieza()));
+        } else if (ctx.mueble_referencia() != null) {
+            println("DE MUEBLE " + describirMuebleReferencia(ctx.mueble_referencia()));
+        }
+
+        indent--;
+    }
+
+    // ------ POSICION ------
+
+    @Override
+    public void exitPosicion(IkeaParser.PosicionContext ctx) {
+
+        println("POSICION:");
+        indent++;
+
+        // Caso EN <ORIENTACION|POSICION> (DE (mueble|pieza))?
+        if (ctx.EN() != null) {
+            // EN X
+            println("EN " + ctx.getChild(1).getText());
+
+            // Opcional "DE PIEZA/MUEBLE ..."
+            if (ctx.getChildCount() > 3 && "DE".equals(ctx.getChild(2).getText())) {
+                if (ctx.pieza() != null) {
+                    println("DE PIEZA " + describirPieza(ctx.pieza()));
+                } else if (ctx.mueble_referencia() != null) {
+                    println("DE MUEBLE " + describirMuebleReferencia(ctx.mueble_referencia()));
+                }
+            }
+        }
+
+        // Caso JUNTO_A (mueble|pieza)
+        else if (ctx.JUNTO_A() != null) {
+            if (ctx.pieza() != null) {
+                println("JUNTO_A PIEZA " + describirPieza(ctx.pieza()));
+            } else if (ctx.mueble_referencia() != null) {
+                println("JUNTO_A MUEBLE " + describirMuebleReferencia(ctx.mueble_referencia()));
+            }
+        }
+
+        // Caso SOBRE/BAJO (mueble|pieza)
+        else if (ctx.SOBRE() != null || ctx.BAJO() != null) {
+            String prep = ctx.getChild(0).getText(); // SOBRE o BAJO
+            if (ctx.pieza() != null) {
+                println(prep + " PIEZA " + describirPieza(ctx.pieza()));
+            } else if (ctx.mueble_referencia() != null) {
+                println(prep + " MUEBLE " + describirMuebleReferencia(ctx.mueble_referencia()));
+            }
+        }
+
+        indent--;
+    }
+
+    // ------ RESUMEN ------
+
     public String buildResumenSimbolos() {
         StringBuilder r = new StringBuilder();
 
-        // 1) Pasos del montaje
-        r.append("PASOS DETECTADOS: ").append(listaPasos.size()).append("\n");
-        r.append("  Números de paso: ").append(listaPasos).append("\n\n");
+        r.append("PASOS DETECTADOS: ").append(listaPasos.size()).append("\n\n");
+        r.append("NUMERO DE INDICACIONES: ").append(numIndicaciones).append("\n\n");
 
-        // 2) Herrajes
         r.append("LISTA DE HERRAJES (TOTAL ACUMULADO):\n");
         if (tablaHerrajes.isEmpty()) {
-            r.append("  (No se han detectado herrajes en el programa)\n");
+            r.append("  (No se han detectado herrajes)\n");
         } else {
             for (Map.Entry<String, Integer> e : tablaHerrajes.entrySet()) {
                 r.append("  - ").append(e.getKey())
@@ -305,15 +330,13 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         }
         r.append("\n");
 
-        // 3) Herramientas
         r.append("LISTA DE HERRAMIENTAS A UTILIZAR:\n");
         if (tablaHerramientas.isEmpty()) {
-            r.append("  (No se han detectado herramientas en el programa)\n");
+            r.append("  (No se han detectado herramientas)\n");
         } else {
             for (Map.Entry<String, Integer> e : tablaHerramientas.entrySet()) {
                 r.append("  - ").append(e.getKey())
-                        .append(" (usos en el texto: ").append(e.getValue())
-                        .append(")\n");
+                        .append(" (usos: ").append(e.getValue()).append(")\n");
             }
         }
 
