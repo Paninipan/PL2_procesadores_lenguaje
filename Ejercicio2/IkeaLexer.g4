@@ -67,7 +67,6 @@ MEDIDA : DIGITO+('.'DIGITO+)?; //medida
 
 // Nombres genéricos en mayusculas con guiones
 // Van después de las palabras clave para no colisionar
-//MAYUS_NOMBRE : LETRA+ ('_' LETRA+)*;
 
 // Nombres de piezas/muebles/etiquetas libres (por ejemplo, lateral_izq, trasero, BILLY, moduloA)
 NOMBRE : LETRA+;
@@ -93,7 +92,6 @@ ANUNCIO: (~[\r\n]* .)-> popMode;
 
 // Fragmentos (no crean tokens)
 fragment DIGITO : [0-9];
-//fragment MAYUS : [A-Z_ÁÉÍÓÚÜÑÅÄÖ]; // mayúsculas con acentos, Ñ y letras especiales que e usan mucho en IKEA
 fragment LETRA : [a-zA-Z_áéíóúÁÉÍÓÚüÜñÑÅÄÖ];
 
 
