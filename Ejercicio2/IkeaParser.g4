@@ -22,9 +22,8 @@ comentario: CUIDADO ANUNCIO;
 // 4. Bloque de Acciones (Los 10 verbos)
 accion:
     // Acciones de Ensamblaje Básico
-    INSERTAR herraje_lista EN (pieza|mueble_referencia) (Y pieza)* (CON herramienta_lista)?
+    INSERTAR herraje_lista EN (pieza|mueble_referencia) (Y pieza)* (distancia|posicion)* (CON herramienta_lista)?
   | UNIR (pieza|mueble_referencia) (Y (pieza))+ (distancia|posicion)*
-  | MARTILLAR herraje_lista SOBRE pieza (Y pieza)* (distancia|posicion)* (CON herramienta_lista)?
 
     // Acciones de Posición y Espacio
   | COLOCAR NUMERO? pieza (distancia|posicion)*
@@ -51,5 +50,5 @@ herramienta_lista: herramienta (Y herramienta)* ;
 herraje_lista: NUMERO id_herraje (Y NUMERO id_herraje)* ; //NUMERO id_herraje puede ser ctd TORNILLO ...
 id_herraje: HERRAJE TIPOHERRAJE; //id numérico del herraje (de IKEA) o su tipo
 
-distancia: A NUMERO UD_MEDIDA (DE BORDE)? (DE pieza|mueble_referencia)? ;
+distancia: A NUMERO UD_MEDIDA (DE POSICION)? (DE pieza|mueble_referencia)? ;
 posicion: (EN (ORIENTACION | POSICION) (DE (mueble_referencia|pieza) )? )| JUNTO_A (mueble_referencia|pieza) | SOBRE (mueble_referencia|pieza) ;

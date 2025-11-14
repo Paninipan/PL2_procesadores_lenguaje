@@ -30,7 +30,6 @@ HACIA: 'HACIA';
 
 // Entidades (piezas / muebles / herramientas / orientaciones)
 MUEBLE : 'MUEBLE';
-BORDE : 'BORDE';
 HERRAMIENTA : 'HERRAMIENTA'-> pushMode(modoHerramienta);
 HERRAJE : ('HERRAJE''S'?)-> pushMode(modoHerraje);
 PIEZA: 'PIEZA'; ////hacer dinamico con pushmode y que tengas que hacer "PIEZA TIPOPIEZA"?
@@ -40,7 +39,7 @@ OPCIONAL : 'OPCIONAL';
 // Orientaciones y Posiciones / modif. espaciales
 ORIENTACION: 'VERTICAL' | 'HORIZONTAL' | 'HORARIO' | 'ANTIHORARIO';////////////////////////////
 POSICION: 'PARTE_SUPERIOR' | 'PARTE_INFERIOR' | 'PARTE_TRASERA'|
-'FRONTAL' |'LADO_IZQUIERDO' | 'LADO_DERECHO'| 'CENTRO';
+'FRONTAL' |'LADO_IZQUIERDO' | 'LADO_DERECHO'| 'CENTRO'| 'JUNTA'| 'BORDE';
 JUNTO_A : 'JUNTO_A'; ////////////////////////////
 
 // Unidades de medida
