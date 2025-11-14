@@ -43,7 +43,7 @@ POSICION: 'PARTE_SUPERIOR' | 'PARTE_INFERIOR' | 'PARTE_TRASERA'| 'FRONTAL' |'LAD
 JUNTO_A : 'JUNTO_A'; ////////////////////////////
 
 // Unidades de medida
-UD_MEDIDA : 'CM' |'MM' | 'DISTANCIA_PIEZA';
+UD_MEDIDA : 'CM' | 'MM' | 'DISTANCIA_PIEZA';
 
 // Símbolos y separadores de pasos
 GUION : '-';
@@ -59,7 +59,7 @@ REPETIR: 'REPETIR_PASOS';
 VECES: 'VECES';
 
 //comentario de alerta
-CUIDADO: ('CUIDADO' | 'ATENCION'| 'IMPORTANTE')? '!'+ ': ' ->pushMode(modoAnuncio); //ejemplo: ATENCION!!!: si no lo fijas te puedes hacer daño
+CUIDADO: ('CUIDADO'|'ATENCION'|'IMPORTANTE')?'!'+ ':' ->pushMode(modoAnuncio); //ejemplo: ATENCION!!!: si no lo fijas te puedes hacer daño
 
 // Literales y nombres
 

@@ -10,29 +10,36 @@ options { tokenVocab=EJ2Lexer; }
 programa : (sentencia | condicional)* EOF ;
 
 // Sentencias simples:
-//declaracion (asignar x = expr ;P)
-//asignacion (x = expr ;P)
-//impresion (mostrar expr ;P)
-//bucles while ("mientras")
+//declaracion (asignar x = expr_gen ;P)
+//asignacion (x = expr_gen ;P)
+//impresion (mostrar expr_gen ;P)
+//bucles while y for ("mientras")
 //control_bucle para break y continue
 sentencia : declaracion | asignacion | impresion | bucle | control_bucle;
 
 // Declarar variable e inicializar
-// Exige la palabra clave asignar para inicializar una variable. Por ejemplo: asignar a =20 ;P
-declaracion : ASIGNAR ID ASIGNACION expresion FIN_LINEA ;
+// Exige la palabra clave asignar para inicializar una variable. Por ejemplo: asignar a =20 ;P  o   asignar a= A OR B ;P
+declaracion : ASIGNAR ID ASIGNACION expr_general FIN_LINEA ;
 
 // Asignación normal
 // Reasigna una variable ya existente. Por ejemplo: a= a+1 ;P.
-asignacion : ID ASIGNACION expresion FIN_LINEA ;
+asignacion : ID ASIGNACION expr_general FIN_LINEA ;
 
 // Mostrar en pantalla
 //envía a salida. Por ejemplo: mostrar "hola" ;P
-impresion : MOSTRAR expresion FIN_LINEA ;
+impresion : MOSTRAR expr_general FIN_LINEA ;
 
 
-//Ampliación: bucle while
+// bucle = while | for
+bucle: bucle_mientras | bucle_para ;
+
+// Ampliación 3: Bucle while
 // while: evalúa condicion; si es verdadera, ejecuta bloque. Repite hasta que sea falsa
-bucle: MIENTRAS condicion HACER FLECHA bloque TERMINAR;
+bucle_mientras : MIENTRAS condicion HACER FLECHA bloque TERMINAR ;
+
+// Ampliación 4: bucle for tipo "para i desde 0 hasta 10 paso 2 hacer -> ... terminar"
+// Recorrido entero inclusivo [inicio, fin] con paso implícito (+1) o definido
+bucle_para : PARA ID DESDE expresion HASTA expresion (PASO expresion)? HACER FLECHA bloque TERMINAR ;
 
 //break y continue
 control_bucle: ROMPER FIN_LINEA| CONTINUAR FIN_LINEA;
@@ -74,15 +81,15 @@ bool_no
 // Comparaciones binarias entre expresiones aritméticas
 comparacion : expresion operador_relacional expresion ;
 
-// Literales booleanos
-booleano : VERDADERO | FALSO ;
+// booleanos. Se permiten Verdadero, falso o ID (variables booleanas)
+booleano : VERDADERO | FALSO | ID;
 
 // Operadores relacionales
 operador_relacional: IGUAL | DISTINTO | MENOR | MENOR_IGUAL | MAYOR | MAYOR_IGUAL;
 
 // Expresiones de suma y resta
 // Permite más de 2 operandos: termino (+|-) termino ...
-expresion : termino ((SUMA | RESTA) termino)* ;
+expresion : (termino ((SUMA | RESTA) termino)*) ;
 
 // Ampliación: multiplicación y división con mayor precedencia que +/-
 termino : factor ((MULT | DIV) factor)* ;
@@ -93,3 +100,9 @@ termino : factor ((MULT | DIV) factor)* ;
 factor : RESTA factor | PAREN_ABRE expresion PAREN_CIERRA | atomo ;
 
 atomo : INT | FLOAT | STRING | ID ;
+
+//Expresión general
+expr_general
+  : expresion   // aritmética
+  | condicion   // booleana
+  ;

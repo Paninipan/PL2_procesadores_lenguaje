@@ -1,16 +1,16 @@
-lexer grammar EJ_1Lexer;
-//definimos la gramtica del Lexer
+lexer grammar CSVLexer;
+//definimos la gramática del Lexer
 
-TEXTO : ~[,;|\n"]+ ;
-    //:~[A] si no esta dentro de los valores A, estos cuales son prohibidos
+TEXTO : ~[,;|\r\n"]+ ;
+    //:~[A] si no esta dentro de los valores A, los cuales son prohibidos
         //separadores , ; |
-        //salto de lienas \n
+        //salto de líneas \n
         //cadenas de texto entre comillas "xxx"
-    //debe aparecer 1 vez o mas caracteres seguidos cadena vacia no es nada
+    //debe aparecer 1 vez o mas caracteres seguidos cadena vacía no es nada
 
 
 STRING : '"'('""'| ~'"' )*'"';
-    // Cominza con el caracter ' ' comillas "
+    // Comienza con el caracter ' ' comillas "
     // ('""'| ~'"' ) entre las comillas hay texto.
         // Puede haber o no comillas entre medias del String ' "" '
         // o |
@@ -20,12 +20,12 @@ STRING : '"'('""'| ~'"' )*'"';
 
 
 SEPARADOR :[,;|] ;
-    //los saparadores son aquellos que diferencian las cadenas del CSV , ; o |
+    //los separadores son aquellos que diferencian las cadenas del CSV , ; o |
     //:[B] si esta dentro de los valores B, estos cuales son válidos
 
 
-SALTO_DE_LINEA:'\n';
-    //el salto de linea para pasar a otra coluna nueva
+SALTO_DE_LINEA : '\r'? '\n' ; // o '\r\n' | '\n'
+    //el salto de linea para pasar a otra columna nueva
 
 
 ESPACIO : [ \t]+ -> skip ;

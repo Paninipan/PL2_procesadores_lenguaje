@@ -1,9 +1,0 @@
-# Aritmética con + - * / y unario -
-asignar a = 20 ;P
-asignar b = 6 ;P
-
-a = a + 4 * (b - 2) ;P
-b = -b + 12 / 3 - 1 ;P
-
-mostrar a ;P
-mostrar b ;P

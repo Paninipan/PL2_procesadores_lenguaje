@@ -8,4 +8,10 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+#Carpetas individuales o de ceracion de arhivos por .java o .g4
 out
+gen
+Ejercicio2/Ejercicio2
+Ejercicio1_2/Ejercicio1_2
+Ejercicio1/Ejercicio1
