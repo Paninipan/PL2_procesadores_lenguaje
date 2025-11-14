@@ -65,7 +65,7 @@ public class IkeaMain {
         // 8) Unificar salida: primero el AST, luego el resumen
         StringBuilder salida = new StringBuilder();
         salida.append(astLegible).append("\n");
-        salida.append("===== RESUMEN DEL MONTAJE (TABLA DE SÍMBOLOS SIMPLIFICADA) =====\n");
+        salida.append(" RESUMEN DEL MONTAJE (TABLA DE SÍMBOLOS SIMPLIFICADA) \n");
         salida.append(resumen);
 
         String salidaCompleta = salida.toString();
