@@ -52,6 +52,10 @@ public class CSVMain {
         String inputPath = args[0];
         String outputPath = args[1];
 
+        // Ejemplos comentados que pueden usarse en ejecución desde IDE
+        //String inputPath = "Ejercicio1/archivo.csv";
+        //String outputPath = "Ejercicio1/ast.txt";
+
         // 1. Leer fichero
         CharStream input = CharStreams.fromFileName(inputPath);
 

@@ -1,5 +1,6 @@
+/* package Ejercicio2.Ejercicio2;
+
 import java.util.*;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class IkeaAnalyzerListener extends IkeaParserBaseListener {
 
@@ -121,3 +122,5 @@ public class IkeaAnalyzerListener extends IkeaParserBaseListener {
         }
     }
 }
+
+ */

@@ -1,3 +1,5 @@
+package Ejercicio2.Ejercicio2;
+/*
 import java.util.StringJoiner;
 
 public class IkeaASTPrinter extends IkeaParserBaseListener {
@@ -222,3 +224,6 @@ public class IkeaASTPrinter extends IkeaParserBaseListener {
         return ctx.getText();
     }
 }
+
+
+ */

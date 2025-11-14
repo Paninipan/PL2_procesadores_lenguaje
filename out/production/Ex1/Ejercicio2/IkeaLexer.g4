@@ -39,12 +39,11 @@ OPCIONAL : 'OPCIONAL';
 
 // Orientaciones y Posiciones / modif. espaciales
 ORIENTACION: 'VERTICAL' | 'HORIZONTAL'; ////////////////////////////
-POSICION: 'PARTE_SUPERIOR' | 'PARTE_INFERIOR' | 'LATERAL_IZQUIERDO' | 'LATERAL_DERECHO'
-          | 'PARTE_TRASERA'| 'FRONTAL' |'LADO_IZQUIERDO' | 'LADO_DERECHO'| 'CENTRO';
+POSICION: 'PARTE_SUPERIOR' | 'PARTE_INFERIOR' | 'PARTE_TRASERA'| 'FRONTAL' |'LADO_IZQUIERDO' | 'LADO_DERECHO'| 'CENTRO';
 JUNTO_A : 'JUNTO_A'; ////////////////////////////
 
 // Unidades de medida
-UD_MEDIDA : 'CM' |'MM' | 'DISTANCIA_PIEZA';
+UD_MEDIDA : 'CM' | 'MM' | 'DISTANCIA_PIEZA';
 
 // Símbolos y separadores de pasos
 GUION : '-';
@@ -60,7 +59,7 @@ REPETIR: 'REPETIR_PASOS';
 VECES: 'VECES';
 
 //comentario de alerta
-CUIDADO: ('CUIDADO' | 'ATENCION'| 'IMPORTANTE')? '!'+ ': ' ->pushMode(modoAnuncio); //ejemplo: ATENCION!!!: si no lo fijas te puedes hacer daño
+CUIDADO: ('CUIDADO'|'ATENCION'|'IMPORTANTE')?'!'+ ':' ->pushMode(modoAnuncio); //ejemplo: ATENCION!!!: si no lo fijas te puedes hacer daño
 
 // Literales y nombres
 
@@ -81,15 +80,17 @@ NOMBRE : LETRA+;
 COMENTARIO : '#' ~[\r\n]* -> skip;
 ESPACIO : [ \t\r\n]+ -> skip;
 
-
 mode modoHerramienta;
+ESPACIOHERRAMIENTA: ESPACIO -> skip;
 TIPOHERRAMIENTA : (LETRA+ ('_' LETRA+)*) -> popMode;
 //HERRAMIENTA: 'DESTORNILLADOR' | 'MARTILLO' | 'LLAVE_ALLEN' | 'NIVEL' | 'LAPIZ' | 'TALADRO' ;
 
 mode modoHerraje;
-TIPOHERRAJE: (DIGITO+  | LETRA+ ('_' LETRA+)*)-> popMode; //'TORNILLO' | 'TORNILLO_PARED' | 'TACO' / '10291' ;
+ESPACIOHERRAJE: ESPACIO -> skip;
+TIPOHERRAJE: (DIGITO+  | LETRA+('_' LETRA+)*)-> popMode; //'TORNILLO' | 'TORNILLO_PARED' | 'TACO' / '10291' ;
 
 mode modoAnuncio;
+ESPACIOANUNCIO: ESPACIO -> skip;
 ANUNCIO: (~[\r\n]* .)-> popMode;
 
 
@@ -98,3 +99,5 @@ ANUNCIO: (~[\r\n]* .)-> popMode;
 fragment DIGITO : [0-9];
 //fragment MAYUS : [A-Z_ÁÉÍÓÚÜÑÅÄÖ]; // mayúsculas con acentos, Ñ y letras especiales que e usan mucho en IKEA
 fragment LETRA : [a-zA-Z_áéíóúÁÉÍÓÚüÜñÑÅÄÖ];
+
+

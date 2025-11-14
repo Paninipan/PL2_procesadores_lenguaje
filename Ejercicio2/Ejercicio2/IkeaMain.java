@@ -1,5 +1,5 @@
-
-
+package Ejercicio2.Ejercicio2;
+/*
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
@@ -11,7 +11,7 @@ public class IkeaMain {
     public static void main(String[] args) throws IOException {
         // 1. Comprobar argumentos
         if (args.length != 2) {
-            System.err.println("Uso: java IkeaMain <fichero_entrada> <fichero_salida>");
+            System.err.println("Uso: java Ejercicio2.Ejercicio2.IkeaMain <fichero_entrada> <fichero_salida>");
             System.exit(1);
         }
 
@@ -86,3 +86,4 @@ public class IkeaMain {
         System.out.println("Análisis completado. Resultados en: " + ficheroSalida);
     }
 }
+*/

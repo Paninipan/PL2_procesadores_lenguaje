@@ -83,6 +83,26 @@
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/Ejercicio1_2/EJ1_2Parser.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="C:\Users\alvar\OneDrive\Documentos\uni\3.1Cuatri\Procesadores\Laboratorio\PL2\Ex1\Ejercicio1_2" />
+          <option name="libDir" value="" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="" />
+          <option name="language" value="" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/Ejercicio1_2/EJ1_2Lexer.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="C:\Users\alvar\OneDrive\Documentos\uni\3.1Cuatri\Procesadores\Laboratorio\PL2\Ex1\Ejercicio1_2" />
+          <option name="libDir" value="" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="" />
+          <option name="language" value="" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
       </list>
     </option>
   </component>

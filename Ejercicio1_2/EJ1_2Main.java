@@ -1,6 +1,8 @@
+package Ejercicio1_2;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.IOException;
@@ -50,6 +52,7 @@ public class EJ1_2Main {
     public static void main(String[] args) throws IOException {
 
         // Validación de argumentos: exigimos exactamente entrada + salida
+
         if (args.length != 2) {
             System.err.println("Uso: java EJ1_2Main <entrada.txt> <salida.txt>");
             System.exit(1);
@@ -58,8 +61,8 @@ public class EJ1_2Main {
         String outPath = args[1];
 
         // Ejemplos comentados que pueden usarse en ejecución desde IDE
-        // String inPath = "Ejercicio1_2/programa_IF_Bool.csv";
-        // String outPath = "Ejercicio1_2/ast.txt";
+        //String inPath = "Ejercicio1_2/programa_IF_Bool.txt";
+        //String outPath = "Ejercicio1_2/ast.txt";
 
         // 1) Crear CharStream desde fichero. Lanza IOException si no existe/permiso.
         CharStream input = CharStreams.fromFileName(inPath);
@@ -90,7 +93,7 @@ public class EJ1_2Main {
         //    legible (AST). El walker por defecto de ANTLR aplicará el listener
         //    en cada nodo del árbol.
         EJ1_2ASTPrinter printer = new EJ1_2ASTPrinter();
-        ParseTreeWalker.DEFAULT.walk(printer, tree);
+        ParseTreeWalker.DEFAULT.walk((ParseTreeListener) printer, tree);
 
         // 7) Escribir el resultado en el fichero de salida usando UTF-8.
         try (PrintWriter out = new PrintWriter(outPath, StandardCharsets.UTF_8)) {
