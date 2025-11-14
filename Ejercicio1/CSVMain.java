@@ -62,7 +62,7 @@ public class CSVMain {
         // 2. Lexer
         CSVLexer lexer = new CSVLexer(input);
 
-        // 3. Tokens
+        // 3. Canal de Tokens
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 
         // 4. Parser

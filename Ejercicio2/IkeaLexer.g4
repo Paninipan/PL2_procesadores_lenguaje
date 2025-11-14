@@ -17,13 +17,14 @@ MARCAR : 'MARCAR'('_PARED')?;
 NIVELAR : 'NIVELAR';
 FIJAR : 'FIJAR'('_PARED')?;
 
-// Conectores / preposiciones ????????????????????????????
+// Conectores / preposiciones
 EN : 'EN';
 PARA : 'PARA';
 CON : 'CON' | 'USANDO';
 Y : 'Y';
 A : 'A';
 SOBRE : 'SOBRE';
+BAJO : 'BAJO';
 DE: 'DE';
 HACIA: 'HACIA';
 
@@ -31,15 +32,15 @@ HACIA: 'HACIA';
 MUEBLE : 'MUEBLE';
 HERRAMIENTA : 'HERRAMIENTA'-> pushMode(modoHerramienta);
 HERRAJE : ('HERRAJE''S'?)-> pushMode(modoHerraje);
-PIEZA: 'PIEZA'; ////hacer dinamico con pushmode y que tengas que hacer "PIEZA TIPOPIEZA"?
+PIEZA: 'PIEZA';
 OPCIONAL : 'OPCIONAL';
 
 
 // Orientaciones y Posiciones / modif. espaciales
-ORIENTACION: 'VERTICAL' | 'HORIZONTAL' | 'HORARIO' | 'ANTIHORARIO';////////////////////////////
+ORIENTACION: 'VERTICAL' | 'HORIZONTAL' | 'HORARIO' | 'ANTIHORARIO';
 POSICION: 'PARTE_SUPERIOR' | 'PARTE_INFERIOR' | 'PARTE_TRASERA'|
 'PARTE_FRONTAL' |'LADO_IZQUIERDO' | 'LADO_DERECHO'| 'CENTRO'| 'JUNTA'| 'BORDE';
-JUNTO_A : 'JUNTO_A'; ////////////////////////////
+JUNTO_A : 'JUNTO_A';
 
 // Unidades de medida
 UD_MEDIDA : 'CM' | 'MM' | 'DISTANCIA_PIEZA';
