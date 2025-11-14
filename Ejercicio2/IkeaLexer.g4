@@ -33,7 +33,6 @@ MUEBLE : 'MUEBLE';
 HERRAMIENTA : 'HERRAMIENTA'-> pushMode(modoHerramienta);
 HERRAJE : ('HERRAJE''S'?)-> pushMode(modoHerraje);
 PIEZA: 'PIEZA'; ////hacer dinamico con pushmode y que tengas que hacer "PIEZA TIPOPIEZA"?
-ESTE_MODULO : 'ESTE_MODULO';
 OPCIONAL : 'OPCIONAL';
 
 
@@ -54,10 +53,6 @@ PAREN_ABRE : '(';
 PAREN_CIERRA : ')';
 COMA : ',';
 
-
-//bucle de pasos
-REPETIR: 'REPETIR_PASOS';
-VECES: 'VECES';
 
 //comentario de alerta
 CUIDADO: ('CUIDADO'|'ATENCION'|'IMPORTANTE')?'!'+ ':' ->pushMode(modoAnuncio); //ejemplo: ATENCION!!!: si no lo fijas te puedes hacer daño

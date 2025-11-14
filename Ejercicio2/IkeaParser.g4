@@ -22,24 +22,21 @@ comentario: CUIDADO ANUNCIO;
 // 4. Bloque de Acciones (Los 10 verbos)
 accion:
     // Acciones de Ensamblaje Básico
-    INSERTAR herraje_lista EN pieza (Y pieza)* (CON herramienta_lista)?
-  | UNIR pieza (Y (pieza|mueble_referencia))+
-  | MARTILLAR herraje_lista SOBRE pieza (distancia|posicion)* (CON herramienta_lista)?
+    INSERTAR herraje_lista EN (pieza|mueble_referencia) (Y pieza)* (CON herramienta_lista)?
+  | UNIR (pieza|mueble_referencia) (Y (pieza))+ (distancia|posicion)*
+  | MARTILLAR herraje_lista SOBRE pieza (Y pieza)* (distancia|posicion)* (CON herramienta_lista)?
 
     // Acciones de Posición y Espacio
   | COLOCAR NUMERO? pieza (distancia|posicion)*
   | GIRAR (EN | HACIA)? ORIENTACION
 
     // Acciones de Modularidad y Conexión
-  | CONECTAR ESTE_MODULO A mueble_referencia CON herraje_lista (distancia|posicion)* (CON herramienta_lista)?
+  | CONECTAR mueble_referencia A mueble_referencia CON herraje_lista (distancia|posicion)* (CON herramienta_lista)?
 
     // Acciones de Preparación y Seguridad (Pared)
   | MARCAR (PARA)? (pieza)? (distancia|posicion)* (CON herramienta_lista)? //para pieza o con pieza?
   | NIVELAR (pieza | mueble_referencia) (CON herramienta_lista)?
   | FIJAR (PAREN_ABRE OPCIONAL PAREN_CIERRA)? CON? herraje_lista (CON herramienta_lista)?
-
-    // Bucle de pasos
-  | REPETIR NUMERO A NUMERO veces? //repetir pasos 3 a 5 (2 veces)
   ;
 
 // Unidades reutilizables
@@ -56,5 +53,3 @@ id_herraje: HERRAJE TIPOHERRAJE; //id numérico del herraje (de IKEA) o su tipo
 
 distancia: A NUMERO UD_MEDIDA (DE pieza)? ;
 posicion: (EN (ORIENTACION | POSICION) (DE (mueble_referencia|pieza) )? )| JUNTO_A (mueble_referencia|pieza) | SOBRE (mueble_referencia|pieza) ;
-
-veces: PAREN_ABRE NUMERO VECES PAREN_CIERRA;
