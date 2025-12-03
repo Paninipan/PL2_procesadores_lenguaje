@@ -1,6 +1,3 @@
-
-import org.antlr.v4.runtime.tree.TerminalNode;
-
 /**
  * CSVASTPrinter
  *
@@ -14,7 +11,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  * - Este listener mantiene un StringBuilder donde va acumulando líneas
  *   con indentación que reflejan la jerarquía del AST.
  */
-public class CSVASTPrinter extends CSVParserBaseListener {
+public class JSON_ASTPrinter extends CSVParserBaseListener {
 
     // Acumulador del texto que formará el AST 'bonito'
     private final StringBuilder sb = new StringBuilder();
