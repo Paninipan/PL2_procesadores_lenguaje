@@ -1,0 +1,8 @@
+PROGRAMA
+  DECLARAR a = verdadero
+  DECLARAR b = falso
+  SI a < b
+    ENTONCES
+      MOSTRAR "menor"
+    SINO
+      MOSTRAR "no menor"

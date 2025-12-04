@@ -1,4 +1,4 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL3/Parte1/CSV_JSON_Parser.g4 by ANTLR 4.13.2
+// Generated from CSV_JSON_Parser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -18,10 +18,10 @@ public class CSV_JSON_Parser extends Parser {
 	public static final int
 		TEXTO=1, STRING=2, SEPARADOR=3, SALTO_DE_LINEA=4, ESPACIO=5;
 	public static final int
-		RULE_archivo = 0, RULE_fila = 1, RULE_campo = 2;
+		RULE_archivo = 0, RULE_filas = 1, RULE_fila = 2, RULE_campo = 3;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"archivo", "fila", "campo"
+			"archivo", "filas", "fila", "campo"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -89,13 +89,10 @@ public class CSV_JSON_Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ArchivoContext extends ParserRuleContext {
+		public FilasContext filas() {
+			return getRuleContext(FilasContext.class,0);
+		}
 		public TerminalNode EOF() { return getToken(CSV_JSON_Parser.EOF, 0); }
-		public List<FilaContext> fila() {
-			return getRuleContexts(FilaContext.class);
-		}
-		public FilaContext fila(int i) {
-			return getRuleContext(FilaContext.class,i);
-		}
 		public ArchivoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -108,36 +105,95 @@ public class CSV_JSON_Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CSV_JSON_ParserListener ) ((CSV_JSON_ParserListener)listener).exitArchivo(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSV_JSON_ParserVisitor ) return ((CSV_JSON_ParserVisitor<? extends T>)visitor).visitArchivo(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ArchivoContext archivo() throws RecognitionException {
 		ArchivoContext _localctx = new ArchivoContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_archivo);
-		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(7); 
+			setState(8);
+			filas();
+			setState(9);
+			match(EOF);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class FilasContext extends ParserRuleContext {
+		public List<FilaContext> fila() {
+			return getRuleContexts(FilaContext.class);
+		}
+		public FilaContext fila(int i) {
+			return getRuleContext(FilaContext.class,i);
+		}
+		public List<TerminalNode> SALTO_DE_LINEA() { return getTokens(CSV_JSON_Parser.SALTO_DE_LINEA); }
+		public TerminalNode SALTO_DE_LINEA(int i) {
+			return getToken(CSV_JSON_Parser.SALTO_DE_LINEA, i);
+		}
+		public FilasContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_filas; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CSV_JSON_ParserListener ) ((CSV_JSON_ParserListener)listener).enterFilas(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CSV_JSON_ParserListener ) ((CSV_JSON_ParserListener)listener).exitFilas(this);
+		}
+	}
+
+	public final FilasContext filas() throws RecognitionException {
+		FilasContext _localctx = new FilasContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_filas);
+		int _la;
+		try {
+			int _alt;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(11);
+			fila();
+			setState(16);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(12);
+					match(SALTO_DE_LINEA);
+					setState(13);
+					fila();
+					}
+					} 
+				}
+				setState(18);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
+			}
+			setState(20);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			do {
+			if (_la==SALTO_DE_LINEA) {
 				{
-				{
-				setState(6);
-				fila();
+				setState(19);
+				match(SALTO_DE_LINEA);
 				}
-				}
-				setState(9); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 30L) != 0) );
-			setState(11);
-			match(EOF);
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -159,7 +215,6 @@ public class CSV_JSON_Parser extends Parser {
 		public CampoContext campo(int i) {
 			return getRuleContext(CampoContext.class,i);
 		}
-		public TerminalNode SALTO_DE_LINEA() { return getToken(CSV_JSON_Parser.SALTO_DE_LINEA, 0); }
 		public List<TerminalNode> SEPARADOR() { return getTokens(CSV_JSON_Parser.SEPARADOR); }
 		public TerminalNode SEPARADOR(int i) {
 			return getToken(CSV_JSON_Parser.SEPARADOR, i);
@@ -176,40 +231,49 @@ public class CSV_JSON_Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CSV_JSON_ParserListener ) ((CSV_JSON_ParserListener)listener).exitFila(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSV_JSON_ParserVisitor ) return ((CSV_JSON_ParserVisitor<? extends T>)visitor).visitFila(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FilaContext fila() throws RecognitionException {
 		FilaContext _localctx = new FilaContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_fila);
+		enterRule(_localctx, 4, RULE_fila);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(13);
-			campo();
-			setState(18);
+			setState(23);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==TEXTO || _la==STRING) {
+				{
+				setState(22);
+				campo();
+				}
+			}
+
+			setState(31);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==SEPARADOR) {
 				{
 				{
-				setState(14);
+				setState(25);
 				match(SEPARADOR);
-				setState(15);
-				campo();
+				setState(27);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==TEXTO || _la==STRING) {
+					{
+					setState(26);
+					campo();
+					}
+				}
+
 				}
 				}
-				setState(20);
+				setState(33);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(21);
-			match(SALTO_DE_LINEA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -239,42 +303,25 @@ public class CSV_JSON_Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CSV_JSON_ParserListener ) ((CSV_JSON_ParserListener)listener).exitCampo(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSV_JSON_ParserVisitor ) return ((CSV_JSON_ParserVisitor<? extends T>)visitor).visitCampo(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CampoContext campo() throws RecognitionException {
 		CampoContext _localctx = new CampoContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_campo);
+		enterRule(_localctx, 6, RULE_campo);
+		int _la;
 		try {
-			setState(26);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case TEXTO:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(23);
-				match(TEXTO);
-				}
-				break;
-			case STRING:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(24);
-				match(STRING);
-				}
-				break;
-			case SEPARADOR:
-			case SALTO_DE_LINEA:
-				enterOuterAlt(_localctx, 3);
-				{
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(34);
+			_la = _input.LA(1);
+			if ( !(_la==TEXTO || _la==STRING) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -289,26 +336,32 @@ public class CSV_JSON_Parser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0005\u001d\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
-		"\u0002\u0002\u0007\u0002\u0001\u0000\u0004\u0000\b\b\u0000\u000b\u0000"+
-		"\f\u0000\t\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0005\u0001\u0011\b\u0001\n\u0001\f\u0001\u0014\t\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0003\u0002\u001b\b\u0002\u0001"+
-		"\u0002\u0000\u0000\u0003\u0000\u0002\u0004\u0000\u0000\u001d\u0000\u0007"+
-		"\u0001\u0000\u0000\u0000\u0002\r\u0001\u0000\u0000\u0000\u0004\u001a\u0001"+
-		"\u0000\u0000\u0000\u0006\b\u0003\u0002\u0001\u0000\u0007\u0006\u0001\u0000"+
-		"\u0000\u0000\b\t\u0001\u0000\u0000\u0000\t\u0007\u0001\u0000\u0000\u0000"+
-		"\t\n\u0001\u0000\u0000\u0000\n\u000b\u0001\u0000\u0000\u0000\u000b\f\u0005"+
-		"\u0000\u0000\u0001\f\u0001\u0001\u0000\u0000\u0000\r\u0012\u0003\u0004"+
-		"\u0002\u0000\u000e\u000f\u0005\u0003\u0000\u0000\u000f\u0011\u0003\u0004"+
-		"\u0002\u0000\u0010\u000e\u0001\u0000\u0000\u0000\u0011\u0014\u0001\u0000"+
-		"\u0000\u0000\u0012\u0010\u0001\u0000\u0000\u0000\u0012\u0013\u0001\u0000"+
-		"\u0000\u0000\u0013\u0015\u0001\u0000\u0000\u0000\u0014\u0012\u0001\u0000"+
-		"\u0000\u0000\u0015\u0016\u0005\u0004\u0000\u0000\u0016\u0003\u0001\u0000"+
-		"\u0000\u0000\u0017\u001b\u0005\u0001\u0000\u0000\u0018\u001b\u0005\u0002"+
-		"\u0000\u0000\u0019\u001b\u0001\u0000\u0000\u0000\u001a\u0017\u0001\u0000"+
-		"\u0000\u0000\u001a\u0018\u0001\u0000\u0000\u0000\u001a\u0019\u0001\u0000"+
-		"\u0000\u0000\u001b\u0005\u0001\u0000\u0000\u0000\u0003\t\u0012\u001a";
+		"\u0004\u0001\u0005%\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0001\u0000\u0001\u0000\u0001"+
+		"\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0005\u0001\u000f\b\u0001\n"+
+		"\u0001\f\u0001\u0012\t\u0001\u0001\u0001\u0003\u0001\u0015\b\u0001\u0001"+
+		"\u0002\u0003\u0002\u0018\b\u0002\u0001\u0002\u0001\u0002\u0003\u0002\u001c"+
+		"\b\u0002\u0005\u0002\u001e\b\u0002\n\u0002\f\u0002!\t\u0002\u0001\u0003"+
+		"\u0001\u0003\u0001\u0003\u0000\u0000\u0004\u0000\u0002\u0004\u0006\u0000"+
+		"\u0001\u0001\u0000\u0001\u0002%\u0000\b\u0001\u0000\u0000\u0000\u0002"+
+		"\u000b\u0001\u0000\u0000\u0000\u0004\u0017\u0001\u0000\u0000\u0000\u0006"+
+		"\"\u0001\u0000\u0000\u0000\b\t\u0003\u0002\u0001\u0000\t\n\u0005\u0000"+
+		"\u0000\u0001\n\u0001\u0001\u0000\u0000\u0000\u000b\u0010\u0003\u0004\u0002"+
+		"\u0000\f\r\u0005\u0004\u0000\u0000\r\u000f\u0003\u0004\u0002\u0000\u000e"+
+		"\f\u0001\u0000\u0000\u0000\u000f\u0012\u0001\u0000\u0000\u0000\u0010\u000e"+
+		"\u0001\u0000\u0000\u0000\u0010\u0011\u0001\u0000\u0000\u0000\u0011\u0014"+
+		"\u0001\u0000\u0000\u0000\u0012\u0010\u0001\u0000\u0000\u0000\u0013\u0015"+
+		"\u0005\u0004\u0000\u0000\u0014\u0013\u0001\u0000\u0000\u0000\u0014\u0015"+
+		"\u0001\u0000\u0000\u0000\u0015\u0003\u0001\u0000\u0000\u0000\u0016\u0018"+
+		"\u0003\u0006\u0003\u0000\u0017\u0016\u0001\u0000\u0000\u0000\u0017\u0018"+
+		"\u0001\u0000\u0000\u0000\u0018\u001f\u0001\u0000\u0000\u0000\u0019\u001b"+
+		"\u0005\u0003\u0000\u0000\u001a\u001c\u0003\u0006\u0003\u0000\u001b\u001a"+
+		"\u0001\u0000\u0000\u0000\u001b\u001c\u0001\u0000\u0000\u0000\u001c\u001e"+
+		"\u0001\u0000\u0000\u0000\u001d\u0019\u0001\u0000\u0000\u0000\u001e!\u0001"+
+		"\u0000\u0000\u0000\u001f\u001d\u0001\u0000\u0000\u0000\u001f \u0001\u0000"+
+		"\u0000\u0000 \u0005\u0001\u0000\u0000\u0000!\u001f\u0001\u0000\u0000\u0000"+
+		"\"#\u0007\u0000\u0000\u0000#\u0007\u0001\u0000\u0000\u0000\u0005\u0010"+
+		"\u0014\u0017\u001b\u001f";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

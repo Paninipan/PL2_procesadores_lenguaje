@@ -4,21 +4,20 @@ parser grammar CSV_JSON_Parser;
 options { tokenVocab=CSV_JSON_Lexer; }
 //cogemos las reglas producidas por el lexer
 
-archivo : fila+ EOF;
+// Un archivo CSV: una o más filas, y luego EOF
+archivo: filas EOF;
 
-    // Un archivo CSV esta formador por una o más filas
-    // El lexer añade al final del archivo el toquen EOF
-        //EOF = End Of File = fin del archivo
+// Conjunto de filas, separadas por saltos de línea.
+// El último salto de línea es opcional.
+filas: fila (SALTO_DE_LINEA fila)* (SALTO_DE_LINEA)?;
 
-
-fila : campo (SEPARADOR campo)* SALTO_DE_LINEA;
-
-    // Las filas estan formadas por un campo o un campor separador campo
-    // Procesadores,del;lenguaje|pl1
-    // Ademas acaban en saltos de linea \n
+// Una fila: campos separados por separadores.
+// Permitimos campos vacíos con campo?.
+fila: campo? (SEPARADOR campo?)*;
 
 
-campo : TEXTO | STRING | ;
 
-    // Un campo puede ser texto o una cadena entre comillas o estar vacio;
+campo : TEXTO | STRING;
+
+    // Un campo puede ser texto o una cadena entre comillas;
 
