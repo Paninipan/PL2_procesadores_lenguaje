@@ -1,6 +1,6 @@
 import org.antlr.v4.runtime.Token;
 
-public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
+public class EvalVisitor extends EJ3ParserBaseVisitor<Value> {
 
     private final SymbolTable symbols = new SymbolTable();
 
@@ -48,7 +48,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- programa y bloques ----------
 
     @Override
-    public Value visitPrograma(EJ1_2Parser.ProgramaContext ctx) {
+    public Value visitPrograma(EJ3Parser.ProgramaContext ctx) {
         // Ejecuta todas las sentencias/condicionales en orden
         for (var child : ctx.children) {
             visit(child);
@@ -57,7 +57,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitBloque(EJ1_2Parser.BloqueContext ctx) {
+    public Value visitBloque(EJ3Parser.BloqueContext ctx) {
         for (var child : ctx.children) {
             visit(child);
         }
@@ -67,7 +67,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- Declaración, asignación, impresión ----------
 
     @Override
-    public Value visitDeclaracion(EJ1_2Parser.DeclaracionContext ctx) {
+    public Value visitDeclaracion(EJ3Parser.DeclaracionContext ctx) {
         String nombre = ctx.ID().getText();
         Token tokenId = ctx.ID().getSymbol();
 
@@ -78,7 +78,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitAsignacion(EJ1_2Parser.AsignacionContext ctx) {
+    public Value visitAsignacion(EJ3Parser.AsignacionContext ctx) {
         String nombre = ctx.ID().getText();
         Token tokenId = ctx.ID().getSymbol();
 
@@ -101,7 +101,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitImpresion(EJ1_2Parser.ImpresionContext ctx) {
+    public Value visitImpresion(EJ3Parser.ImpresionContext ctx) {
         Value v = visit(ctx.expr_general());
         String line = v.asString();
 
@@ -117,7 +117,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- Control de bucle: break / continue ----------
 
     @Override
-    public Value visitControl_bucle(EJ1_2Parser.Control_bucleContext ctx) {
+    public Value visitControl_bucle(EJ3Parser.Control_bucleContext ctx) {
         if (ctx.ROMPER() != null) {
             throw new BreakException();
         } else if (ctx.CONTINUAR() != null) {
@@ -129,7 +129,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- If / condicional ----------
 
     @Override
-    public Value visitCondicional(EJ1_2Parser.CondicionalContext ctx) {
+    public Value visitCondicional(EJ3Parser.CondicionalContext ctx) {
         Value cond = visit(ctx.condicion());
         ensureBool(cond, ctx.condicion().start);
 
@@ -147,7 +147,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- Bucle mientras ----------
 
     @Override
-    public Value visitBucle_mientras(EJ1_2Parser.Bucle_mientrasContext ctx) {
+    public Value visitBucle_mientras(EJ3Parser.Bucle_mientrasContext ctx) {
         while (true) {
             Value cond = visit(ctx.condicion());
             ensureBool(cond, ctx.condicion().start);
@@ -169,7 +169,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- Bucle para ----------
 
     @Override
-    public Value visitBucle_para(EJ1_2Parser.Bucle_paraContext ctx) {
+    public Value visitBucle_para(EJ3Parser.Bucle_paraContext ctx) {
         String varName = ctx.ID().getText();
         Token tokenId = ctx.ID().getSymbol();
 
@@ -256,7 +256,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- Expresiones generales ----------
 
     @Override
-    public Value visitExpr_general(EJ1_2Parser.Expr_generalContext ctx) {
+    public Value visitExpr_general(EJ3Parser.Expr_generalContext ctx) {
         if (ctx.expresion() != null) {
             return visit(ctx.expresion());
         } else {
@@ -267,12 +267,12 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- Booleanos y condiciones ----------
 
     @Override
-    public Value visitCondicion(EJ1_2Parser.CondicionContext ctx) {
+    public Value visitCondicion(EJ3Parser.CondicionContext ctx) {
         return visit(ctx.bool_o());
     }
 
     @Override
-    public Value visitBool_o(EJ1_2Parser.Bool_oContext ctx) {
+    public Value visitBool_o(EJ3Parser.Bool_oContext ctx) {
         Value result = visit(ctx.bool_y(0));
         ensureBool(result, ctx.bool_y(0).start);
 
@@ -285,7 +285,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitBool_y(EJ1_2Parser.Bool_yContext ctx) {
+    public Value visitBool_y(EJ3Parser.Bool_yContext ctx) {
         Value result = visit(ctx.bool_no(0));
         ensureBool(result, ctx.bool_no(0).start);
 
@@ -298,7 +298,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitBool_no(EJ1_2Parser.Bool_noContext ctx) {
+    public Value visitBool_no(EJ3Parser.Bool_noContext ctx) {
         if (ctx.NOT() != null) {
             Value v = visit(ctx.bool_no());
             ensureBool(v, ctx.bool_no().start);
@@ -313,7 +313,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitComparacion(EJ1_2Parser.ComparacionContext ctx) {
+    public Value visitComparacion(EJ3Parser.ComparacionContext ctx) {
         // comparacion : operando_cmp operador_relacional operando_cmp ;
 
         Value left  = visit(ctx.operando_cmp(0));
@@ -392,7 +392,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
 
 
     @Override
-    public Value visitBooleano(EJ1_2Parser.BooleanoContext ctx) {
+    public Value visitBooleano(EJ3Parser.BooleanoContext ctx) {
         if (ctx.VERDADERO() != null) {
             return new Value(Type.BOOL, true);
         } else if (ctx.FALSO() != null) {
@@ -411,7 +411,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     // ---------- Aritmética: expresion, termino, factor, atomo ----------
 
     @Override
-    public Value visitExpresion(EJ1_2Parser.ExpresionContext ctx) {
+    public Value visitExpresion(EJ3Parser.ExpresionContext ctx) {
         Value result = visit(ctx.termino(0));
 
         for (int i = 1; i < ctx.termino().size(); i++) {
@@ -439,7 +439,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitTermino(EJ1_2Parser.TerminoContext ctx) {
+    public Value visitTermino(EJ3Parser.TerminoContext ctx) {
         Value result = visit(ctx.factor(0));
 
         for (int i = 1; i < ctx.factor().size(); i++) {
@@ -470,7 +470,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitFactor(EJ1_2Parser.FactorContext ctx) {
+    public Value visitFactor(EJ3Parser.FactorContext ctx) {
         if (ctx.RESTA() != null) {
             Value v = visit(ctx.factor());
             ensureNumeric(v, ctx.factor().start);
@@ -487,7 +487,7 @@ public class EvalVisitor extends EJ1_2ParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitAtomo(EJ1_2Parser.AtomoContext ctx) {
+    public Value visitAtomo(EJ3Parser.AtomoContext ctx) {
         if (ctx.INT() != null) {
             int v = Integer.parseInt(ctx.INT().getText());
             return new Value(Type.INT, v);

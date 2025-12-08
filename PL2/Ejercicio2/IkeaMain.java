@@ -33,6 +33,7 @@ public class IkeaMain {
      */
     public static void main(String[] args) throws IOException {
 
+        /*
         // 1) Validación de argumentos: necesitamos exactamente entrada + salida
         if (args.length != 2) {
             System.err.println("Uso: java IkeaMain <entrada.txt> <salida_ast.txt>");
@@ -40,6 +41,10 @@ public class IkeaMain {
         }
         String inPath = args[0];
         String outPath = args[1];
+        */
+
+        String inPath = "PL2/Ejercicio2/Muebeles_txt/baggebo.txt";
+        String outPath = "PL2/Ejercicio2/ast.txt";
 
         // 2) Crear CharStream desde el fichero de entrada (texto con los pasos de montaje)
         CharStream input = CharStreams.fromFileName(inPath);

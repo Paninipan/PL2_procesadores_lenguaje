@@ -1,4 +1,4 @@
-lexer grammar EJ1_2Lexer;
+lexer grammar EJ3Lexer;
 //definimos la gramtica del Lexer
 
 // Palabras clave

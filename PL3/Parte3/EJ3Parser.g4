@@ -1,7 +1,7 @@
-parser grammar EJ1_2Parser;
+parser grammar EJ3Parser;
 //definimos la gramtica del Parser
 
-options { tokenVocab=EJ1_2Lexer; }
+options { tokenVocab=EJ3Lexer; }
 //cogemos las reglas producidas por el lexer
 
 // Programa completo

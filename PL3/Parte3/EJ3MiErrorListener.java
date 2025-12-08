@@ -1,8 +1,6 @@
-
 import org.antlr.v4.runtime.*;
-
 /**
- * EJ1_2MiErrorListener
+ * EJ3MiErrorListener
  *
  * Listener personalizado para capturar y formatear errores producidos por ANTLR
  * tanto en la fase léxica (lexer) como en la fase sintáctica (parser).
@@ -14,7 +12,7 @@ import org.antlr.v4.runtime.*;
  *   parser.addErrorListener(new EJ1_2MiErrorListener());
  *
  */
-public class EJ1_2MiErrorListener extends BaseErrorListener {
+public class EJ3MiErrorListener extends BaseErrorListener {
 
     /**
      * Callback que ANTLR invoca cuando detecta un error.

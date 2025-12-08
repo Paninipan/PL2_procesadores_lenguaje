@@ -1,4 +1,4 @@
-// Generated from EJ1_2Parser.g4 by ANTLR 4.13.2
+// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL2/Ejercicio1_2/EJ1_2Parser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -99,12 +99,6 @@ public interface EJ1_2ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBool_no(EJ1_2Parser.Bool_noContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link EJ1_2Parser#operando_cmp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOperando_cmp(EJ1_2Parser.Operando_cmpContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link EJ1_2Parser#comparacion}.
 	 * @param ctx the parse tree

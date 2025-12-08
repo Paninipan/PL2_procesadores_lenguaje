@@ -1,4 +1,4 @@
-// Generated from EJ1_2Parser.g4 by ANTLR 4.13.2
+// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL2/Ejercicio1_2/EJ1_2Parser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

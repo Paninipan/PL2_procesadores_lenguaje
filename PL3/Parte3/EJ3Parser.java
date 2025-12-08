@@ -1,4 +1,4 @@
-// Generated from EJ1_2Parser.g4 by ANTLR 4.13.2
+// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL3/Parte3/EJ3Parser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
-public class EJ1_2Parser extends Parser {
+public class EJ3Parser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -96,7 +96,7 @@ public class EJ1_2Parser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "EJ1_2Parser.g4"; }
+	public String getGrammarFileName() { return "EJ3Parser.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -107,14 +107,14 @@ public class EJ1_2Parser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public EJ1_2Parser(TokenStream input) {
+	public EJ3Parser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ProgramaContext extends ParserRuleContext {
-		public TerminalNode EOF() { return getToken(EJ1_2Parser.EOF, 0); }
+		public TerminalNode EOF() { return getToken(EJ3Parser.EOF, 0); }
 		public List<SentenciaContext> sentencia() {
 			return getRuleContexts(SentenciaContext.class);
 		}
@@ -133,15 +133,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_programa; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterPrograma(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterPrograma(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitPrograma(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitPrograma(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitPrograma(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitPrograma(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -217,15 +217,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_sentencia; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterSentencia(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterSentencia(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitSentencia(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitSentencia(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitSentencia(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitSentencia(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -291,28 +291,28 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclaracionContext extends ParserRuleContext {
-		public TerminalNode ASIGNAR() { return getToken(EJ1_2Parser.ASIGNAR, 0); }
-		public TerminalNode ID() { return getToken(EJ1_2Parser.ID, 0); }
-		public TerminalNode ASIGNACION() { return getToken(EJ1_2Parser.ASIGNACION, 0); }
+		public TerminalNode ASIGNAR() { return getToken(EJ3Parser.ASIGNAR, 0); }
+		public TerminalNode ID() { return getToken(EJ3Parser.ID, 0); }
+		public TerminalNode ASIGNACION() { return getToken(EJ3Parser.ASIGNACION, 0); }
 		public Expr_generalContext expr_general() {
 			return getRuleContext(Expr_generalContext.class,0);
 		}
-		public TerminalNode FIN_LINEA() { return getToken(EJ1_2Parser.FIN_LINEA, 0); }
+		public TerminalNode FIN_LINEA() { return getToken(EJ3Parser.FIN_LINEA, 0); }
 		public DeclaracionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracion; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterDeclaracion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterDeclaracion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitDeclaracion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitDeclaracion(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitDeclaracion(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitDeclaracion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -348,27 +348,27 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AsignacionContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(EJ1_2Parser.ID, 0); }
-		public TerminalNode ASIGNACION() { return getToken(EJ1_2Parser.ASIGNACION, 0); }
+		public TerminalNode ID() { return getToken(EJ3Parser.ID, 0); }
+		public TerminalNode ASIGNACION() { return getToken(EJ3Parser.ASIGNACION, 0); }
 		public Expr_generalContext expr_general() {
 			return getRuleContext(Expr_generalContext.class,0);
 		}
-		public TerminalNode FIN_LINEA() { return getToken(EJ1_2Parser.FIN_LINEA, 0); }
+		public TerminalNode FIN_LINEA() { return getToken(EJ3Parser.FIN_LINEA, 0); }
 		public AsignacionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_asignacion; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterAsignacion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterAsignacion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitAsignacion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitAsignacion(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitAsignacion(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitAsignacion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -402,26 +402,26 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ImpresionContext extends ParserRuleContext {
-		public TerminalNode MOSTRAR() { return getToken(EJ1_2Parser.MOSTRAR, 0); }
+		public TerminalNode MOSTRAR() { return getToken(EJ3Parser.MOSTRAR, 0); }
 		public Expr_generalContext expr_general() {
 			return getRuleContext(Expr_generalContext.class,0);
 		}
-		public TerminalNode FIN_LINEA() { return getToken(EJ1_2Parser.FIN_LINEA, 0); }
+		public TerminalNode FIN_LINEA() { return getToken(EJ3Parser.FIN_LINEA, 0); }
 		public ImpresionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_impresion; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterImpresion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterImpresion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitImpresion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitImpresion(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitImpresion(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitImpresion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -465,15 +465,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_bucle; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterBucle(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBucle(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBucle(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBucle(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBucle(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBucle(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -516,31 +516,31 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Bucle_mientrasContext extends ParserRuleContext {
-		public TerminalNode MIENTRAS() { return getToken(EJ1_2Parser.MIENTRAS, 0); }
+		public TerminalNode MIENTRAS() { return getToken(EJ3Parser.MIENTRAS, 0); }
 		public CondicionContext condicion() {
 			return getRuleContext(CondicionContext.class,0);
 		}
-		public TerminalNode HACER() { return getToken(EJ1_2Parser.HACER, 0); }
-		public TerminalNode FLECHA() { return getToken(EJ1_2Parser.FLECHA, 0); }
+		public TerminalNode HACER() { return getToken(EJ3Parser.HACER, 0); }
+		public TerminalNode FLECHA() { return getToken(EJ3Parser.FLECHA, 0); }
 		public BloqueContext bloque() {
 			return getRuleContext(BloqueContext.class,0);
 		}
-		public TerminalNode TERMINAR() { return getToken(EJ1_2Parser.TERMINAR, 0); }
+		public TerminalNode TERMINAR() { return getToken(EJ3Parser.TERMINAR, 0); }
 		public Bucle_mientrasContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bucle_mientras; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterBucle_mientras(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBucle_mientras(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBucle_mientras(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBucle_mientras(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBucle_mientras(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBucle_mientras(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -578,38 +578,38 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Bucle_paraContext extends ParserRuleContext {
-		public TerminalNode PARA() { return getToken(EJ1_2Parser.PARA, 0); }
-		public TerminalNode ID() { return getToken(EJ1_2Parser.ID, 0); }
-		public TerminalNode DESDE() { return getToken(EJ1_2Parser.DESDE, 0); }
+		public TerminalNode PARA() { return getToken(EJ3Parser.PARA, 0); }
+		public TerminalNode ID() { return getToken(EJ3Parser.ID, 0); }
+		public TerminalNode DESDE() { return getToken(EJ3Parser.DESDE, 0); }
 		public List<ExpresionContext> expresion() {
 			return getRuleContexts(ExpresionContext.class);
 		}
 		public ExpresionContext expresion(int i) {
 			return getRuleContext(ExpresionContext.class,i);
 		}
-		public TerminalNode HASTA() { return getToken(EJ1_2Parser.HASTA, 0); }
-		public TerminalNode HACER() { return getToken(EJ1_2Parser.HACER, 0); }
-		public TerminalNode FLECHA() { return getToken(EJ1_2Parser.FLECHA, 0); }
+		public TerminalNode HASTA() { return getToken(EJ3Parser.HASTA, 0); }
+		public TerminalNode HACER() { return getToken(EJ3Parser.HACER, 0); }
+		public TerminalNode FLECHA() { return getToken(EJ3Parser.FLECHA, 0); }
 		public BloqueContext bloque() {
 			return getRuleContext(BloqueContext.class,0);
 		}
-		public TerminalNode TERMINAR() { return getToken(EJ1_2Parser.TERMINAR, 0); }
-		public TerminalNode PASO() { return getToken(EJ1_2Parser.PASO, 0); }
+		public TerminalNode TERMINAR() { return getToken(EJ3Parser.TERMINAR, 0); }
+		public TerminalNode PASO() { return getToken(EJ3Parser.PASO, 0); }
 		public Bucle_paraContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bucle_para; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterBucle_para(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBucle_para(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBucle_para(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBucle_para(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBucle_para(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBucle_para(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -668,24 +668,24 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Control_bucleContext extends ParserRuleContext {
-		public TerminalNode ROMPER() { return getToken(EJ1_2Parser.ROMPER, 0); }
-		public TerminalNode FIN_LINEA() { return getToken(EJ1_2Parser.FIN_LINEA, 0); }
-		public TerminalNode CONTINUAR() { return getToken(EJ1_2Parser.CONTINUAR, 0); }
+		public TerminalNode ROMPER() { return getToken(EJ3Parser.ROMPER, 0); }
+		public TerminalNode FIN_LINEA() { return getToken(EJ3Parser.FIN_LINEA, 0); }
+		public TerminalNode CONTINUAR() { return getToken(EJ3Parser.CONTINUAR, 0); }
 		public Control_bucleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_control_bucle; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterControl_bucle(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterControl_bucle(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitControl_bucle(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitControl_bucle(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitControl_bucle(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitControl_bucle(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -735,11 +735,11 @@ public class EJ1_2Parser extends Parser {
 		public CondicionContext condicion() {
 			return getRuleContext(CondicionContext.class,0);
 		}
-		public TerminalNode MARCA_COND() { return getToken(EJ1_2Parser.MARCA_COND, 0); }
-		public TerminalNode SI() { return getToken(EJ1_2Parser.SI, 0); }
-		public List<TerminalNode> FLECHA() { return getTokens(EJ1_2Parser.FLECHA); }
+		public TerminalNode MARCA_COND() { return getToken(EJ3Parser.MARCA_COND, 0); }
+		public TerminalNode SI() { return getToken(EJ3Parser.SI, 0); }
+		public List<TerminalNode> FLECHA() { return getTokens(EJ3Parser.FLECHA); }
 		public TerminalNode FLECHA(int i) {
-			return getToken(EJ1_2Parser.FLECHA, i);
+			return getToken(EJ3Parser.FLECHA, i);
 		}
 		public List<BloqueContext> bloque() {
 			return getRuleContexts(BloqueContext.class);
@@ -747,23 +747,23 @@ public class EJ1_2Parser extends Parser {
 		public BloqueContext bloque(int i) {
 			return getRuleContext(BloqueContext.class,i);
 		}
-		public TerminalNode TERMINAR() { return getToken(EJ1_2Parser.TERMINAR, 0); }
-		public TerminalNode SI_NO() { return getToken(EJ1_2Parser.SI_NO, 0); }
+		public TerminalNode TERMINAR() { return getToken(EJ3Parser.TERMINAR, 0); }
+		public TerminalNode SI_NO() { return getToken(EJ3Parser.SI_NO, 0); }
 		public CondicionalContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_condicional; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterCondicional(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterCondicional(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitCondicional(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitCondicional(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitCondicional(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitCondicional(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -834,15 +834,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_bloque; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterBloque(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBloque(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBloque(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBloque(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBloque(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBloque(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -904,15 +904,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_condicion; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterCondicion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterCondicion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitCondicion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitCondicion(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitCondicion(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitCondicion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -946,9 +946,9 @@ public class EJ1_2Parser extends Parser {
 		public Bool_yContext bool_y(int i) {
 			return getRuleContext(Bool_yContext.class,i);
 		}
-		public List<TerminalNode> OR() { return getTokens(EJ1_2Parser.OR); }
+		public List<TerminalNode> OR() { return getTokens(EJ3Parser.OR); }
 		public TerminalNode OR(int i) {
-			return getToken(EJ1_2Parser.OR, i);
+			return getToken(EJ3Parser.OR, i);
 		}
 		public Bool_oContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -956,15 +956,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_bool_o; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterBool_o(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBool_o(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBool_o(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBool_o(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBool_o(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBool_o(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1015,9 +1015,9 @@ public class EJ1_2Parser extends Parser {
 		public Bool_noContext bool_no(int i) {
 			return getRuleContext(Bool_noContext.class,i);
 		}
-		public List<TerminalNode> AND() { return getTokens(EJ1_2Parser.AND); }
+		public List<TerminalNode> AND() { return getTokens(EJ3Parser.AND); }
 		public TerminalNode AND(int i) {
-			return getToken(EJ1_2Parser.AND, i);
+			return getToken(EJ3Parser.AND, i);
 		}
 		public Bool_yContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1025,15 +1025,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_bool_y; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterBool_y(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBool_y(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBool_y(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBool_y(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBool_y(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBool_y(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1078,15 +1078,15 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Bool_noContext extends ParserRuleContext {
-		public TerminalNode NOT() { return getToken(EJ1_2Parser.NOT, 0); }
+		public TerminalNode NOT() { return getToken(EJ3Parser.NOT, 0); }
 		public Bool_noContext bool_no() {
 			return getRuleContext(Bool_noContext.class,0);
 		}
-		public TerminalNode PAREN_ABRE() { return getToken(EJ1_2Parser.PAREN_ABRE, 0); }
+		public TerminalNode PAREN_ABRE() { return getToken(EJ3Parser.PAREN_ABRE, 0); }
 		public CondicionContext condicion() {
 			return getRuleContext(CondicionContext.class,0);
 		}
-		public TerminalNode PAREN_CIERRA() { return getToken(EJ1_2Parser.PAREN_CIERRA, 0); }
+		public TerminalNode PAREN_CIERRA() { return getToken(EJ3Parser.PAREN_CIERRA, 0); }
 		public ComparacionContext comparacion() {
 			return getRuleContext(ComparacionContext.class,0);
 		}
@@ -1099,15 +1099,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_bool_no; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterBool_no(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBool_no(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBool_no(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBool_no(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBool_no(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBool_no(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1180,15 +1180,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_operando_cmp; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterOperando_cmp(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterOperando_cmp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitOperando_cmp(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitOperando_cmp(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitOperando_cmp(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitOperando_cmp(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1244,15 +1244,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_comparacion; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterComparacion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterComparacion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitComparacion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitComparacion(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitComparacion(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitComparacion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1284,24 +1284,24 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class BooleanoContext extends ParserRuleContext {
-		public TerminalNode VERDADERO() { return getToken(EJ1_2Parser.VERDADERO, 0); }
-		public TerminalNode FALSO() { return getToken(EJ1_2Parser.FALSO, 0); }
-		public TerminalNode ID() { return getToken(EJ1_2Parser.ID, 0); }
+		public TerminalNode VERDADERO() { return getToken(EJ3Parser.VERDADERO, 0); }
+		public TerminalNode FALSO() { return getToken(EJ3Parser.FALSO, 0); }
+		public TerminalNode ID() { return getToken(EJ3Parser.ID, 0); }
 		public BooleanoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_booleano; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterBooleano(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBooleano(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitBooleano(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBooleano(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitBooleano(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBooleano(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1338,27 +1338,27 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Operador_relacionalContext extends ParserRuleContext {
-		public TerminalNode IGUAL() { return getToken(EJ1_2Parser.IGUAL, 0); }
-		public TerminalNode DISTINTO() { return getToken(EJ1_2Parser.DISTINTO, 0); }
-		public TerminalNode MENOR() { return getToken(EJ1_2Parser.MENOR, 0); }
-		public TerminalNode MENOR_IGUAL() { return getToken(EJ1_2Parser.MENOR_IGUAL, 0); }
-		public TerminalNode MAYOR() { return getToken(EJ1_2Parser.MAYOR, 0); }
-		public TerminalNode MAYOR_IGUAL() { return getToken(EJ1_2Parser.MAYOR_IGUAL, 0); }
+		public TerminalNode IGUAL() { return getToken(EJ3Parser.IGUAL, 0); }
+		public TerminalNode DISTINTO() { return getToken(EJ3Parser.DISTINTO, 0); }
+		public TerminalNode MENOR() { return getToken(EJ3Parser.MENOR, 0); }
+		public TerminalNode MENOR_IGUAL() { return getToken(EJ3Parser.MENOR_IGUAL, 0); }
+		public TerminalNode MAYOR() { return getToken(EJ3Parser.MAYOR, 0); }
+		public TerminalNode MAYOR_IGUAL() { return getToken(EJ3Parser.MAYOR_IGUAL, 0); }
 		public Operador_relacionalContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operador_relacional; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterOperador_relacional(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterOperador_relacional(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitOperador_relacional(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitOperador_relacional(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitOperador_relacional(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitOperador_relacional(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1401,13 +1401,13 @@ public class EJ1_2Parser extends Parser {
 		public TerminoContext termino(int i) {
 			return getRuleContext(TerminoContext.class,i);
 		}
-		public List<TerminalNode> SUMA() { return getTokens(EJ1_2Parser.SUMA); }
+		public List<TerminalNode> SUMA() { return getTokens(EJ3Parser.SUMA); }
 		public TerminalNode SUMA(int i) {
-			return getToken(EJ1_2Parser.SUMA, i);
+			return getToken(EJ3Parser.SUMA, i);
 		}
-		public List<TerminalNode> RESTA() { return getTokens(EJ1_2Parser.RESTA); }
+		public List<TerminalNode> RESTA() { return getTokens(EJ3Parser.RESTA); }
 		public TerminalNode RESTA(int i) {
-			return getToken(EJ1_2Parser.RESTA, i);
+			return getToken(EJ3Parser.RESTA, i);
 		}
 		public ExpresionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1415,15 +1415,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_expresion; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterExpresion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExpresion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitExpresion(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExpresion(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitExpresion(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExpresion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1484,13 +1484,13 @@ public class EJ1_2Parser extends Parser {
 		public FactorContext factor(int i) {
 			return getRuleContext(FactorContext.class,i);
 		}
-		public List<TerminalNode> MULT() { return getTokens(EJ1_2Parser.MULT); }
+		public List<TerminalNode> MULT() { return getTokens(EJ3Parser.MULT); }
 		public TerminalNode MULT(int i) {
-			return getToken(EJ1_2Parser.MULT, i);
+			return getToken(EJ3Parser.MULT, i);
 		}
-		public List<TerminalNode> DIV() { return getTokens(EJ1_2Parser.DIV); }
+		public List<TerminalNode> DIV() { return getTokens(EJ3Parser.DIV); }
 		public TerminalNode DIV(int i) {
-			return getToken(EJ1_2Parser.DIV, i);
+			return getToken(EJ3Parser.DIV, i);
 		}
 		public TerminoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1498,15 +1498,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_termino; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterTermino(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterTermino(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitTermino(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitTermino(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitTermino(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitTermino(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1559,15 +1559,15 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class FactorContext extends ParserRuleContext {
-		public TerminalNode RESTA() { return getToken(EJ1_2Parser.RESTA, 0); }
+		public TerminalNode RESTA() { return getToken(EJ3Parser.RESTA, 0); }
 		public FactorContext factor() {
 			return getRuleContext(FactorContext.class,0);
 		}
-		public TerminalNode PAREN_ABRE() { return getToken(EJ1_2Parser.PAREN_ABRE, 0); }
+		public TerminalNode PAREN_ABRE() { return getToken(EJ3Parser.PAREN_ABRE, 0); }
 		public ExpresionContext expresion() {
 			return getRuleContext(ExpresionContext.class,0);
 		}
-		public TerminalNode PAREN_CIERRA() { return getToken(EJ1_2Parser.PAREN_CIERRA, 0); }
+		public TerminalNode PAREN_CIERRA() { return getToken(EJ3Parser.PAREN_CIERRA, 0); }
 		public AtomoContext atomo() {
 			return getRuleContext(AtomoContext.class,0);
 		}
@@ -1577,15 +1577,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_factor; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterFactor(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterFactor(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitFactor(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitFactor(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitFactor(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitFactor(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1644,25 +1644,25 @@ public class EJ1_2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AtomoContext extends ParserRuleContext {
-		public TerminalNode INT() { return getToken(EJ1_2Parser.INT, 0); }
-		public TerminalNode FLOAT() { return getToken(EJ1_2Parser.FLOAT, 0); }
-		public TerminalNode STRING() { return getToken(EJ1_2Parser.STRING, 0); }
-		public TerminalNode ID() { return getToken(EJ1_2Parser.ID, 0); }
+		public TerminalNode INT() { return getToken(EJ3Parser.INT, 0); }
+		public TerminalNode FLOAT() { return getToken(EJ3Parser.FLOAT, 0); }
+		public TerminalNode STRING() { return getToken(EJ3Parser.STRING, 0); }
+		public TerminalNode ID() { return getToken(EJ3Parser.ID, 0); }
 		public AtomoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_atomo; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterAtomo(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterAtomo(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitAtomo(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitAtomo(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitAtomo(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitAtomo(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1711,15 +1711,15 @@ public class EJ1_2Parser extends Parser {
 		@Override public int getRuleIndex() { return RULE_expr_general; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).enterExpr_general(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExpr_general(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ1_2ParserListener ) ((EJ1_2ParserListener)listener).exitExpr_general(this);
+			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExpr_general(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ1_2ParserVisitor ) return ((EJ1_2ParserVisitor<? extends T>)visitor).visitExpr_general(this);
+			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExpr_general(this);
 			else return visitor.visitChildren(this);
 		}
 	}

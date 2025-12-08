@@ -1,4 +1,4 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL2/Ejercicio1_2/EJ1_2Lexer.g4 by ANTLR 4.13.2
+// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL3/Parte3/EJ3Lexer.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
-public class EJ1_2Lexer extends Lexer {
+public class EJ3Lexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -97,13 +97,13 @@ public class EJ1_2Lexer extends Lexer {
 	}
 
 
-	public EJ1_2Lexer(CharStream input) {
+	public EJ3Lexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "EJ1_2Lexer.g4"; }
+	public String getGrammarFileName() { return "EJ3Lexer.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

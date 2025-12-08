@@ -52,16 +52,18 @@ public class EJ1_2Main {
 
         // Validación de argumentos: exigimos exactamente entrada + salida
 
+        /*
         if (args.length != 2) {
             System.err.println("Uso: java EJ1_2Main <entrada.txt> <salida.txt>");
             System.exit(1);
         }
         String inPath = args[0];
         String outPath = args[1];
+        */
 
         // Ejemplos comentados que pueden usarse en ejecución desde IDE
-        //String inPath = "Ejercicio1_2/programa_IF_Bool.txt";
-        //String outPath = "Ejercicio1_2/ast.txt";
+        String inPath = "PL2/Ejercicio1_2/programa_IF_Bool.txt";
+        String outPath = "PL2/Ejercicio1_2/ast.txt";
 
         // 1) Crear CharStream desde fichero. Lanza IOException si no existe/permiso.
         CharStream input = CharStreams.fromFileName(inPath);

@@ -24,13 +24,23 @@ public class CSV_JSON_Main {
     public static void main(String[] args) throws IOException {
 
         // 1. Comprobación de argumentos
+
+        String inputPath, outputPath;
+
+        /*
         if (args.length != 2) {
             System.err.println("Uso: java CSV_JSON_Main <input.csv> <output.json>");
             System.exit(1);
         }
 
-        String inputPath = args[0];
-        String outputPath = args[1];
+        inputPath = args[0];
+        outputPath = args[1];
+        */
+
+        //Ejemplos comentados que pueden usarse en ejecución desde IDE
+        inputPath = "PL3/Parte1/archivo.csv";
+        outputPath = "PL3/Parte1/json.txt";
+
 
         // 2. Leer fichero de entrada como CharStream
         CharStream input = CharStreams.fromFileName(inputPath);

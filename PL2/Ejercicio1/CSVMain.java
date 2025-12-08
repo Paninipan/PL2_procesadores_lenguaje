@@ -43,6 +43,7 @@ public class CSVMain {
      */
     public static void main(String[] args) throws IOException {
 
+        /*
         if (args.length != 2) {
             System.err.println("Uso: java CSVMain <input.csv> <output.txt>");
             System.exit(1);
@@ -50,10 +51,11 @@ public class CSVMain {
 
         String inputPath = args[0];
         String outputPath = args[1];
+        */
 
         // Ejemplos comentados que pueden usarse en ejecución desde IDE
-        //String inputPath = "Ejercicio1/archivo.csv";
-        //String outputPath = "Ejercicio1/ast.txt";
+        String inputPath = "PL2/Ejercicio1/archivo.csv";
+        String outputPath = "PL2/Ejercicio1/ast.txt";
 
         // 1. Leer fichero
         CharStream input = CharStreams.fromFileName(inputPath);
@@ -71,7 +73,7 @@ public class CSVMain {
         ParseTree tree = parser.archivo();
 
         // 6. Listener + Walker para construir AST
-        CSV_JSON_Printer printer = new CSV_JSON_Printer();
+        CSVASTPrinter printer = new CSVASTPrinter();
         // usamos el walker por defecto que proporciona ANTLR para recorrer el árbol
         ParseTreeWalker.DEFAULT.walk(printer, tree);
 
