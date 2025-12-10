@@ -1,0 +1,13 @@
+Para ejecutar Jasmine correctemente y tener el codigo de compilacion:
+
+Ir a la ruta de los ejercicios:
+cd PL3/Parte2
+
+Para compilar cada ejercicio:
+java -jar (direccion de jasmine.jar) -d "Codigo_Class" (nombre del ejerecio)
+
+"\Codigo_Class" = dir de almacenaje para no saturar el dir Parte2
+
+Ejemplo {Álvaro}:
+java -jar $env:Jasmine -d "Code_Ex_Generado" Ex04_PrintBoolean.j
+$env:Jasmine = variable en el path llamada así para acceder al .jar
