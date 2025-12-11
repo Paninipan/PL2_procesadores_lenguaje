@@ -25,13 +25,15 @@ public class EJ3_Main {
     }
 
     public static void main(String[] args) throws Exception {
-
+        /*
         if (args.length != 1) {
             System.err.println("Uso: java EJ3_Main <fichero_fuente.txt>");
             return;
         }
+        */
+        String nombreFichero; //= args[0];
+        nombreFichero = "PL3/Parte3/Archivos_txt/For1.txt";
 
-        String nombreFichero = args[0];
         System.out.println("Leyendo fichero: " + nombreFichero);
 
         // 1) Leemos el código fuente
@@ -74,7 +76,7 @@ public class EJ3_Main {
         String jasmin = createJasminFile(body);
 
         // 8) Guardamos como Program.j
-        Files.write(Paths.get("Program.j"), jasmin.getBytes(StandardCharsets.UTF_8));
+        Files.write(Paths.get("PL3/Parte3/Exj_jasmine/For1.j"), jasmin.getBytes(StandardCharsets.UTF_8));
         System.out.println("Generado Program.j. Ahora puedes ensamblarlo con Jasmin.");
     }
 }

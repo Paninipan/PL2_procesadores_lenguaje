@@ -1,0 +1,7 @@
+# Operaciones con floats y mezcla int/float
+asignar x = 3.0 ;P
+asignar y = 2.5 ;P
+# z = x * y + 10 / 4
+asignar z = x * y + 10 / 4 ;P
+
+mostrar z ;P      # 3.0 * 2.5 = 7.5; 10/4 = 2 (entero); 7.5 + 2 = 9.5

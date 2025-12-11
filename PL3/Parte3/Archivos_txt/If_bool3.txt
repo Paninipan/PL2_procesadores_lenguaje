@@ -1,0 +1,7 @@
+# Literal booleano directo
+falso ???
+si ->
+  mostrar "nunca" ;P
+no ->
+  mostrar "siempre" ;P
+terminar

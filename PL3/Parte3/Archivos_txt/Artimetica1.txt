@@ -1,0 +1,11 @@
+# Factorial de n usando while
+asignar n = 5 ;P
+asignar i = 1 ;P
+asignar fact = 1 ;P
+
+mientras i <= n hacer ->
+  fact = fact * i ;P
+  i = i + 1 ;P
+terminar
+
+mostrar fact ;P   # Debería ser 120

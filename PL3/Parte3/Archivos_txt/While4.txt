@@ -1,0 +1,21 @@
+
+# Bucles anidados: 'romper' sale del más interno
+asignar i = 2 ;P
+asignar j = 3 ;P
+
+mientras i > 0 hacer ->
+  j = 3 ;P
+  mientras j > 0 hacer ->
+    j = j - 1 ;P
+    (j == 1) ???
+    si ->
+      romper ;P
+    terminar
+    mostrar "fin iter j" ;P
+  terminar
+  i = i - 1 ;P
+terminar
+
+mostrar "fin anidado" ;P
+
+

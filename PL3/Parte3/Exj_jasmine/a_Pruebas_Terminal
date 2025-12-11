@@ -1,0 +1,187 @@
+--- Resultados de Ejecuciones de Java ---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado Artimetica1
+Resultado: 
+120
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado Artimetica2
+Resultado:
+9.5
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado Artimetica3
+Resultado:
+30
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado Artimetica4
+Resultado:
+factorial mayor que suma
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado Basico
+Resultado:
+3
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado For1
+Resultado:
+for 1 - i vale: 
+0
+for 1 - i vale: 
+1
+for 1 - i vale: 
+2
+for 1 - i vale: 
+3
+for 1 - i vale: 
+4
+for 1 - i vale: 
+5
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado For2
+Resultado:
+for 2 - j vale: 
+0
+for 2 - j vale: 
+2
+for 2 - j vale: 
+4
+for 2 - j vale: 
+6
+for 2 - j vale: 
+8
+for 2 - j vale: 
+10
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado For3
+Resultado:
+for 3 - k vale: 
+0
+for 3 - k vale: 
+1
+for 3 - k vale: 
+2
+for 3 - k vale: 
+3
+for 3 - k vale: 
+4
+for 3 - k vale: 
+5
+for 3 - k vale: 
+6
+for 3 - k vale: 
+7
+for 3 - k vale: 
+8
+for 3 - k vale: 
+9
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado For4
+Resultado:
+(No hay salida visible, se muestra solo el prompt de la consola)
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado For5
+Resultado:
+for 5 - x valido: 
+1
+for 5 - x valido: 
+2
+for 5 - x valido: 
+3
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado If_bool1
+Resultado:
+rama THEN 1
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado If_bool2
+Resultado:
+a es mayor que b
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado If_bool3
+Resultado:
+siempre
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado If_bool4
+Resultado:
+a sigue siendo positivo
+10
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado If_bool5
+Resultado:
+Error: Could not find or load main class If_bool5
+Caused by: java.lang.ClassNotFoundException: If_bool5
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado While1
+Resultado:
+3
+2
+1
+fin while basico
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado While2 (Primera Ejecución)
+Resultado:
+x <= 2
+solo se ve si no hubo continuar
+x <= 2
+solo se ve si no hubo continuar
+x <= 2
+solo se ve si no hubo continuar
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado While2 (Segunda Ejecución)
+Resultado:
+x <= 2
+solo se ve si no hubo continuar
+x <= 2
+solo se ve si no hubo continuar
+x <= 2
+solo se ve si no hubo continuar
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado While3
+Resultado:
+3
+2
+1
+fin while con romper
+
+---
+
+Ejecución: java -cp Exj_jasmine\Code_Ex_Generado While4
+Resultado:
+fin iter j
+fin iter j
+fin anidado
+
+---

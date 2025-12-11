@@ -1,0 +1,14 @@
+
+# Demostración de 'romper' (sale del bucle)
+asignar b = 3 ;P
+
+mientras verdadero hacer ->
+  mostrar b ;P
+  b = b - 1 ;P
+  (b == 0) ???
+  si ->
+    romper ;P
+  terminar
+terminar
+
+mostrar "fin while con romper" ;P

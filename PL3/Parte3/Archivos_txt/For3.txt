@@ -1,0 +1,10 @@
+# Inicialización de algunas variables
+asignar incremento = 2 ;P
+
+#FOR con PASO como expresión compleja
+#Esperable: PARA k DESDE 0 HASTA 9 PASO incremento-1
+
+para k desde 0 hasta 9 paso incremento-1 hacer ->
+    mostrar "for 3 - k vale: " ;P
+    mostrar k ;P
+terminar

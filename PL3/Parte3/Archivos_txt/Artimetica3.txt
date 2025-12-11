@@ -1,0 +1,9 @@
+# Suma de cuadrados con bucle for
+asignar limite = 4 ;P
+asignar suma = 0 ;P
+
+para k desde 1 hasta limite paso 1 hacer ->
+  suma = suma + k * k ;P    # 1^2 + 2^2 + 3^2 + 4^2 = 30
+terminar
+
+mostrar suma ;P

@@ -1,0 +1,6 @@
+#FOR con paso por defecto (i++)
+#Esperable: PARA i DESDE 0 HASTA 5
+para i desde 0 hasta 5 hacer ->
+    mostrar "for 1 - i vale: " ;P
+    mostrar i ;P
+terminar

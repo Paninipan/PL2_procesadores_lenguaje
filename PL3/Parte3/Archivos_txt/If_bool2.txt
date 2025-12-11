@@ -1,0 +1,11 @@
+
+# Comparación simple con else (no ->)
+asignar a = 20 ;P
+asignar b = 6 ;P
+
+a > b ???
+si ->
+  mostrar "a es mayor que b" ;P
+no ->
+  mostrar "a no es mayor que b" ;P
+terminar

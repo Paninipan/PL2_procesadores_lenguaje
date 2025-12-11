@@ -1,0 +1,9 @@
+# Bucle mientras con decremento
+asignar a = 3 ;P
+
+mientras a > 0 hacer ->
+  mostrar a ;P
+  a = a - 1 ;P
+terminar
+
+mostrar "fin while basico" ;P

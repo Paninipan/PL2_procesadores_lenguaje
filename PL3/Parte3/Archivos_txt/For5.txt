@@ -1,0 +1,22 @@
+#FOR con if, romper y continuar
+#solo imprime valores entre 1 y 3
+#usa 'continuar' para saltar 0
+#usa 'romper' para cortar en 4
+
+para x desde 0 hasta 10 hacer ->
+    # si x == 0 -> continuar
+    x == 0 ??? si ->
+        continuar ;P
+    terminar
+
+    # si x == 4 -> romper
+    x == 4 ??? si ->
+        romper ;P
+    terminar
+
+    # si 1 <= x <= 3 -> mostrar
+    x >= 1 and x <= 3 ??? si ->
+        mostrar "for 5 - x valido: " ;P
+        mostrar x ;P
+    terminar
+terminar

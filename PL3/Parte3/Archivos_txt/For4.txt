@@ -1,0 +1,7 @@
+#FOR decreciente con PASO negativo, PASO -1
+#Esperable: PARA t DESDE 5 HASTA 0 PASO -1
+
+para t desde 5 hasta 0 paso -1 hacer ->
+    mostrar "for 4 - t vale: " ;P
+    mostrar t ;P
+terminar

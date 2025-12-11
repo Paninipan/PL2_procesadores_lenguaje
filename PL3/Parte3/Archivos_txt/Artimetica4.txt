@@ -1,0 +1,10 @@
+# If con comparación numérica entre fact y suma
+asignar fact = 1 ;P
+asignar suma = 0 ;P
+
+fact > suma ??? si ->
+  mostrar "factorial mayor que suma" ;P
+no ->
+  mostrar "factorial menor o igual que suma" ;P
+terminar
+

@@ -233,19 +233,20 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
             return "";
         }
 
-        String labelInicio = newLabel();
-        String labelFin    = newLabel();
+        String labelInicio     = newLabel();
+        String labelFin        = newLabel();
+        String labelIncremento = newLabel(); // ⬅️ 1. NUEVA ETIQUETA
 
         pilaBreak.push(labelFin);
-        pilaContinue.push(labelInicio);
+        pilaContinue.push(labelIncremento); // ⬅️ 2. 'continuar' AHORA SALTA AL INCREMENTO
 
         StringBuilder sb = new StringBuilder();
 
-        // i = inicio
+        // i = inicio (Inicialización)
         sb.append(visit(ctx.inicio));
         sb.append(instruccionStore(Tipo.INT, var.direccion));
 
-        // inicio bucle
+        // inicio bucle (Comprobación de condición)
         sb.append(labelInicio).append(":\n");
 
         // condición i <= fin
@@ -255,8 +256,11 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
 
         // cuerpo
         sb.append(visit(ctx.cuerpo));
+        sb.append("   goto ").append(labelIncremento).append("\n"); // ⬅️ 3. SALTO AL INCREMENTO
 
         // actualización i = i + paso (o 1)
+        sb.append(labelIncremento).append(":\n"); // ⬅️ 4. ETIQUETA DE INCREMENTO
+
         sb.append(instruccionLoad(Tipo.INT, var.direccion));
         if (ctx.paso != null) {
             sb.append(visit(ctx.paso));
@@ -266,7 +270,7 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
         sb.append("   iadd\n");
         sb.append(instruccionStore(Tipo.INT, var.direccion));
 
-        sb.append("   goto ").append(labelInicio).append("\n");
+        sb.append("   goto ").append(labelInicio).append("\n"); // Vuelve a la Condición
         sb.append(labelFin).append(":\n");
 
         pilaBreak.pop();

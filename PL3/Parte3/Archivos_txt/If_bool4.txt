@@ -1,0 +1,16 @@
+
+# If anidado con else (no ->)
+asignar a = 20 ;P
+
+a - 10 > 0 ???
+si ->
+  a = a - 10 ;P
+  a > 0 ???
+  si ->
+    mostrar "a sigue siendo positivo" ;P
+  no ->
+    mostrar "a ya no es positivo" ;P
+  terminar
+terminar
+
+mostrar a ;P

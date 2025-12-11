@@ -1,0 +1,14 @@
+
+# Demostración de 'continuar' (salta al siguiente ciclo)
+asignar x = 5 ;P
+
+mientras x > 0 hacer ->
+  x = x - 1 ;P
+  (x > 2) ???
+  si ->
+    continuar ;P
+  no ->
+    mostrar "x <= 2" ;P
+  terminar
+  mostrar "solo se ve si no hubo continuar" ;P
+terminar

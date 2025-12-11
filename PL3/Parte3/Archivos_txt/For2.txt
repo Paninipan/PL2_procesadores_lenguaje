@@ -1,0 +1,6 @@
+#FOR con PASO modificado, constante positivo (2)
+#Esperable: PARA j DESDE 0 HASTA 10 PASO 2
+para j desde 0 hasta 10 paso 2 hacer ->
+    mostrar "for 2 - j vale: " ;P
+    mostrar j ;P
+terminar

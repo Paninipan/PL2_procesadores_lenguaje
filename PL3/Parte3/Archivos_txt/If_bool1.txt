@@ -1,0 +1,10 @@
+# Condicional con booleanos y precedencia: not > and > or
+asignar a = 20 ;P
+asignar b = 6 ;P
+
+(a > 10 and not (b <= 0)) or verdadero ???
+si ->
+  mostrar "rama THEN 1" ;P
+no ->
+  mostrar "rama ELSE 1" ;P
+terminar
