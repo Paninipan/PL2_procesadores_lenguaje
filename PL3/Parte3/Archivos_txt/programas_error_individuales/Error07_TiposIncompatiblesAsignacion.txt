@@ -1,0 +1,9 @@
+# Error 07 - Asignación con tipos incompatibles (semántico)
+# Ejemplo: asignar un string a una variable previamente usada como int.
+# Mensaje esperado:
+# ERROR SEMÁNTICO: No se puede asignar valor de tipo STRING a variable de tipo INT (línea X, columna Y)
+
+# Código de prueba:
+
+asignar a = 3 ;P        # a es INT
+asignar a = "hola" ;P  # intento asignar STRING a INT

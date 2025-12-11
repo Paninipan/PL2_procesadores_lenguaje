@@ -1,0 +1,16 @@
+# Error 16 - Comparación de igualdad entre tipos incompatibles (semántico)
+# Ejemplo: comparar BOOL con INT usando '=='
+# Mensaje esperado:
+# ERROR SEMÁNTICO: Comparación de igualdad entre tipos incompatibles: BOOL y INT (línea X, columna Y)
+
+# Código de prueba:
+
+asignar a = verdadero ;P      # a : BOOL
+asignar b = 3 ;P              # b : INT
+
+a == b ???
+si ->
+  mostrar "iguales" ;P
+no ->
+  mostrar "distintos" ;P
+terminar

@@ -1,0 +1,8 @@
+# Error 12 - 'romper' o 'continuar' fuera de un bucle (semántico/control de flujo)
+# Ejemplo: usar 'continuar' sin estar dentro de un bucle.
+# Mensaje esperado:
+# ERROR DE CONTROL DE BUCLE: 'romper' o 'continuar' fuera de un bucle (línea X, columna Y)
+
+# Código de prueba:
+
+continuar ;P

@@ -1,0 +1,20 @@
+# Error 15 - Rango del 'para' no entero (semántico)
+# Ejemplo: uno de los límites del bucle 'para' no es entero.
+# Mensaje esperado (si el valor 'desde' no es entero):
+# ERROR SEMÁNTICO: El inicio del bucle 'para' debe ser entero (tipo actual: FLOAT) (línea X, columna Y)
+# Mensaje esperado (si el valor 'hasta' no es entero):
+# ERROR SEMÁNTICO: El límite del bucle 'para' debe ser entero (tipo actual: FLOAT) (línea X, columna Y)
+
+# Código de prueba (puedes modificar para probar ambos casos):
+
+# Caso A: 'desde' no entero
+asignar desde_val = 1.5 ;P
+para i desde desde_val hasta 10 hacer ->
+  mostrar i ;P
+terminar
+
+# Caso B: 'hasta' no entero
+asignar hasta_val = 9.2 ;P
+para j desde 0 hasta hasta_val hacer ->
+  mostrar j ;P
+terminar

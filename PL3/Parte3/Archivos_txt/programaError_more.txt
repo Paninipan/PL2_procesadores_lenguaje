@@ -1,0 +1,142 @@
+# Archivo de pruebas de errores extendido
+# Ubicación: PL3/Parte3/Archivos_txt/programaError_more.txt
+# Instrucciones: cada bloque es independiente. Probar uno por uno para ver el error claro.
+# Las líneas de comentario que empiezan por # explican qué se espera que falle.
+
+
+#################################################################
+# Sección 1: ERRORES LÉXICOS
+#################################################################
+
+# 1.1 Carácter ilegal en identificador
+# Se utiliza '@' en el nombre de una variable — token inválido para muchos analizadores léxicos.
+asignar var@ = 5 ;P
+
+# 1.2 Símbolo numérico mal formado
+# Se introduce un número con coma o con formato no aceptado por el lexer (si solo se admiten enteros)
+asignar a = 12.34 ;P
+
+# 1.3 Cadena sin cerrar
+# Falta la comilla de cierre -> error léxico o de cadena no terminada
+mostrar "Esta cadena no se cierra ;P
+
+# 1.4 Caracteres Unicode/acentos inesperados en tokens reservados
+# Si el lexer sólo acepta palabras clave en ASCII exacto, esto debe fallar
+asignár b = 3 ;P
+
+# 1.5 Comentario mal iniciado o carácter inválido aislado
+# Caracteres aislados como '#' dentro del código (no en comentario) pueden fallar
+asignar a = 5 # no es comentario válido aquí ;P
+
+
+#################################################################
+# Sección 2: ERRORES SINTÁCTICOS
+#################################################################
+
+# 2.1 Falta de terminador `;P` en asignación
+asignar a = 10
+
+# 2.2 Orden de tokens inválido: falta operador entre operandos
+# (p. ej. dos identificadores seguidos sin operador)
+asignar a b = 5 ;P
+
+# 2.3 Sentencia if incompleta (falta condición o flecha)
+# ¿Olvidó poner la condición antes de '->'?
+si ->
+  mostrar "incompleto" ;P
+terminar
+
+# 2.4 Etiqueta 'no ->' (else) sin si previo
+# Ejemplo tomado del archivo anterior: else huérfano
+no ->
+  mostrar "huérfano" ;P
+terminar
+
+# 2.5 Paréntesis/operador mal escrito en expresión
+# Si la gramática admite paréntesis, un paréntesis sin cerrar debería fallar
+asignar x = ( 5 + 3 ;P
+
+# 2.6 Bloque `si` sin `terminar` (falta cierre)
+verdadero ???
+si ->
+  mostrar "falta el terminar" ;P
+# (no hay 'terminar' ni otra terminación)
+
+# 2.7 Declaración con palabra reservada mal colocada
+# Por ejemplo: colocar `mostrar` donde va una expresión
+asignar a = mostrar "hola" ;P
+
+
+#################################################################
+# Sección 3: ERRORES SEMÁNTICOS (TIPOS Y CONTEXTO)
+#################################################################
+
+# 3.1 Uso de variable antes de asignarla (no declarada/definida)
+# Si el compilador exige asignación previa para usar una variable, esto debe fallar
+mostrar a ;P
+
+# 3.2 Asignación con incompatibilidad de tipos (cadena a entero)
+asignar a = "texto" ;P
+asignar b = a + 1 ;P   # suma entre string e int -> mismatched types
+
+# 3.3 Comparación inválida: comparar tipos incompatibles
+# (ejemplo: comparar string con número sin conversión)
+asignar s = "5" ;P
+s ??? 5
+si ->
+  mostrar "comp" ;P
+terminar
+
+# 3.4 Redefinición/conflicto de nombre (si la semántica lo prohíbe)
+# Primero usamos la variable como entero, luego como procedimiento o palabra reservada
+asignar x = 10 ;P
+asignar x = verdadero ;P    # usar booleano si la variable se esperaba int (según reglas)
+
+# 3.5 Operación aritmética con operandos no numéricos
+asignar c = "hola" + "mundo" ;P   # concat: OK si existe, pero si '+' sólo opera en números debe fallar
+asignar d = c * 2 ;P               # multiplicar string por int -> si no está definido, es error semántico
+
+# 3.6 Llamada a función/método inexistente (si el lenguaje soporta llamadas)
+# (ejemplo ilustrativo: la gramática podría admitir llamadas, y aquí falta el símbolo)
+invocar noExiste() ;P
+
+# 3.7 If con condición que no es booleana (p. ej. una cadena)
+asignar t = "texto" ;P
+si t ->
+  mostrar "cond no booleana" ;P
+terminar
+
+# 3.8 Índices o accesos fuera de rango (si hay arrays; ejemplo genérico)
+# asumiendo que existe sintaxis para arrays: intentar leer índice negativo
+asignar arr[0] = 1 ;P
+mostrar arr[-1] ;P
+
+# 3.9 División por cero detectable en tiempo de compilación (si se detecta constante cero)
+asignar a = 10 ;P
+asignar b = a / 0 ;P
+
+# 3.10 Uso de `return` o `ireturn` fuera de función (si el lenguaje tiene return)
+# (ejemplo si la gramática solo permite retornar dentro de funciones)
+return 5 ;P
+
+
+#################################################################
+# Sección 4: CASOS COMBINADOS (ERRORES MULTIPLES) — útiles para ver manejo de errores en cascada
+#################################################################
+
+# 4.1 Error léxico + sintáctico: token ilegal + falta terminador
+asignar %var = "hola" 
+
+# 4.2 Error sintáctico seguido de semántico: bloque mal cerrado y después uso de variable no definida
+si 5 > 3 ->
+  mostrar "A" ;P
+# falta terminar
+mostrar x ;P
+
+# 4.3 Errores en cadenas y caracteres: comillas mal escapadas
+mostrar "Comillas \" mal formadas ;P
+
+
+# FIN de archivo de pruebas extendido
+# Recomendación: ejecutar estos fragmentos uno a uno para aislar la salida del compilador
+# Si quieres, puedo generar un script PowerShell que intente compilar cada bloque por separado
