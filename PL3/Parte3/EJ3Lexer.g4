@@ -49,6 +49,8 @@ ASIGNACION : '=';
 //Ampliación 1: multiplicación y división:
 MULT : '*' ;
 DIV  : '/' ;
+POT : '^';
+MOD : '%';
 
 PAREN_ABRE : '(';
 PAREN_CIERRA : ')';

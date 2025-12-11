@@ -51,18 +51,50 @@ public class EvalVisitor extends EJ3ParserBaseVisitor<Value> {
     public Value visitPrograma(EJ3Parser.ProgramaContext ctx) {
         // Ejecuta todas las sentencias/condicionales en orden
         for (var child : ctx.children) {
+            vild : ctx.children) {
             visit(child);
         }
         return Value.VOID;
     }
 
+    // ---------- Potencias ----------
+
     @Override
-    public Value visitBloque(EJ3Parser.BloqueContext ctx) {
-        for (var child : ctx.children) {
-            visit(child);
+    public Value visitPotencia(EJ3Parser.PotenciaContext ctx) {
+        // potencia = fsit(child);
+        //        }
+        //        return Value.VOID;
+        //    }
+        //
+        //    @Override
+        //    public Value visitBloque(EJ3Parser.BloqueContext ctx) {
+            //        for (var chiactor ('^' potencia)?
+            Value baseV = visit(ctx.factor());
+            ensureNumeric(baseV, ctx.factor().start);
+
+            if (ctx.potencia() != null) {
+            // asociatividad por la derecha: a ^ b ^ c = a ^ (b ^ c)
+            Value expV = visit(ctx.potencia());
+            ensureNumeric(expV, ctx.potencia().start);
+
+            double base = baseV.asFloat();
+            double exp  = expV.asFloat();
+            double res  = Math.pow(base, exp);
+
+            // Si ambos eran INT y el resultado es entero, devolvemos INT; si no, FLOAT
+            if (baseV.getType() == Type.INT &&
+                    expV.getType()  == Type.INT &&
+                    Math.floor(res) == res) {
+                return new Value(Type.INT, (int) res);
+            } else {
+                return new Value(Type.FLOAT, (float) res);
+            }
         }
-        return Value.VOID;
+
+        // Solo factor, sin '^'
+        return baseV;
     }
+
 
     // ---------- Declaración, asignación, impresión ----------
 
@@ -440,27 +472,48 @@ public class EvalVisitor extends EJ3ParserBaseVisitor<Value> {
 
     @Override
     public Value visitTermino(EJ3Parser.TerminoContext ctx) {
-        Value result = visit(ctx.factor(0));
+        // valor inicial = primera potencia
+        Value result = visit(ctx.potencia(0));
 
-        for (int i = 1; i < ctx.factor().size(); i++) {
-            Value right = visit(ctx.factor(i));
-            Token opTok = (ctx.MULT(i - 1) != null) ? ctx.MULT(i - 1).getSymbol()
-                    : ctx.DIV(i - 1).getSymbol();
+        // Recorremos los operadores * / % y las potencias siguientes
+        for (int i = 1; i < ctx.potencia().size(); i++) {
+            Value right = visit(ctx.potencia(i));
+
+            // El patrón en el parse tree es: potencia, op, potencia, op, potencia, ...
+            // Por eso el operador entre potencia(i-1) y potencia(i) está en la posición 2*i-1
+            TerminalNode opNode = (TerminalNode) ctx.getChild(2 * i - 1);
+            Token opTok = opNode.getSymbol();
             String op = opTok.getText();
 
-            ensureNumeric(result, ctx.factor(i - 1).start);
-            ensureNumeric(right, ctx.factor(i).start);
+            ensureNumeric(result, ctx.potencia(i - 1).start);
+            ensureNumeric(right,  ctx.potencia(i).start);
 
             float a = result.asFloat();
             float b = right.asFloat();
 
+            // Comprobaciones de división / módulo por cero
             if (op.equals("/") && b == 0.0f) {
                 throw error(opTok, "División por cero");
             }
+            if (op.equals("%") && b == 0.0f) {
+                throw error(opTok, "Módulo por cero");
+            }
 
-            float r = op.equals("*") ? a * b : a / b;
+            float r;
+            if (op.equals("*")) {
+                r = a * b;
+            } else if (op.equals("/")) {
+                r = a / b;
+            } else { // "%"
+                r = a % b;
+            }
 
-            if (result.getType() == Type.INT && right.getType() == Type.INT && op.equals("*")) {
+            // Reglas de tipo:
+            // - Si ambos eran INT y el operador es * o % -> mantenemos INT
+            // - El resto -> FLOAT (para evitar pérdidas raras en divisiones)
+            if (result.getType() == Type.INT &&
+                    right.getType()  == Type.INT &&
+                    (op.equals("*") || op.equals("%"))) {
                 result = new Value(Type.INT, (int) r);
             } else {
                 result = new Value(Type.FLOAT, r);
@@ -468,6 +521,7 @@ public class EvalVisitor extends EJ3ParserBaseVisitor<Value> {
         }
         return result;
     }
+
 
     @Override
     public Value visitFactor(EJ3Parser.FactorContext ctx) {

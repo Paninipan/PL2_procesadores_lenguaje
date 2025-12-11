@@ -242,18 +242,20 @@ public class EJ3ASTPrinter extends EJ3ParserBaseListener {
     }
 
     private String toTerm(EJ3Parser.TerminoContext c) {
-        // Igual idea para * y /
+        // Recorre termino = potencia ((* | / | %) potencia)*
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < c.getChildCount(); i++) {
             ParseTree ch = c.getChild(i);
-            if (ch instanceof EJ3Parser.FactorContext) {
-                b.append(toFactor((EJ3Parser.FactorContext) ch));
+            if (ch instanceof EJ3Parser.PotenciaContext) {
+                b.append(toPotencia((EJ3Parser.PotenciaContext) ch));
             } else {
+                // Aquí entran los operadores * / %
                 b.append(" ").append(ch.getText()).append(" ");
             }
         }
         return b.toString().trim();
     }
+
 
     private String toFactor(EJ3Parser.FactorContext c) {
         if (c.RESTA() != null) return "-" + wrapFactor(c.factor());
@@ -272,6 +274,22 @@ public class EJ3ASTPrinter extends EJ3ParserBaseListener {
         if (c.STRING() != null) return c.STRING().getText();
         return c.ID().getText();
     }
+
+    private String toPotencia(EJ3Parser.PotenciaContext c) {
+        // Recorre potencia = factor ('^' potencia)?
+        StringBuilder b = new StringBuilder();
+        for (int i = 0; i < c.getChildCount(); i++) {
+            ParseTree ch = c.getChild(i);
+            if (ch instanceof EJ3Parser.FactorContext) {
+                b.append(toFactor((EJ3Parser.FactorContext) ch));
+            } else {
+                // Aquí entra el operador '^'
+                b.append(" ").append(ch.getText()).append(" ");
+            }
+        }
+        return b.toString().trim();
+    }
+
 
     // -----------------------
     // HELPERS: expresión general (aritmética o booleana)
