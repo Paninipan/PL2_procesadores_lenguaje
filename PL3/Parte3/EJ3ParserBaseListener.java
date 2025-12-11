@@ -1,4 +1,4 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL3/Parte3/EJ3Parser.g4 by ANTLR 4.13.2
+// Generated from EJ3Parser.g4 by ANTLR 4.13.2
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -160,37 +160,73 @@ public class EJ3ParserBaseListener implements EJ3ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBool_o(EJ3Parser.Bool_oContext ctx) { }
+	@Override public void enterBoolOr(EJ3Parser.BoolOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBool_o(EJ3Parser.Bool_oContext ctx) { }
+	@Override public void exitBoolOr(EJ3Parser.BoolOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBool_y(EJ3Parser.Bool_yContext ctx) { }
+	@Override public void enterBoolAnd(EJ3Parser.BoolAndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBool_y(EJ3Parser.Bool_yContext ctx) { }
+	@Override public void exitBoolAnd(EJ3Parser.BoolAndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBool_no(EJ3Parser.Bool_noContext ctx) { }
+	@Override public void enterBoolNot(EJ3Parser.BoolNotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBool_no(EJ3Parser.Bool_noContext ctx) { }
+	@Override public void exitBoolNot(EJ3Parser.BoolNotContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoolParen(EJ3Parser.BoolParenContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolParen(EJ3Parser.BoolParenContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoolComp(EJ3Parser.BoolCompContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolComp(EJ3Parser.BoolCompContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoolAtom(EJ3Parser.BoolAtomContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolAtom(EJ3Parser.BoolAtomContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -244,37 +280,73 @@ public class EJ3ParserBaseListener implements EJ3ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpresion(EJ3Parser.ExpresionContext ctx) { }
+	@Override public void enterExprSumRes(EJ3Parser.ExprSumResContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpresion(EJ3Parser.ExpresionContext ctx) { }
+	@Override public void exitExprSumRes(EJ3Parser.ExprSumResContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTermino(EJ3Parser.TerminoContext ctx) { }
+	@Override public void enterExprMulDivMod(EJ3Parser.ExprMulDivModContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTermino(EJ3Parser.TerminoContext ctx) { }
+	@Override public void exitExprMulDivMod(EJ3Parser.ExprMulDivModContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFactor(EJ3Parser.FactorContext ctx) { }
+	@Override public void enterExprPow(EJ3Parser.ExprPowContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFactor(EJ3Parser.FactorContext ctx) { }
+	@Override public void exitExprPow(EJ3Parser.ExprPowContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprNeg(EJ3Parser.ExprNegContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprNeg(EJ3Parser.ExprNegContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprParen(EJ3Parser.ExprParenContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprParen(EJ3Parser.ExprParenContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprAtom(EJ3Parser.ExprAtomContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprAtom(EJ3Parser.ExprAtomContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -292,13 +364,25 @@ public class EJ3ParserBaseListener implements EJ3ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_general(EJ3Parser.Expr_generalContext ctx) { }
+	@Override public void enterExprGeneralArith(EJ3Parser.ExprGeneralArithContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr_general(EJ3Parser.Expr_generalContext ctx) { }
+	@Override public void exitExprGeneralArith(EJ3Parser.ExprGeneralArithContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprGeneralBool(EJ3Parser.ExprGeneralBoolContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprGeneralBool(EJ3Parser.ExprGeneralBoolContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

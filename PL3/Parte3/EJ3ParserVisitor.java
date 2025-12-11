@@ -1,4 +1,4 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL3/Parte3/EJ3Parser.g4 by ANTLR 4.13.2
+// Generated from EJ3Parser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -82,23 +82,47 @@ public interface EJ3ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCondicion(EJ3Parser.CondicionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link EJ3Parser#bool_o}.
+	 * Visit a parse tree produced by the {@code BoolOr}
+	 * labeled alternative in {@link EJ3Parser#bool_o}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBool_o(EJ3Parser.Bool_oContext ctx);
+	T visitBoolOr(EJ3Parser.BoolOrContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link EJ3Parser#bool_y}.
+	 * Visit a parse tree produced by the {@code BoolAnd}
+	 * labeled alternative in {@link EJ3Parser#bool_y}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBool_y(EJ3Parser.Bool_yContext ctx);
+	T visitBoolAnd(EJ3Parser.BoolAndContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link EJ3Parser#bool_no}.
+	 * Visit a parse tree produced by the {@code BoolNot}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBool_no(EJ3Parser.Bool_noContext ctx);
+	T visitBoolNot(EJ3Parser.BoolNotContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BoolParen}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolParen(EJ3Parser.BoolParenContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BoolComp}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolComp(EJ3Parser.BoolCompContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BoolAtom}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolAtom(EJ3Parser.BoolAtomContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link EJ3Parser#operando_cmp}.
 	 * @param ctx the parse tree
@@ -124,23 +148,47 @@ public interface EJ3ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitOperador_relacional(EJ3Parser.Operador_relacionalContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link EJ3Parser#expresion}.
+	 * Visit a parse tree produced by the {@code ExprSumRes}
+	 * labeled alternative in {@link EJ3Parser#expresion}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpresion(EJ3Parser.ExpresionContext ctx);
+	T visitExprSumRes(EJ3Parser.ExprSumResContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link EJ3Parser#termino}.
+	 * Visit a parse tree produced by the {@code ExprMulDivMod}
+	 * labeled alternative in {@link EJ3Parser#termino}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTermino(EJ3Parser.TerminoContext ctx);
+	T visitExprMulDivMod(EJ3Parser.ExprMulDivModContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link EJ3Parser#factor}.
+	 * Visit a parse tree produced by the {@code ExprPow}
+	 * labeled alternative in {@link EJ3Parser#potencia}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFactor(EJ3Parser.FactorContext ctx);
+	T visitExprPow(EJ3Parser.ExprPowContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ExprNeg}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprNeg(EJ3Parser.ExprNegContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ExprParen}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprParen(EJ3Parser.ExprParenContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ExprAtom}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprAtom(EJ3Parser.ExprAtomContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link EJ3Parser#atomo}.
 	 * @param ctx the parse tree
@@ -148,9 +196,17 @@ public interface EJ3ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAtomo(EJ3Parser.AtomoContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link EJ3Parser#expr_general}.
+	 * Visit a parse tree produced by the {@code ExprGeneralArith}
+	 * labeled alternative in {@link EJ3Parser#expr_general}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr_general(EJ3Parser.Expr_generalContext ctx);
+	T visitExprGeneralArith(EJ3Parser.ExprGeneralArithContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ExprGeneralBool}
+	 * labeled alternative in {@link EJ3Parser#expr_general}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprGeneralBool(EJ3Parser.ExprGeneralBoolContext ctx);
 }

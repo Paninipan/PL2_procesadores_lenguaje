@@ -12,8 +12,8 @@ terminar
 
 
 # Comparación simple con else (no ->)
-asignar a = 20 ;P
-asignar b = 6 ;P
+a = 20 ;P
+b = 6 ;P
 
 a > b ???
 si ->
@@ -35,7 +35,7 @@ terminar
 
 
 # If anidado con else (no ->)
-asignar a = 20 ;P
+a = 20 ;P
 
 a - 10 > 0 ???
 si ->

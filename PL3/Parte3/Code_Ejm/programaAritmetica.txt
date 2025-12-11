@@ -1,13 +1,41 @@
-# Aritmética con + - * / y unario -
-asignar a = 20 ;P
-asignar A = verdadero ;P
-asignar B = falso ;P
-asignar C = falso ;P
-asignar b = A or B and C ;P
-#b sería variable booleana. Por las prioridades debe ser b= A or (B and C) , verdadero.
-#Si analizamos sin prioridad, analizando de izq a dcha, sería falso
+# Programa de prueba aritmética compleja
 
-a = a + 4 * (b - 2) ;P
+# Factorial de n usando while
+asignar n = 5 ;P
+asignar i = 1 ;P
+asignar fact = 1 ;P
 
-mostrar a ;P
-mostrar b ;P
+mientras i <= n hacer ->
+  fact = fact * i ;P
+  i = i + 1 ;P
+terminar
+
+mostrar fact ;P   # Debería ser 120
+
+
+# Operaciones con floats y mezcla int/float
+asignar x = 3.0 ;P
+asignar y = 2.5 ;P
+# z = x * y + 10 / 4
+asignar z = x * y + 10 / 4 ;P
+
+mostrar z ;P      # 3.0 * 2.5 = 7.5; 10/4 = 2 (entero); 7.5 + 2 = 9.5
+
+
+# Suma de cuadrados con bucle for
+asignar limite = 4 ;P
+asignar suma = 0 ;P
+
+para k desde 1 hasta limite paso 1 hacer ->
+  suma = suma + k * k ;P    # 1^2 + 2^2 + 3^2 + 4^2 = 30
+terminar
+
+mostrar suma ;P
+
+
+# If con comparación numérica entre fact y suma
+fact > suma ??? si ->
+  mostrar "factorial mayor que suma" ;P
+no ->
+  mostrar "factorial menor o igual que suma" ;P
+terminar

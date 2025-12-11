@@ -1,4 +1,4 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL3/Parte3/EJ3Parser.g4 by ANTLR 4.13.2
+// Generated from EJ3Parser.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -127,35 +127,77 @@ public interface EJ3ParserListener extends ParseTreeListener {
 	 */
 	void exitCondicion(EJ3Parser.CondicionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EJ3Parser#bool_o}.
+	 * Enter a parse tree produced by the {@code BoolOr}
+	 * labeled alternative in {@link EJ3Parser#bool_o}.
 	 * @param ctx the parse tree
 	 */
-	void enterBool_o(EJ3Parser.Bool_oContext ctx);
+	void enterBoolOr(EJ3Parser.BoolOrContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EJ3Parser#bool_o}.
+	 * Exit a parse tree produced by the {@code BoolOr}
+	 * labeled alternative in {@link EJ3Parser#bool_o}.
 	 * @param ctx the parse tree
 	 */
-	void exitBool_o(EJ3Parser.Bool_oContext ctx);
+	void exitBoolOr(EJ3Parser.BoolOrContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EJ3Parser#bool_y}.
+	 * Enter a parse tree produced by the {@code BoolAnd}
+	 * labeled alternative in {@link EJ3Parser#bool_y}.
 	 * @param ctx the parse tree
 	 */
-	void enterBool_y(EJ3Parser.Bool_yContext ctx);
+	void enterBoolAnd(EJ3Parser.BoolAndContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EJ3Parser#bool_y}.
+	 * Exit a parse tree produced by the {@code BoolAnd}
+	 * labeled alternative in {@link EJ3Parser#bool_y}.
 	 * @param ctx the parse tree
 	 */
-	void exitBool_y(EJ3Parser.Bool_yContext ctx);
+	void exitBoolAnd(EJ3Parser.BoolAndContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EJ3Parser#bool_no}.
+	 * Enter a parse tree produced by the {@code BoolNot}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
 	 * @param ctx the parse tree
 	 */
-	void enterBool_no(EJ3Parser.Bool_noContext ctx);
+	void enterBoolNot(EJ3Parser.BoolNotContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EJ3Parser#bool_no}.
+	 * Exit a parse tree produced by the {@code BoolNot}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
 	 * @param ctx the parse tree
 	 */
-	void exitBool_no(EJ3Parser.Bool_noContext ctx);
+	void exitBoolNot(EJ3Parser.BoolNotContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BoolParen}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolParen(EJ3Parser.BoolParenContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BoolParen}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolParen(EJ3Parser.BoolParenContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BoolComp}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolComp(EJ3Parser.BoolCompContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BoolComp}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolComp(EJ3Parser.BoolCompContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BoolAtom}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolAtom(EJ3Parser.BoolAtomContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BoolAtom}
+	 * labeled alternative in {@link EJ3Parser#bool_no}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolAtom(EJ3Parser.BoolAtomContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EJ3Parser#operando_cmp}.
 	 * @param ctx the parse tree
@@ -197,35 +239,77 @@ public interface EJ3ParserListener extends ParseTreeListener {
 	 */
 	void exitOperador_relacional(EJ3Parser.Operador_relacionalContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EJ3Parser#expresion}.
+	 * Enter a parse tree produced by the {@code ExprSumRes}
+	 * labeled alternative in {@link EJ3Parser#expresion}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpresion(EJ3Parser.ExpresionContext ctx);
+	void enterExprSumRes(EJ3Parser.ExprSumResContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EJ3Parser#expresion}.
+	 * Exit a parse tree produced by the {@code ExprSumRes}
+	 * labeled alternative in {@link EJ3Parser#expresion}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpresion(EJ3Parser.ExpresionContext ctx);
+	void exitExprSumRes(EJ3Parser.ExprSumResContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EJ3Parser#termino}.
+	 * Enter a parse tree produced by the {@code ExprMulDivMod}
+	 * labeled alternative in {@link EJ3Parser#termino}.
 	 * @param ctx the parse tree
 	 */
-	void enterTermino(EJ3Parser.TerminoContext ctx);
+	void enterExprMulDivMod(EJ3Parser.ExprMulDivModContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EJ3Parser#termino}.
+	 * Exit a parse tree produced by the {@code ExprMulDivMod}
+	 * labeled alternative in {@link EJ3Parser#termino}.
 	 * @param ctx the parse tree
 	 */
-	void exitTermino(EJ3Parser.TerminoContext ctx);
+	void exitExprMulDivMod(EJ3Parser.ExprMulDivModContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EJ3Parser#factor}.
+	 * Enter a parse tree produced by the {@code ExprPow}
+	 * labeled alternative in {@link EJ3Parser#potencia}.
 	 * @param ctx the parse tree
 	 */
-	void enterFactor(EJ3Parser.FactorContext ctx);
+	void enterExprPow(EJ3Parser.ExprPowContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EJ3Parser#factor}.
+	 * Exit a parse tree produced by the {@code ExprPow}
+	 * labeled alternative in {@link EJ3Parser#potencia}.
 	 * @param ctx the parse tree
 	 */
-	void exitFactor(EJ3Parser.FactorContext ctx);
+	void exitExprPow(EJ3Parser.ExprPowContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExprNeg}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprNeg(EJ3Parser.ExprNegContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExprNeg}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprNeg(EJ3Parser.ExprNegContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExprParen}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprParen(EJ3Parser.ExprParenContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExprParen}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprParen(EJ3Parser.ExprParenContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExprAtom}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprAtom(EJ3Parser.ExprAtomContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExprAtom}
+	 * labeled alternative in {@link EJ3Parser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprAtom(EJ3Parser.ExprAtomContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EJ3Parser#atomo}.
 	 * @param ctx the parse tree
@@ -237,13 +321,27 @@ public interface EJ3ParserListener extends ParseTreeListener {
 	 */
 	void exitAtomo(EJ3Parser.AtomoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EJ3Parser#expr_general}.
+	 * Enter a parse tree produced by the {@code ExprGeneralArith}
+	 * labeled alternative in {@link EJ3Parser#expr_general}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr_general(EJ3Parser.Expr_generalContext ctx);
+	void enterExprGeneralArith(EJ3Parser.ExprGeneralArithContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EJ3Parser#expr_general}.
+	 * Exit a parse tree produced by the {@code ExprGeneralArith}
+	 * labeled alternative in {@link EJ3Parser#expr_general}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr_general(EJ3Parser.Expr_generalContext ctx);
+	void exitExprGeneralArith(EJ3Parser.ExprGeneralArithContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ExprGeneralBool}
+	 * labeled alternative in {@link EJ3Parser#expr_general}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprGeneralBool(EJ3Parser.ExprGeneralBoolContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExprGeneralBool}
+	 * labeled alternative in {@link EJ3Parser#expr_general}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprGeneralBool(EJ3Parser.ExprGeneralBoolContext ctx);
 }
