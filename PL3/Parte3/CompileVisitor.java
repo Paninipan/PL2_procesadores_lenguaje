@@ -716,7 +716,6 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
         return sb.toString();
     }
 
-    @Override
     public String visitExprPow(EJ3Parser.ExprPowContext ctx) {
         if (ctx.exp == null) {
             return visit(ctx.base);
@@ -735,16 +734,26 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
 
         StringBuilder sb = new StringBuilder();
 
+        // 1. Generar código para la Base y promocionar a Double (D)
         sb.append(visit(ctx.base));
         if (tBase == Tipo.INT || tBase == Tipo.BOOL) sb.append("   i2d\n");
         else if (tBase == Tipo.FLOAT)               sb.append("   f2d\n");
 
+        // 2. Generar código para el Exponente y promocionar a Double (D)
         sb.append(visit(ctx.exp));
         if (tExp == Tipo.INT || tExp == Tipo.BOOL) sb.append("   i2d\n");
         else if (tExp == Tipo.FLOAT)               sb.append("   f2d\n");
 
+        // 3. Llamada a Math.pow(DD)D (resultado es Double en la pila)
         sb.append("   invokestatic java/lang/Math/pow(DD)D\n");
-        sb.append("   d2f\n");
+
+        // 4. Convertir resultado
+        if (tBase == Tipo.INT && tExp == Tipo.INT) {
+            sb.append("   d2i\n");
+        } else {
+            sb.append("   d2f\n");
+        }
+
         return sb.toString();
     }
 
@@ -846,11 +855,17 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
         if (ctx instanceof EJ3Parser.ExprPowContext) {
             EJ3Parser.ExprPowContext p = (EJ3Parser.ExprPowContext) ctx;
             if (p.exp == null) return tipoFactor(p.base);
-            return Tipo.FLOAT; // pow retorna float (aprox)
+
+            Tipo tBase = tipoFactor(p.base);
+            Tipo tExp = tipoPotencia(p.exp);
+
+            if (tBase == Tipo.INT && tExp == Tipo.INT) {
+                return Tipo.INT;
+            }
+            return Tipo.FLOAT;
         }
         return Tipo.DESCONOCIDO;
     }
-
     private Tipo tipoFactor(EJ3Parser.FactorContext ctx) {
         if (ctx instanceof EJ3Parser.ExprNegContext) {
             return tipoFactor(((EJ3Parser.ExprNegContext) ctx).neg);

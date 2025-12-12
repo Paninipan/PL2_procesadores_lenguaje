@@ -18,10 +18,10 @@ L2:
    ldc 1
 L3:
    ifeq L0
-   ldc 5.0
-   f2d
-   ldc 2.0
-   f2d
+   ldc 5
+   i2d
+   ldc 2
+   i2d
    invokestatic java/lang/Math/pow(DD)D
    d2f
    fstore 0

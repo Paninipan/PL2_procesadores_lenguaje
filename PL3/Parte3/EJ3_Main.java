@@ -27,7 +27,7 @@ public class EJ3_Main {
 
     public static void main(String[] args) throws Exception {
         // Si se pasa un argumento, lo usamos como fichero; si no, usamos la ruta por defecto.
-        String defaultPath = "PL3/Parte3/Archivos_txt/programas_error_individuales/Error11_DivisionPorCero.txt";
+        String defaultPath = "PL3/Parte3/Archivos_txt/Basico.txt";
         String nombreFichero;
         if (args.length >= 1 && args[0] != null && !args[0].isEmpty()) {
             nombreFichero = args[0];

@@ -1,4 +1,4 @@
-// Generated from C:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL3/Parte3/EJ3Parser.g4 by ANTLR 4.13.2
+// Generated from c:/Users/alvar/OneDrive/Documentos/uni/3.1Cuatri/Procesadores/Laboratorio/PL2/PL3/Parte3/EJ3Parser.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class EJ3Parser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -131,19 +131,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_programa; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterPrograma(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitPrograma(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitPrograma(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProgramaContext programa() throws RecognitionException {
@@ -215,19 +202,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_sentencia; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterSentencia(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitSentencia(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitSentencia(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final SentenciaContext sentencia() throws RecognitionException {
@@ -304,19 +278,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterDeclaracion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitDeclaracion(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitDeclaracion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DeclaracionContext declaracion() throws RecognitionException {
@@ -362,19 +323,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_asignacion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterAsignacion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitAsignacion(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitAsignacion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AsignacionContext asignacion() throws RecognitionException {
@@ -416,19 +364,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_impresion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterImpresion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitImpresion(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitImpresion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ImpresionContext impresion() throws RecognitionException {
@@ -468,19 +403,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bucle; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBucle(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBucle(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBucle(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BucleContext bucle() throws RecognitionException {
@@ -537,19 +459,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bucle_mientras; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBucle_mientras(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBucle_mientras(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBucle_mientras(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Bucle_mientrasContext bucle_mientras() throws RecognitionException {
@@ -611,19 +520,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bucle_para; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBucle_para(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBucle_para(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBucle_para(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Bucle_paraContext bucle_para() throws RecognitionException {
@@ -687,19 +583,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_control_bucle; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterControl_bucle(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitControl_bucle(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitControl_bucle(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Control_bucleContext control_bucle() throws RecognitionException {
@@ -768,19 +651,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_condicional; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterCondicional(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitCondicional(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitCondicional(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CondicionalContext condicional() throws RecognitionException {
@@ -847,19 +717,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bloque; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBloque(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBloque(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBloque(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BloqueContext bloque() throws RecognitionException {
@@ -918,19 +775,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_condicion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterCondicion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitCondicion(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitCondicion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CondicionContext condicion() throws RecognitionException {
@@ -984,19 +828,6 @@ public class EJ3Parser extends Parser {
 			return getToken(EJ3Parser.OR, i);
 		}
 		public BoolOrContext(Bool_oContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBoolOr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBoolOr(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBoolOr(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Bool_oContext bool_o() throws RecognitionException {
@@ -1070,19 +901,6 @@ public class EJ3Parser extends Parser {
 			return getToken(EJ3Parser.AND, i);
 		}
 		public BoolAndContext(Bool_yContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBoolAnd(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBoolAnd(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBoolAnd(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Bool_yContext bool_y() throws RecognitionException {
@@ -1145,19 +963,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(ComparacionContext.class,0);
 		}
 		public BoolCompContext(Bool_noContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBoolComp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBoolComp(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBoolComp(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class BoolAtomContext extends Bool_noContext {
@@ -1166,19 +971,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(BooleanoContext.class,0);
 		}
 		public BoolAtomContext(Bool_noContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBoolAtom(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBoolAtom(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBoolAtom(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class BoolNotContext extends Bool_noContext {
@@ -1188,19 +980,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(Bool_noContext.class,0);
 		}
 		public BoolNotContext(Bool_noContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBoolNot(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBoolNot(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBoolNot(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class BoolParenContext extends Bool_noContext {
@@ -1211,19 +990,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(CondicionContext.class,0);
 		}
 		public BoolParenContext(Bool_noContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBoolParen(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBoolParen(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBoolParen(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Bool_noContext bool_no() throws RecognitionException {
@@ -1298,19 +1064,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operando_cmp; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterOperando_cmp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitOperando_cmp(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitOperando_cmp(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Operando_cmpContext operando_cmp() throws RecognitionException {
@@ -1365,19 +1118,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comparacion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterComparacion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitComparacion(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitComparacion(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ComparacionContext comparacion() throws RecognitionException {
@@ -1415,19 +1155,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_booleano; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterBooleano(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitBooleano(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitBooleano(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BooleanoContext booleano() throws RecognitionException {
@@ -1485,19 +1212,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operador_relacional; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterOperador_relacional(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitOperador_relacional(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitOperador_relacional(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Operador_relacionalContext operador_relacional() throws RecognitionException {
@@ -1566,19 +1280,6 @@ public class EJ3Parser extends Parser {
 			return getToken(EJ3Parser.RESTA, i);
 		}
 		public ExprSumResContext(ExpresionContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExprSumRes(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExprSumRes(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExprSumRes(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ExpresionContext expresion() throws RecognitionException {
@@ -1672,19 +1373,6 @@ public class EJ3Parser extends Parser {
 			return getToken(EJ3Parser.MOD, i);
 		}
 		public ExprMulDivModContext(TerminoContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExprMulDivMod(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExprMulDivMod(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExprMulDivMod(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TerminoContext termino() throws RecognitionException {
@@ -1761,19 +1449,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(PotenciaContext.class,0);
 		}
 		public ExprPowContext(PotenciaContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExprPow(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExprPow(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExprPow(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final PotenciaContext potencia() throws RecognitionException {
@@ -1832,19 +1507,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(ExpresionContext.class,0);
 		}
 		public ExprParenContext(FactorContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExprParen(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExprParen(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExprParen(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprAtomContext extends FactorContext {
@@ -1853,19 +1515,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(AtomoContext.class,0);
 		}
 		public ExprAtomContext(FactorContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExprAtom(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExprAtom(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExprAtom(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprNegContext extends FactorContext {
@@ -1875,19 +1524,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(FactorContext.class,0);
 		}
 		public ExprNegContext(FactorContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExprNeg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExprNeg(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExprNeg(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FactorContext factor() throws RecognitionException {
@@ -1959,19 +1595,6 @@ public class EJ3Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_atomo; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterAtomo(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitAtomo(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitAtomo(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AtomoContext atomo() throws RecognitionException {
@@ -2043,19 +1666,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(CondicionContext.class,0);
 		}
 		public ExprGeneralBoolContext(Expr_generalContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExprGeneralBool(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExprGeneralBool(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExprGeneralBool(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprGeneralArithContext extends Expr_generalContext {
@@ -2064,19 +1674,6 @@ public class EJ3Parser extends Parser {
 			return getRuleContext(ExpresionContext.class,0);
 		}
 		public ExprGeneralArithContext(Expr_generalContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).enterExprGeneralArith(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EJ3ParserListener ) ((EJ3ParserListener)listener).exitExprGeneralArith(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EJ3ParserVisitor ) return ((EJ3ParserVisitor<? extends T>)visitor).visitExprGeneralArith(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Expr_generalContext expr_general() throws RecognitionException {
