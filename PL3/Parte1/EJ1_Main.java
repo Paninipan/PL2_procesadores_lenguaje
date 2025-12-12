@@ -1,10 +1,11 @@
-
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.ParseTree;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
 
 /**
  * CSV_JSON_Main
@@ -19,7 +20,7 @@ import java.nio.charset.StandardCharsets;
  * Uso:
  *   java CSV_JSON_Main entrada.csv salida.json
  */
-public class CSV_JSON_Main {
+public class EJ1_Main {
 
     public static void main(String[] args) throws IOException {
 
@@ -46,13 +47,14 @@ public class CSV_JSON_Main {
         CharStream input = CharStreams.fromFileName(inputPath);
 
         // 3. Crear lexer para tokenizar la entrada
-        CSV_JSON_Lexer lexer = new CSV_JSON_Lexer(input);
+
+        EJ1Lexer lexer = new EJ1Lexer(input);
 
         // 4. Canal de tokens intermedio
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 
         // 5. Crear parser a partir del flujo de tokens
-        CSV_JSON_Parser parser = new CSV_JSON_Parser(tokens);
+        EJ1Parser parser = new EJ1Parser(tokens);
 
         // (Opcional pero recomendable): mostrar errores de parseo
         parser.removeErrorListeners();
@@ -60,10 +62,10 @@ public class CSV_JSON_Main {
 
         // 6. Obtener el árbol de análisis a partir de la regla inicial `archivo`
         //   OJO: guardamos el tipo concreto ArchivoContext
-        CSV_JSON_Parser.ArchivoContext tree = parser.archivo();
+        EJ1Parser.ArchivoContext tree = parser.archivo();
 
         // 7. Crear y aplicar el visitor que convierte el árbol a JSON
-        CSV_ToJSONVisitor visitor = new CSV_ToJSONVisitor();
+        JsonVisitor visitor = new JsonVisitor();
 
         // Llamamos explícitamente a visitArchivo para evitar historias raras
         visitor.visitArchivo(tree);

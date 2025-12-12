@@ -1,4 +1,4 @@
-lexer grammar CSV_JSON_Lexer;
+lexer grammar EJ1Lexer;
 //definimos la gramática del Lexer
 
 TEXTO : ~[,;|\r\n"]+ ;
