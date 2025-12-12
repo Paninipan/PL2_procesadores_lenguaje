@@ -1,0 +1,11 @@
+# Error 13 - Paso de bucle 'para' igual a 0 (semántico)
+# Ejemplo: declarar un bucle para con paso 0.
+# Mensaje esperado:
+# ERROR SEMÁNTICO: El paso de un bucle 'para' no puede ser 0 (línea X, columna Y)
+
+# Código de prueba:
+
+asignar fin = 10 ;P
+para i desde 0 hasta fin paso 0 hacer ->
+  mostrar i ;P
+terminar

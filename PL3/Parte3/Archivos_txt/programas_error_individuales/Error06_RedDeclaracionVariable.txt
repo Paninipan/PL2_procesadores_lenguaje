@@ -1,0 +1,9 @@
+# Error 06 - Redeclaración de variable (semántico)
+# Ejemplo: declarar la misma variable dos veces.
+# Mensaje esperado:
+# ERROR SEMÁNTICO: Variable 'a' ya declarada (línea X, columna Y)
+
+# Código de prueba:
+
+asignar a = 1 ;P
+asignar a = 2 ;P

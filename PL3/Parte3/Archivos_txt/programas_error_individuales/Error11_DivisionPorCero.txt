@@ -1,0 +1,9 @@
+# Error 11 - División por cero (semántico)
+# Ejemplo: división por cero detectada en tiempo de compilación si el divisor es literal 0.
+# Mensaje esperado:
+# ERROR SEMÁNTICO: División por cero (línea X, columna Y)
+
+# Código de prueba:
+
+asignar x = 5 ;P
+asignar z = x / 0 ;P

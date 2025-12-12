@@ -1,0 +1,13 @@
+# Error 10 - Comparaciones numéricas con operandos no numéricos (semántico)
+# Ejemplo: usar STRING en una comparación relacional '>'
+# Mensaje esperado:
+# ERROR SEMÁNTICO: Se esperaba valor numérico y se encontró tipo STRING (línea X, columna Y)
+
+# Código de prueba:
+
+asignar s = "hola" ;P
+asignar x = 1 ;P
+(s > x) ???           # intento usar STRING en '>'
+si ->
+  mostrar "..." ;P
+terminar

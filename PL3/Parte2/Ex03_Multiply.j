@@ -13,8 +13,10 @@
    ; cargamos los operandos enteros en la pila: 6 y 7
    ldc 6
    ldc 7
+   ldc 7
 
    ; multiplicamos los dos valores en la pila (6 * 7)
+   imul
    imul
 
    ; invocamos println(I) para imprimir el entero resultante

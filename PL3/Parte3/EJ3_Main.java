@@ -11,9 +11,10 @@ import java.nio.file.Paths;
 public class EJ3_Main {
 
     // Envuelve el cuerpo generado por CompileVisitor en una clase Jasmin
-    private static String createJasminFile(String body) {
+    // Ahora recibe el nombre de la clase (sin extensión) para usarlo como nombre público
+    private static String createJasminFile(String body, String className) {
         return ""
-                + ".class public Program\n"
+                + ".class public " + className + "\n"
                 + ".super java/lang/Object\n\n"
                 + ".method public static main([Ljava/lang/String;)V\n"
                 + "   .limit stack 100\n"
@@ -25,14 +26,14 @@ public class EJ3_Main {
     }
 
     public static void main(String[] args) throws Exception {
-        /*
-        if (args.length != 1) {
-            System.err.println("Uso: java EJ3_Main <fichero_fuente.txt>");
-            return;
+        // Si se pasa un argumento, lo usamos como fichero; si no, usamos la ruta por defecto.
+        String defaultPath = "PL3/Parte3/Archivos_txt/programas_error_individuales/Error11_DivisionPorCero.txt";
+        String nombreFichero;
+        if (args.length >= 1 && args[0] != null && !args[0].isEmpty()) {
+            nombreFichero = args[0];
+        } else {
+            nombreFichero = defaultPath;
         }
-        */
-        String nombreFichero; //= args[0];
-        nombreFichero = "PL3/Parte3/Archivos_txt/For1.txt";
 
         System.out.println("Leyendo fichero: " + nombreFichero);
 
@@ -72,11 +73,24 @@ public class EJ3_Main {
             return;
         }
 
-        // 7) Creamos el fichero Jasmin completo
-        String jasmin = createJasminFile(body);
+        // 7) Extraemos el nombre base del fichero de entrada para usarlo como nombre de clase
+        String inputFileName = Paths.get(nombreFichero).getFileName().toString();
+        String baseName = inputFileName;
+        if (baseName.toLowerCase().endsWith(".txt")) {
+            baseName = baseName.substring(0, baseName.length() - 4);
+        }
 
-        // 8) Guardamos como Program.j
-        Files.write(Paths.get("PL3/Parte3/Exj_jasmine/For1.j"), jasmin.getBytes(StandardCharsets.UTF_8));
-        System.out.println("Generado Program.j. Ahora puedes ensamblarlo con Jasmin.");
+        // 8) Creamos el fichero Jasmin completo usando baseName como nombre de clase
+        String jasmin = createJasminFile(body, baseName);
+
+        // 9) Guardamos el .j en el directorio Exj_jasmine
+        java.nio.file.Path outputPath = Paths.get("PL3/Parte3/Exj_jasmine/", baseName + ".j");
+        // Asegurarnos de que el directorio existe
+        if (outputPath.getParent() != null) {
+            Files.createDirectories(outputPath.getParent());
+        }
+
+        Files.write(outputPath, jasmin.getBytes(StandardCharsets.UTF_8));
+        System.out.println("Generado " + outputPath.toString() + ". Ahora puedes ensamblarlo con Jasmin.");
     }
 }

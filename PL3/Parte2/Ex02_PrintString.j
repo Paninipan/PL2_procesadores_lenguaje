@@ -11,7 +11,7 @@
    getstatic java/lang/System/out Ljava/io/PrintStream;
 
    ; cargamos la cadena a imprimir en la pila
-   ldc "Hola desde Jasmin"
+   ldc "Hello there"
 
    ; invocamos println con la cadena (PrintStream, String) -> void
    invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V

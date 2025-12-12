@@ -1,0 +1,11 @@
+# Error 08 - Expresión aritmética con operandos no numéricos (semántico)
+# Ejemplo: usar BOOL en una suma aritmética.
+# Mensaje esperado:
+# ERROR SEMÁNTICO: Se esperaba valor numérico y se encontró tipo BOOL (línea X, columna Y)
+
+# Código de prueba:
+
+asignar b = verdadero ;P
+asignar x = b + 1 ;P
+
+# Nota: el mismo tipo de mensaje debería aparecer si se intenta usar STRING en +,-,*,/.

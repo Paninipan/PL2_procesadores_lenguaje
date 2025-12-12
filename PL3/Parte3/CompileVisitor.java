@@ -235,10 +235,10 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
 
         String labelInicio     = newLabel();
         String labelFin        = newLabel();
-        String labelIncremento = newLabel(); // ⬅️ 1. NUEVA ETIQUETA
+        String labelIncremento = newLabel(); //1. NUEVA ETIQUETA
 
         pilaBreak.push(labelFin);
-        pilaContinue.push(labelIncremento); // ⬅️ 2. 'continuar' AHORA SALTA AL INCREMENTO
+        pilaContinue.push(labelIncremento); //2. 'continuar' AHORA SALTA AL INCREMENTO
 
         StringBuilder sb = new StringBuilder();
 
@@ -256,10 +256,10 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
 
         // cuerpo
         sb.append(visit(ctx.cuerpo));
-        sb.append("   goto ").append(labelIncremento).append("\n"); // ⬅️ 3. SALTO AL INCREMENTO
+        sb.append("   goto ").append(labelIncremento).append("\n"); //3. SALTO AL INCREMENTO
 
         // actualización i = i + paso (o 1)
-        sb.append(labelIncremento).append(":\n"); // ⬅️ 4. ETIQUETA DE INCREMENTO
+        sb.append(labelIncremento).append(":\n"); //4. ETIQUETA DE INCREMENTO
 
         sb.append(instruccionLoad(Tipo.INT, var.direccion));
         if (ctx.paso != null) {
