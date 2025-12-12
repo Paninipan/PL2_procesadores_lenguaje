@@ -6,4 +6,4 @@
 # Código de prueba:
 
 asignar a = 3 ;P        # a es INT
-asignar a = "hola" ;P  # intento asignar STRING a INT
+a = "hola" ;P  # intento asignar STRING a INT
