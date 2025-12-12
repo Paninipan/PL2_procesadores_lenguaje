@@ -1,0 +1,16 @@
+# Error 18 - Comparación relacional con strings (semántico)
+# Ejemplo: usar '<' entre strings
+# Mensaje esperado:
+# ERROR SEMÁNTICO: Operador relacional '<' solo se puede usar con operandos numéricos (no con STRING y STRING) (línea X, columna Y)
+
+# Código de prueba:
+
+asignar a = "hola" ;P
+asignar b = "adios" ;P
+
+a < b ???
+si ->
+  mostrar "menor" ;P
+no ->
+  mostrar "no menor" ;P
+terminar

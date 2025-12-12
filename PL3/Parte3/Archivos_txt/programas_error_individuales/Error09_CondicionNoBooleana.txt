@@ -1,0 +1,14 @@
+# Error 09 - Condición no booleana en si / mientras (semántico)
+# Ejemplo: usar un INT como condición.
+# Mensaje esperado:
+# ERROR SEMÁNTICO: Se esperaba booleano y se encontró tipo INT (línea X, columna Y)
+
+# Código de prueba:
+
+asignar x = 5 ;P
+x ???             # x es INT, no BOOL
+si ->
+  mostrar "nunca" ;P
+terminar
+
+# Aplica tanto a 'si' como a 'mientras'.

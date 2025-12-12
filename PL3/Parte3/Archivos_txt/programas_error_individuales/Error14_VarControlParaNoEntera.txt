@@ -1,0 +1,11 @@
+# Error 14 - Variable de control del 'para' no entera (semántico)
+# Ejemplo: usar una variable booleana como variable de control del bucle 'para'.
+# Mensaje esperado:
+# ERROR SEMÁNTICO: La variable del bucle 'para' debe ser de tipo INT (línea X, columna Y)
+
+# Código de prueba:
+
+asignar i = verdadero ;P
+para i desde 0 hasta 10 hacer ->   # i ya existe pero no es INT
+  mostrar i ;P
+terminar

@@ -1,0 +1,16 @@
+# Error 17 - Comparación relacional con booleanos (semántico)
+# Ejemplo: usar '<' entre booleanos
+# Mensaje esperado:
+# ERROR SEMÁNTICO: Operador relacional '<' solo se puede usar con operandos numéricos (no con BOOL y BOOL) (línea X, columna Y)
+
+# Código de prueba:
+
+asignar a = verdadero ;P
+asignar b = falso ;P
+
+a < b ???
+si ->
+  mostrar "menor" ;P
+no ->
+  mostrar "no menor" ;P
+terminar

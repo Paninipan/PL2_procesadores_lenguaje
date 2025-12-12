@@ -1,0 +1,11 @@
+# Error 05 - Variable usada sin declarar (semántico)
+# Ejemplo: la variable 'a' se usa como condición sin haber sido declarada/definida.
+# Mensaje esperado:
+# ERROR SEMÁNTICO: Variable 'a' no declarada (línea X, columna Y)
+
+# Código de prueba:
+
+a ???
+si ->
+  mostrar "nunca" ;P
+terminar
