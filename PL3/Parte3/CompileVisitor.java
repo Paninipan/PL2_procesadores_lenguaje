@@ -226,19 +226,33 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
             return "";
         }
 
-        // Paso = 0 → Error 13
-        if (ctx.paso != null && esConstanteCeroEnExpresion(ctx.paso)) {
-            tabla.semanticError(ctx.paso.start,
-                    "El paso del bucle 'para' no puede ser 0");
-            return "";
+        // Tipo del paso y paso != 0, sigue siendo INT
+        Tipo tPaso = Tipo.INT;
+        if (ctx.paso != null) {
+            tPaso = tipoExpresion(ctx.paso);
+            if (tPaso != Tipo.INT) {
+                tabla.semanticError(ctx.paso.start,
+                        "El paso del bucle 'para' debe ser entero (tipo actual: " + tPaso + ")");
+                return "";
+            }
+            if (esConstanteCeroEnExpresion(ctx.paso)) {
+                tabla.semanticError(ctx.paso.start,
+                        "El paso del bucle 'para' no puede ser 0");
+                return "";
+            }
         }
 
-        String labelInicio     = newLabel();
-        String labelFin        = newLabel();
-        String labelIncremento = newLabel(); //1. NUEVA ETIQUETA
+        // Reservar dirección para el paso (INT)
+        int dirPaso = tabla.nuevaDireccionAnonima();
+
+        String labelInicio       = newLabel();
+        String labelFin          = newLabel();
+        String labelIncremento   = newLabel();
+        String labelCheckPositivo = newLabel();    // para distinguir paso >= 0
+        String labelDespuesCheck  = newLabel();    // punto común tras elegir condición
 
         pilaBreak.push(labelFin);
-        pilaContinue.push(labelIncremento); //2. 'continuar' AHORA SALTA AL INCREMENTO
+        pilaContinue.push(labelIncremento); // 'continuar' salta al incremento
 
         StringBuilder sb = new StringBuilder();
 
@@ -246,31 +260,48 @@ public class CompileVisitor extends EJ3ParserBaseVisitor<String> {
         sb.append(visit(ctx.inicio));
         sb.append(instruccionStore(Tipo.INT, var.direccion));
 
-        // inicio bucle (Comprobación de condición)
+        // Calcular paso una sola vez y guardarlo en dirPaso
+        if (ctx.paso != null) {
+            sb.append(visit(ctx.paso));         // deja INT en pila
+        } else {
+            sb.append("   ldc 1\n");           // paso por defecto = 1
+        }
+        sb.append(instruccionStore(Tipo.INT, dirPaso)); // store paso
+
+        // inicio bucle
         sb.append(labelInicio).append(":\n");
 
-        // condición i <= fin
+        // Según signo del paso, elegimos la condición
+        // if (paso >= 0) goto labelCheckPositivo
+        sb.append("   iload ").append(dirPaso).append("\n");
+        sb.append("   ifge ").append(labelCheckPositivo).append("\n");
+
+        // Caso paso < 0: condición i >= fin
         sb.append(instruccionLoad(Tipo.INT, var.direccion));
         sb.append(visit(ctx.fin));
-        sb.append("   if_icmpgt ").append(labelFin).append("\n");
+        sb.append("   if_icmplt ").append(labelFin).append("\n"); // si i < fin -> salimos
+        sb.append("   goto ").append(labelDespuesCheck).append("\n");
+
+        // Caso paso >= 0: condición i <= fin
+        sb.append(labelCheckPositivo).append(":\n");
+        sb.append(instruccionLoad(Tipo.INT, var.direccion));
+        sb.append(visit(ctx.fin));
+        sb.append("   if_icmpgt ").append(labelFin).append("\n"); // si i > fin -> salimos
+
+        sb.append(labelDespuesCheck).append(":\n");
 
         // cuerpo
         sb.append(visit(ctx.cuerpo));
-        sb.append("   goto ").append(labelIncremento).append("\n"); //3. SALTO AL INCREMENTO
+        sb.append("   goto ").append(labelIncremento).append("\n");
 
-        // actualización i = i + paso (o 1)
-        sb.append(labelIncremento).append(":\n"); //4. ETIQUETA DE INCREMENTO
-
-        sb.append(instruccionLoad(Tipo.INT, var.direccion));
-        if (ctx.paso != null) {
-            sb.append(visit(ctx.paso));
-        } else {
-            sb.append("   ldc 1\n");
-        }
+        // actualización i = i + paso
+        sb.append(labelIncremento).append(":\n");
+        sb.append(instruccionLoad(Tipo.INT, var.direccion));  // i
+        sb.append("   iload ").append(dirPaso).append("\n");  // paso
         sb.append("   iadd\n");
-        sb.append(instruccionStore(Tipo.INT, var.direccion));
+        sb.append(instruccionStore(Tipo.INT, var.direccion)); // i = i + paso
 
-        sb.append("   goto ").append(labelInicio).append("\n"); // Vuelve a la Condición
+        sb.append("   goto ").append(labelInicio).append("\n"); // vuelta a la condición
         sb.append(labelFin).append(":\n");
 
         pilaBreak.pop();

@@ -59,8 +59,13 @@ public class TablaSimbolos {
     public void controlError(Token t, String msg) {
         errores.append("ERROR DE CONTROL DE BUCLE: ")
                 .append(msg)
-                .append('\n');
+                .append(" (línea ")
+                .append(t.getLine())
+                .append(", columna ")
+                .append(t.getCharPositionInLine())
+                .append(")\n");
     }
+
 
     // insertar con token
     public Simbolo insertar(String nombre, Tipo tipo, Token tok) {
